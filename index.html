@@ -232,6 +232,19 @@ form .fine{margin-top:14px;font-size:12px;color:var(--mut);text-align:center}
 @media(max-width:920px){.gallery .ggrid{grid-template-columns:1fr 1fr}}
 @media(max-width:540px){.gallery .ggrid{grid-template-columns:1fr 1fr;gap:10px}}
 
+/* WhatsApp */
+#wafab{position:fixed;right:22px;bottom:22px;z-index:85;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 32px -8px rgba(37,211,102,.55),0 6px 14px rgba(0,0,0,.18);transform:translateY(20px) scale(.85);opacity:0;pointer-events:none;transition:.4s cubic-bezier(.2,.8,.3,1.3)}
+#wafab.show{opacity:1;transform:none;pointer-events:auto}
+#wafab:hover{transform:translateY(-2px) scale(1.05)}
+#wafab svg{width:32px;height:32px}
+#wafab .watip{position:absolute;right:70px;white-space:nowrap;background:var(--ink);color:var(--sand);font:500 13px var(--body);padding:8px 14px;border-radius:10px;opacity:0;transform:translateX(6px);transition:.25s;pointer-events:none;box-shadow:0 10px 24px -8px rgba(0,0,0,.45)}
+#wafab:hover .watip{opacity:1;transform:none}
+#wafab .watip::after{content:"";position:absolute;right:-4px;top:50%;transform:translateY(-50%) rotate(45deg);width:9px;height:9px;background:var(--ink)}
+@media(max-width:600px){#wafab{right:16px;bottom:16px;width:52px;height:52px}#wafab svg{width:29px;height:29px}#wafab .watip{display:none}}
+.waline{margin-top:20px}
+.waline a{display:inline-flex;align-items:center;gap:10px;color:var(--sand);font-size:14.5px;font-weight:500;border-bottom:1px solid rgba(211,168,105,.45);padding-bottom:4px;transition:color .25s}
+.waline a svg{width:22px;height:22px;color:#25D366;flex:none}
+.waline a:hover{color:#fff}
 /* footer */
 footer{background:var(--ink);color:var(--mut2);padding:60px 0 40px}
 footer .in{display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap}
@@ -500,6 +513,7 @@ footer .base{margin-top:46px;padding-top:22px;border-top:1px solid rgba(247,241,
         <div>Your details are private, and only mine</div>
         <div>A real, human reply — in your language</div>
       </div>
+      <div class="waline rv"><a class="wa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M19.11 17.2c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.14-.64.14-.19.29-.74.93-.9 1.12-.17.19-.33.21-.62.07-.29-.15-1.22-.45-2.33-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38 0 1.4 1.02 2.76 1.17 2.95.14.19 2.01 3.08 4.88 4.32.68.29 1.21.47 1.63.6.68.22 1.31.19 1.8.12.55-.08 1.7-.69 1.94-1.37.24-.67.24-1.24.17-1.37-.07-.13-.26-.2-.55-.34z"/><path d="M16.02 3.2c-7.06 0-12.8 5.74-12.8 12.8 0 2.26.59 4.46 1.71 6.4L3.2 28.8l6.56-1.72c1.87 1.02 3.98 1.56 6.13 1.56h.01c7.05 0 12.8-5.74 12.8-12.8 0-3.42-1.33-6.63-3.75-9.05a12.7 12.7 0 0 0-9.05-3.75zm0 23.4h-.01c-1.92 0-3.8-.52-5.44-1.49l-.39-.23-4.04 1.06 1.08-3.94-.25-.4a10.6 10.6 0 0 1-1.63-5.66c0-5.87 4.78-10.65 10.66-10.65 2.85 0 5.52 1.11 7.53 3.12a10.58 10.58 0 0 1 3.12 7.54c0 5.87-4.78 10.65-10.66 10.65z"/></svg><span class="wa-label"></span></a></div>
     </div>
     <form id="leadForm" class="rv">
       <input type="hidden" name="access_key" value="REPLACE_WITH_WEB3FORMS_KEY">
@@ -547,7 +561,7 @@ footer .base{margin-top:46px;padding-top:22px;border-top:1px solid rgba(247,241,
     <div class="cols">
       <div class="col"><span>Explore</span><a href="#how">How it works</a><a href="#ai">The search</a><a href="#services">Services</a><a href="#package">The package</a></div>
       <div class="col"><span>Get started</span><a href="#book">Start your search</a><a href="mailto:alkojambrienke@century21.pt">Email me</a></div>
-      <div class="col"><span>Contact</span><a href="mailto:alkojambrienke@century21.pt">alkojambrienke@century21.pt</a><span style="color:var(--mut);text-transform:none;letter-spacing:0;font-family:var(--body)">Algarve · Portugal</span></div>
+      <div class="col"><span>Contact</span><a href="mailto:alkojambrienke@century21.pt">alkojambrienke@century21.pt</a><a class="wa" href="#" target="_blank" rel="noopener">WhatsApp</a><span style="color:var(--mut);text-transform:none;letter-spacing:0;font-family:var(--body)">Algarve · Portugal</span></div>
     </div>
   </div>
   <div class="wrap base">
@@ -556,6 +570,11 @@ footer .base{margin-top:46px;padding-top:22px;border-top:1px solid rgba(247,241,
     <span>NL · FR · EN · PT</span>
   </div>
 </footer>
+
+<a id="wafab" class="wa" href="#" target="_blank" rel="noopener" aria-label="Chat with Alco on WhatsApp">
+  <span class="watip wa-label"></span>
+  <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M19.11 17.2c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.14-.64.14-.19.29-.74.93-.9 1.12-.17.19-.33.21-.62.07-.29-.15-1.22-.45-2.33-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38 0 1.4 1.02 2.76 1.17 2.95.14.19 2.01 3.08 4.88 4.32.68.29 1.21.47 1.63.6.68.22 1.31.19 1.8.12.55-.08 1.7-.69 1.94-1.37.24-.67.24-1.24.17-1.37-.07-.13-.26-.2-.55-.34z"/><path d="M16.02 3.2c-7.06 0-12.8 5.74-12.8 12.8 0 2.26.59 4.46 1.71 6.4L3.2 28.8l6.56-1.72c1.87 1.02 3.98 1.56 6.13 1.56h.01c7.05 0 12.8-5.74 12.8-12.8 0-3.42-1.33-6.63-3.75-9.05a12.7 12.7 0 0 0-9.05-3.75zm0 23.4h-.01c-1.92 0-3.8-.52-5.44-1.49l-.39-.23-4.04 1.06 1.08-3.94-.25-.4a10.6 10.6 0 0 1-1.63-5.66c0-5.87 4.78-10.65 10.66-10.65 2.85 0 5.52 1.11 7.53 3.12a10.58 10.58 0 0 1 3.12 7.54c0 5.87-4.78 10.65-10.66 10.65z"/></svg>
+</a>
 
 <script>
 const nav=document.getElementById('nav');
@@ -834,6 +853,22 @@ form.addEventListener('submit',async e=>{
   let saved=null;try{saved=localStorage.getItem('dd_lang');}catch(e){}
   const n2=(navigator.language||'en').slice(0,2).toLowerCase();
   setLang(saved||(['nl','fr','pt'].includes(n2)?n2:'en'));
+})();
+</script>
+<script>
+(function(){
+  var NUM="31615471303";
+  var MSG={en:"Hi Alco! I'd love your help finding a home on the Algarve.",nl:"Hoi Alco! Ik zou graag je hulp willen bij het vinden van een huis in de Algarve.",fr:"Bonjour Alco ! J'aimerais votre aide pour trouver une maison en Algarve.",pt:"Olá Alco! Gostaria da sua ajuda para encontrar casa no Algarve."};
+  var LAB={en:"Chat with Alco",nl:"Chat met Alco",fr:"Discuter avec Alco",pt:"Falar com o Alco"};
+  function upd(){var l=(document.documentElement.lang||"en");if(!MSG[l])l="en";
+    var href="https://wa.me/"+NUM+"?text="+encodeURIComponent(MSG[l]);
+    document.querySelectorAll("a.wa").forEach(function(a){a.href=href;});
+    document.querySelectorAll(".wa-label").forEach(function(e){e.textContent=LAB[l];});}
+  upd();
+  if(window.setLang){var _sl=window.setLang;window.setLang=function(l){_sl(l);upd();};}
+  var fab=document.getElementById("wafab");
+  function onS(){fab.classList.toggle("show",(window.scrollY||0)>520);} 
+  addEventListener("scroll",onS,{passive:true});onS();
 })();
 </script>
 </body>
