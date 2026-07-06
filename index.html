@@ -85,7 +85,12 @@ body.mopen .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .hero .sun{position:absolute;right:-8vw;top:6vw;width:min(56vw,640px);height:min(56vw,640px);border-radius:50%;pointer-events:none;
  background:radial-gradient(circle at 42% 40%,rgba(224,160,116,.55),rgba(197,106,61,.2) 42%,rgba(184,137,75,.06) 62%,transparent 74%)}
 .hero .arch{position:absolute;right:6vw;bottom:-2vw;width:min(40vw,440px);height:auto;opacity:.5;pointer-events:none;color:var(--clay-l)}
-.hero .in{position:relative;z-index:2;max-width:760px}
+.hero .in{position:relative;z-index:2;max-width:1180px;display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(30px,5vw,66px);align-items:center}
+.hero .copy{max-width:600px}
+.hero .media{position:relative}
+.hero .frame{position:relative;border-radius:190px 190px 18px 18px;overflow:hidden;border:1px solid var(--line2);box-shadow:0 46px 100px -44px rgba(60,40,20,.6);aspect-ratio:.84}
+.hero .frame::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 6px rgba(255,253,248,.5);border-radius:inherit;pointer-events:none}
+.hero .frame img{width:100%;height:100%;object-fit:cover;display:block}
 .hero h1{font-size:clamp(46px,8.2vw,104px);font-weight:300;line-height:.98;letter-spacing:-.02em}
 .hero h1 em{font-weight:400;display:block}
 .hero .sub{margin-top:30px;font-size:clamp(17px,1.8vw,22px);color:var(--ink2);max-width:52ch;font-weight:300}
@@ -140,7 +145,7 @@ h2 em{font-weight:400}
 .ai .match{display:flex;align-items:center;gap:14px;padding:14px 0;border-top:1px solid rgba(247,241,230,.12)}
 .ai .match:first-of-type{border-top:0}
 .ai .match .th{width:52px;height:40px;border-radius:8px;flex:none;background:linear-gradient(135deg,#3a4a48,#2a3634);position:relative;overflow:hidden}
-.ai .match .th::after{content:"";position:absolute;left:8px;bottom:6px;right:8px;height:2px;background:var(--gold-l);opacity:.5;border-radius:2px;box-shadow:0 -6px 0 rgba(211,168,105,.3)}
+.ai .match .th{overflow:hidden}.ai .match .th img{width:100%;height:100%;object-fit:cover;display:block}
 .ai .match .mx{flex:1;min-width:0}
 .ai .match .mx b{display:block;font-size:14px;color:var(--sand);font-weight:500}
 .ai .match .mx span{font-family:var(--mono);font-size:10.5px;color:var(--mut2);letter-spacing:.06em}
@@ -179,13 +184,12 @@ h2 em{font-weight:400}
 
 /* why me */
 .meet{display:grid;grid-template-columns:180px 1fr;gap:clamp(24px,4vw,52px);align-items:center;margin-top:8px}
-.portrait{width:180px;height:220px;border-radius:20px;background:linear-gradient(165deg,#ecdcc4,#d7b488);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 24px 50px -34px rgba(60,40,20,.5);flex:none}
-.portrait span{font-family:var(--disp);font-size:76px;color:var(--clay-d);line-height:1}
-.portrait small{font-family:var(--mono);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--clay-d);margin-top:6px;opacity:.75}
+.portrait{width:210px;height:264px;border-radius:130px 130px 18px 18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 26px 56px -30px rgba(60,40,20,.55);flex:none;background:#ecdcc4}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:center top}
 .meetx h2{font-size:clamp(30px,4vw,50px)}
 .meetx p{margin-top:16px;color:var(--ink2);font-weight:300;font-size:clamp(15px,1.4vw,17px);max-width:62ch}
 .sig{margin-top:18px;font-family:var(--disp);font-style:italic;font-size:18px;color:var(--clay-d)}
-@media(max-width:640px){.meet{grid-template-columns:1fr;justify-items:start}.portrait{width:120px;height:140px}.portrait span{font-size:52px}}
+@media(max-width:640px){.meet{grid-template-columns:1fr;justify-items:start}.portrait{width:150px;height:190px}}
 .why .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
 .why .w{padding:26px 24px;border-left:2px solid var(--clay-l);background:linear-gradient(90deg,rgba(197,106,61,.04),transparent)}
 .why .w h4{font-size:19px}
@@ -221,6 +225,15 @@ form .fine{margin-top:14px;font-size:12px;color:var(--mut);text-align:center}
 .ok .big{font-family:var(--disp);font-size:28px;color:var(--sea-d);margin-bottom:8px}
 .ok p{color:var(--ink2);font-weight:300}
 
+/* gallery */
+/* gallery */
+.gallery .ggrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:46px}
+.gallery figure{margin:0;border-radius:14px;overflow:hidden;aspect-ratio:.82;box-shadow:0 24px 54px -38px rgba(60,40,20,.5);position:relative}
+.gallery figure img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.3,1)}
+.gallery figure:hover img{transform:scale(1.06)}
+@media(max-width:920px){.gallery .ggrid{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.gallery .ggrid{grid-template-columns:1fr 1fr;gap:10px}}
+
 /* footer */
 footer{background:var(--ink);color:var(--mut2);padding:60px 0 40px}
 footer .in{display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap}
@@ -238,6 +251,7 @@ footer .base{margin-top:46px;padding-top:22px;border-top:1px solid rgba(247,241,
 
 @media(max-width:920px){
   .nav .links{display:none} .nav .r .btn{display:none} .nav .langsw{display:none} .burger{display:flex}
+  .hero .in{grid-template-columns:1fr;gap:38px} .hero .media{max-width:420px;margin-top:8px} .hero .frame{border-radius:150px 150px 16px 16px}
   .ai .in,.book .in,.pkg .grid{grid-template-columns:1fr;gap:36px}
   .steps{grid-template-columns:1fr 1fr}
   .svcs{grid-template-columns:1fr}
@@ -282,14 +296,8 @@ footer .base{margin-top:46px;padding-top:22px;border-top:1px solid rgba(247,241,
 <header class="hero" id="top">
   <div class="sun"></div>
   <div class="zellige"></div>
-  <svg class="arch" viewBox="0 0 400 500" fill="none" aria-hidden="true">
-    <path d="M64 500V196A150 150 0 1 1 336 196V500" stroke="currentColor" stroke-width="1.4"/>
-    <path d="M112 500V214A100 100 0 1 1 288 214V500" stroke="currentColor" stroke-width="1" opacity=".6"/>
-    <path d="M158 500V244A46 46 0 1 1 242 244V500" stroke="currentColor" stroke-width="1" opacity=".5"/>
-    <g stroke="currentColor" stroke-width="1" fill="none"><rect x="185" y="52" width="30" height="30"/><rect x="185" y="52" width="30" height="30" transform="rotate(45 200 67)"/></g>
-    <circle cx="200" cy="67" r="3" fill="currentColor"/>
-  </svg>
   <div class="wrap in">
+    <div class="copy">
     <div class="eyebrow"><span class="ln"></span><span class="mono">Your personal guide to the Algarve</span></div>
     <h1>Find your <em>Algarve.</em></h1>
     <p class="sub">A personal guide to buying your dream home on the Algarve — with a <b>search that never rests</b> until we find it. A high standard, easy to approach, and <b>completely free for buyers</b>.</p>
@@ -300,6 +308,8 @@ footer .base{margin-top:46px;padding-top:22px;border-top:1px solid rgba(247,241,
     <div class="chips">
       <span>Free for buyers</span><span>NL · FR · EN · PT</span><span>The whole journey, to the deed</span><span>Honest, always</span>
     </div>
+    </div>
+    <div class="media"><div class="frame"><img src="img/hero-algarve.jpg" alt="The golden cliffs and turquoise sea of the Algarve"></div></div>
   </div>
 </header>
 
@@ -359,9 +369,9 @@ footer .base{margin-top:46px;padding-top:22px;border-top:1px solid rgba(247,241,
     </div>
     <div class="card rv">
       <div class="top"><span class="dot"></span> Your matches · this fortnight</div>
-      <div class="match"><div class="th"></div><div class="mx"><b>Villa near Tavira, sea view</b><span>3 BED · €745,000 · MATCHED TODAY</span></div><div class="pct">96%</div></div>
-      <div class="match"><div class="th"></div><div class="mx"><b>Townhouse, Loulé old town</b><span>2 BED · €410,000 · WALKABLE</span></div><div class="pct">92%</div></div>
-      <div class="match"><div class="th"></div><div class="mx"><b>Quinta with land, Silves</b><span>4 BED · €890,000 · PROJECT</span></div><div class="pct">89%</div></div>
+      <div class="match"><div class="th"><img src="img/match-1.jpg" alt=""></div><div class="mx"><b>Villa near Tavira, sea view</b><span>3 BED · €745,000 · MATCHED TODAY</span></div><div class="pct">96%</div></div>
+      <div class="match"><div class="th"><img src="img/match-2.jpg" alt=""></div><div class="mx"><b>Townhouse, Loulé old town</b><span>2 BED · €410,000 · WALKABLE</span></div><div class="pct">92%</div></div>
+      <div class="match"><div class="th"><img src="img/match-3.jpg" alt=""></div><div class="mx"><b>Quinta with land, Silves</b><span>4 BED · €890,000 · PROJECT</span></div><div class="pct">89%</div></div>
       <div style="margin-top:16px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--mut2);text-transform:uppercase">A sample — your shortlist is built around your wishes</div>
     </div>
   </div>
@@ -444,7 +454,7 @@ footer .base{margin-top:46px;padding-top:22px;border-top:1px solid rgba(247,241,
   <div class="wrap">
     <div class="eyebrow"><span class="ln"></span><span class="mono">Meet your guide</span></div>
     <div class="meet rv">
-      <div class="portrait" aria-hidden="true"><span>A</span><small>Alco</small></div>
+      <div class="portrait"><img src="img/alco.jpg" alt="Alco, your personal Algarve guide"></div>
       <div class="meetx">
         <h2>Meet <em>Alco.</em></h2>
         <p>I help people from the Netherlands, France, the UK and beyond find a home on the Algarve — and I do it the way I'd want it done for me. I go to the houses myself. I tell you the truth about each one, the good and the flaws alike. I make the money side — financing, taxes, the real total cost — completely clear. And I stay beside you from the first viewing to the day the keys are in your hand.</p>
@@ -463,6 +473,19 @@ footer .base{margin-top:46px;padding-top:22px;border-top:1px solid rgba(247,241,
       <div class="w rv"><h4>One hand to hold</h4><p>From the first search to long after the deed — one person who knows your story the whole way.</p></div>
     </div>
     <p class="note rv">I'm at the beginning of building something I care deeply about — a more human way to buy a home on the Algarve. If that's the kind of guide you'd want beside you, I'd love to meet you.</p>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="eyebrow"><span class="ln"></span><span class="mono">A taste of the Algarve</span></div>
+    <h2 class="rv">Where your <em>next chapter</em> begins.</h2>
+    <div class="ggrid">
+      <figure class="rv"><img src="img/g-cove.jpg" alt="A turquoise cove beneath the Algarve cliffs" loading="lazy"></figure>
+      <figure class="rv"><img src="img/g-town.jpg" alt="A whitewashed Algarve town above the sea" loading="lazy"></figure>
+      <figure class="rv"><img src="img/g-street.jpg" alt="A sunlit Algarve village street" loading="lazy"></figure>
+      <figure class="rv"><img src="img/g-tiles.jpg" alt="Traditional Portuguese azulejo tiles" loading="lazy"></figure>
+    </div>
   </div>
 </section>
 
@@ -776,7 +799,9 @@ form.addEventListener('submit',async e=>{
     ["One guide. <em>Three ways I help.</em>","Eén gids. <em>Drie manieren waarop ik help.</em>","Un seul guide. <em>Trois façons de vous aider.</em>","Um só guia. <em>Três formas de ajudar.</em>"],
     ["The whole package","Het hele pakket","La formule complète","O pacote completo"],
     ["On match","Bij match","À la mise en relation","Por correspondência"],
-    ["5% + IVA","5% + btw","5% + TVA","5% + IVA"]
+    ["5% + IVA","5% + btw","5% + TVA","5% + IVA"],
+    ["A taste of the Algarve","Een vleugje Algarve","Un avant-goût de l'Algarve","Um pouco do Algarve"],
+    ["Where your <em>next chapter</em> begins.","Waar je <em>volgende hoofdstuk</em> begint.","Où commence votre <em>prochain chapitre</em>.","Onde começa o seu <em>próximo capítulo</em>."]
   ];
   const D={nl:{},fr:{},pt:{}};
   T.forEach(r=>{const k=norm(r[0]);D.nl[k]=r[1];D.fr[k]=r[2];D.pt[k]=r[3];});
