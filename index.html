@@ -270,6 +270,48 @@ html.cine .hero .media{opacity:0}
 .places span::after{content:"\2726";color:var(--clay-l);margin-left:48px;font-size:10px;font-style:normal;vertical-align:2px}
 @keyframes pl{to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.places .tk{animation:none}}
+
+/* ===== premium respond/depth layer ===== */
+::-webkit-scrollbar{width:11px}
+::-webkit-scrollbar-track{background:var(--sand)}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--clay-l),var(--clay));border-radius:99px;border:3px solid var(--sand)}
+:focus-visible{outline:2px solid var(--clay);outline-offset:3px;border-radius:6px}
+/* buttons: shine sweep + spring + press */
+.btn{position:relative;overflow:hidden}
+.btn::after{content:"";position:absolute;top:0;bottom:0;left:-70%;width:45%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);opacity:0;pointer-events:none}
+.btn:hover::after{animation:shine .9s ease}
+@keyframes shine{from{left:-70%;opacity:1}to{left:130%;opacity:0}}
+.btn:active{transform:scale(.97)}
+/* nav: shrink + active section link */
+.nav .in{transition:padding .35s ease}
+.nav.sc .in{padding-top:11px;padding-bottom:11px}
+.nav.sc{box-shadow:0 10px 34px -22px rgba(60,40,20,.35)}
+.nav .links a.on{color:var(--clay-d)}
+.nav .links a.on::after{width:100%}
+/* bell: swings on hover + on chime */
+.brand .bell{transform-origin:50% 10%}
+.brand:hover .bell,.brand .bell.ring{animation:ddring 1.1s cubic-bezier(.36,.07,.19,.97)}
+/* hero: depth veil into the next section */
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:90px;background:linear-gradient(transparent,var(--sand));pointer-events:none;z-index:1}
+/* dark bands become inset "sheets" */
+.ai{border-radius:36px;margin:0 clamp(8px,1.6vw,24px)}
+.book{border-radius:36px;margin:0 clamp(8px,1.6vw,24px) 26px}
+/* cards: spring hover physics */
+.step{transition:transform .5s cubic-bezier(.34,1.56,.64,1),box-shadow .5s}
+.step:hover{box-shadow:0 30px 60px -34px rgba(197,106,61,.4)}
+.step .ic{transition:transform .45s cubic-bezier(.34,1.56,.64,1)}
+.step:hover .ic{transform:rotate(-6deg) scale(1.12)}
+.svc{transition:transform .5s cubic-bezier(.34,1.56,.64,1),border-color .35s,box-shadow .5s}
+.svc:hover{box-shadow:0 36px 74px -36px rgba(197,106,61,.45)}
+/* marquee pauses under the cursor */
+.places:hover .tk{animation-play-state:paused}
+/* WhatsApp: gentle attention pulse */
+#wafab.show{animation:wapulse 6s ease-in-out infinite}
+@keyframes wapulse{0%,86%,100%{box-shadow:0 14px 32px -8px rgba(37,211,102,.55),0 6px 14px rgba(0,0,0,.18)}92%{box-shadow:0 14px 32px -8px rgba(37,211,102,.8),0 0 0 13px rgba(37,211,102,.15)}}
+/* form: async submit state */
+form .btn.busy{pointer-events:none;color:transparent}
+form .btn.busy::before{content:"";position:absolute;left:50%;top:50%;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;border:2.5px solid rgba(255,255,255,.4);border-top-color:#fff;animation:ddspin .7s linear infinite}
+@keyframes ddspin{to{transform:rotate(360deg)}}
 /* WhatsApp */
 #wafab{position:fixed;right:22px;bottom:22px;z-index:85;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 32px -8px rgba(37,211,102,.55),0 6px 14px rgba(0,0,0,.18);transform:translateY(20px) scale(.85);opacity:0;pointer-events:none;transition:.4s cubic-bezier(.2,.8,.3,1.3)}
 #wafab.show{opacity:1;transform:none;pointer-events:auto}
@@ -1021,6 +1063,58 @@ form.addEventListener('submit',async e=>{
     new IntersectionObserver(function(en){run=en[0].isIntersecting;}).observe(hero);
     requestAnimationFrame(draw);
   })();
+})();
+</script>
+
+<script>
+(function(){
+  var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var FINE=matchMedia('(pointer:fine)').matches, MOB=matchMedia('(max-width: 960px)').matches;
+  /* signature: the site goes "ding dong" */
+  function ding(){
+    if(RM) return;
+    try{
+      var A=window.__ac||(window.__ac=new (window.AudioContext||window.webkitAudioContext)());
+      if(A.state==='suspended')A.resume();
+      var t=A.currentTime;
+      [[659.25,0],[523.25,.22]].forEach(function(nf){
+        var o=A.createOscillator(),g=A.createGain();
+        o.type='sine';o.frequency.value=nf[0];
+        g.gain.setValueAtTime(0,t+nf[1]);
+        g.gain.linearRampToValueAtTime(.16,t+nf[1]+.02);
+        g.gain.exponentialRampToValueAtTime(.0001,t+nf[1]+1.0);
+        o.connect(g);g.connect(A.destination);o.start(t+nf[1]);o.stop(t+nf[1]+1.1);
+      });
+    }catch(e){}
+  }
+  document.querySelectorAll('.brand').forEach(function(b){
+    b.addEventListener('click',function(){
+      ding();
+      var bell=b.querySelector('.bell');
+      if(bell){bell.classList.remove('ring');void bell.offsetWidth;bell.classList.add('ring');}
+    });
+  });
+  /* magnetic CTAs (desktop) */
+  if(FINE&&!MOB&&window.gsap){
+    document.querySelectorAll('.hero .cta .btn, .nav a.btn').forEach(function(b){
+      var qx=gsap.quickTo(b,'x',{duration:.4,ease:'power3'}),
+          qy=gsap.quickTo(b,'y',{duration:.4,ease:'power3'});
+      b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();
+        qx((e.clientX-r.left-r.width/2)*.16);qy((e.clientY-r.top-r.height/2)*.28);});
+      b.addEventListener('pointerleave',function(){qx(0);qy(0);});
+    });
+  }
+  /* nav active-section sync */
+  if(window.gsap&&window.ScrollTrigger){
+    [['#how','#how'],['#ai','#ai'],['#services','#services'],['#package','#package'],['#about','#about']].forEach(function(p){
+      var link=document.querySelector('.nav .links a[href="'+p[1]+'"]'); if(!link)return;
+      ScrollTrigger.create({trigger:p[0],start:'top 45%',end:'bottom 45%',
+        onToggle:function(st){link.classList.toggle('on',st.isActive);}});
+    });
+  }
+  /* form async state */
+  var f=document.getElementById('leadForm');
+  if(f){f.addEventListener('submit',function(){var b=f.querySelector('button.btn');if(b)b.classList.add('busy');},true);}
 })();
 </script>
 </body>
