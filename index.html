@@ -12,6 +12,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='15' r='9' fill='none' stroke='%23c56a3d' stroke-width='2'/%3E%3Cpath d='M4 15h2M26 15h2M16 3v2M8 7l1.5 1.5M24 7l-1.5 1.5' stroke='%23c56a3d' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='15' r='3' fill='%23b8894b'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('cine')}catch(e){}</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"RealEstateAgent","name":"Ding Dong — Find your Algarve","description":"A personal buyer's agent and concierge for international buyers on the Algarve, with a relentless, personal property search. Free for buyers. In partnership with Century 21.","areaServed":"Algarve, Portugal","knowsLanguage":["en","nl","fr","pt"],"email":"alkojambrienke@century21.pt"}
 </script>
@@ -232,6 +233,43 @@ form .fine{margin-top:14px;font-size:12px;color:var(--mut);text-align:center}
 @media(max-width:920px){.gallery .ggrid{grid-template-columns:1fr 1fr}}
 @media(max-width:540px){.gallery .ggrid{grid-template-columns:1fr 1fr;gap:10px}}
 
+
+/* ===== world-class cinema layer ===== */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+#ddload{position:fixed;inset:0;z-index:200;background:var(--sand);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+#ddload .bell{width:54px;height:54px;color:var(--clay);transform-origin:50% 10%;animation:ddring 1.15s .15s cubic-bezier(.36,.07,.19,.97)}
+@keyframes ddring{0%,100%{transform:rotate(0)}15%{transform:rotate(13deg)}30%{transform:rotate(-11deg)}45%{transform:rotate(7deg)}62%{transform:rotate(-5deg)}80%{transform:rotate(2deg)}}
+#ddload b{font-family:var(--disp);font-weight:500;font-size:26px;letter-spacing:.03em;opacity:0;animation:ddfade .7s .4s forwards}
+#ddload small{font-family:var(--mono);font-size:9px;letter-spacing:.32em;color:var(--mut);text-transform:uppercase;opacity:0;animation:ddfade .7s .55s forwards}
+@keyframes ddfade{to{opacity:1}}
+@media(prefers-reduced-motion:reduce){#ddload{display:none}}
+html.cine .hero .copy>*{opacity:0;transform:translateY(26px)}
+html.cine .hero .media{opacity:0}
+#dust{position:absolute;inset:0;z-index:1;pointer-events:none}
+.hero .sun{animation:sunbreathe 9s ease-in-out infinite alternate}
+@keyframes sunbreathe{from{transform:scale(1)}to{transform:scale(1.07)}}
+.hero .media{perspective:1200px}
+.hero .frame{will-change:transform}
+.hero .frame img{will-change:transform;transform:scale(1.02)}
+/* journey rail */
+#rail{position:fixed;right:clamp(14px,2vw,26px);top:50%;transform:translateY(-50%);z-index:70;display:flex;flex-direction:column;align-items:flex-end;opacity:0;pointer-events:none}
+#rail .lab{font-family:var(--mono);font-size:9px;letter-spacing:.26em;color:var(--mut2);text-transform:uppercase;margin-bottom:12px}
+#rail .track{position:relative;width:1.5px;height:min(30vh,240px);background:rgba(42,33,24,.14);margin-right:5px}
+#rail .track i{position:absolute;top:0;left:0;width:100%;height:0;background:linear-gradient(var(--clay-l),var(--clay))}
+#rail .steps{position:absolute;right:12px;top:0;height:100%;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end}
+#rail .steps span{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut2);transition:color .35s;white-space:nowrap;display:flex;align-items:center;gap:8px}
+#rail .steps span::after{content:"";width:7px;height:7px;border-radius:50%;border:1.5px solid var(--mut2);background:var(--sand);transition:.35s}
+#rail .steps span.on{color:var(--clay-d)}
+#rail .steps span.on::after{background:var(--clay);border-color:var(--clay);box-shadow:0 0 0 4px rgba(197,106,61,.16)}
+@media(max-width:960px){#rail{display:none}}
+/* algarve places marquee */
+.places{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:15px 0;overflow:hidden;background:var(--card)}
+.places .tk{display:flex;width:max-content;animation:pl 38s linear infinite}
+.places span{font-family:var(--disp);font-style:italic;font-size:17px;color:var(--mut);padding:0 24px;white-space:nowrap}
+.places span::after{content:"\2726";color:var(--clay-l);margin-left:48px;font-size:10px;font-style:normal;vertical-align:2px}
+@keyframes pl{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.places .tk{animation:none}}
 /* WhatsApp */
 #wafab{position:fixed;right:22px;bottom:22px;z-index:85;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 32px -8px rgba(37,211,102,.55),0 6px 14px rgba(0,0,0,.18);transform:translateY(20px) scale(.85);opacity:0;pointer-events:none;transition:.4s cubic-bezier(.2,.8,.3,1.3)}
 #wafab.show{opacity:1;transform:none;pointer-events:auto}
@@ -277,6 +315,10 @@ footer .base{margin-top:46px;padding-top:22px;border-top:1px solid rgba(247,241,
 </style>
 </head>
 <body>
+<div id="ddload" aria-hidden="true">
+  <svg class="bell" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="15" r="9" stroke="#c56a3d" stroke-width="2"/><path d="M4 15h2M26 15h2M16 3v2M8 7l1.5 1.5M24 7l-1.5 1.5" stroke="#c56a3d" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="15" r="3" fill="#b8894b"/></svg>
+  <b>Ding Dong</b><small>Find your Algarve</small>
+</div>
 
 <nav class="nav" id="nav">
   <div class="in">
@@ -304,8 +346,16 @@ footer .base{margin-top:46px;padding-top:22px;border-top:1px solid rgba(247,241,
   <div class="langsw" role="group" aria-label="Language"><button data-l="en" class="on">EN</button><button data-l="nl">NL</button><button data-l="fr">FR</button><button data-l="pt">PT</button></div>
 </div>
 
+<div id="rail" aria-hidden="true">
+  <div class="lab">Your journey</div>
+  <div class="track"><i></i>
+    <div class="steps"><span class="on">Dream</span><span>Search</span><span>Visit</span><span>Keys</span></div>
+  </div>
+</div>
+
 <header class="hero" id="top">
   <div class="sun"></div>
+  <canvas id="dust" aria-hidden="true"></canvas>
   
   <div class="wrap in">
     <div class="copy">
@@ -335,6 +385,8 @@ footer .base{margin-top:46px;padding-top:22px;border-top:1px solid rgba(247,241,
     </div>
   </div>
 </div>
+
+<div class="places" aria-hidden="true"><div class="tk"><span>Lagos</span><span>Tavira</span><span>Loulé</span><span>Silves</span><span>Carvoeiro</span><span>Albufeira</span><span>Faro</span><span>Vilamoura</span><span>Sagres</span><span>Olhão</span><span>Lagos</span><span>Tavira</span><span>Loulé</span><span>Silves</span><span>Carvoeiro</span><span>Albufeira</span><span>Faro</span><span>Vilamoura</span><span>Sagres</span><span>Olhão</span></div></div>
 
 <section class="manifesto">
   <div class="wrap in">
@@ -818,7 +870,12 @@ form.addEventListener('submit',async e=>{
     ["On match","Bij match","À la mise en relation","Por correspondência"],
     ["5% + IVA","5% + btw","5% + TVA","5% + IVA"],
     ["A taste of the Algarve","Een vleugje Algarve","Un avant-goût de l'Algarve","Um pouco do Algarve"],
-    ["Where your <em>next chapter</em> begins.","Waar je <em>volgende hoofdstuk</em> begint.","Où commence votre <em>prochain chapitre</em>.","Onde começa o seu <em>próximo capítulo</em>."]
+    ["Where your <em>next chapter</em> begins.","Waar je <em>volgende hoofdstuk</em> begint.","Où commence votre <em>prochain chapitre</em>.","Onde começa o seu <em>próximo capítulo</em>."],
+    ["Your journey","Jouw reis","Votre parcours","O seu percurso"],
+    ["Dream","Droom","Rêve","Sonho"],
+    ["Search","Zoektocht","Recherche","Procura"],
+    ["Visit","Bezoek","Visite","Visita"],
+    ["Keys","Sleutels","Clés","Chaves"]
   ];
   const D={nl:{},fr:{},pt:{}};
   T.forEach(r=>{const k=norm(r[0]);D.nl[k]=r[1];D.fr[k]=r[2];D.pt[k]=r[3];});
@@ -831,7 +888,7 @@ form.addEventListener('submit',async e=>{
     '.pkg .list .row b','.pkg .list .row span','.addons h4','.addons .k','.addons .a span','.addons .a em','.addons > p',
     '.meetx p','.sig','.why .w h4','.why .w p','.note',
     '.book .assure div','form .field > label','.seg .opt','form button.btn','.fine','.ok .big','.ok p',
-    'footer .brand p','footer .col span','footer .col a','footer .base span','form select option'].join(',');
+    'footer .brand p','footer .col span','footer .col a','footer .base span','form select option','#rail .lab','#rail .steps span'].join(',');
   const PHSEL='form [placeholder]';
 
   const els=[...document.querySelectorAll(SEL)];
@@ -869,6 +926,101 @@ form.addEventListener('submit',async e=>{
   var fab=document.getElementById("wafab");
   function onS(){fab.classList.toggle("show",(window.scrollY||0)>520);} 
   addEventListener("scroll",onS,{passive:true});onS();
+})();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var lo=document.getElementById('ddload');
+  if(RM||!window.gsap){document.documentElement.classList.remove('cine');if(lo)lo.remove();return;}
+  gsap.registerPlugin(ScrollTrigger);
+  var MOB=matchMedia('(max-width: 960px)').matches;
+  var lenis=null;
+  if(window.Lenis){
+    lenis=new Lenis({duration:1.1,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));}});
+    lenis.on('scroll',ScrollTrigger.update);
+    gsap.ticker.add(function(t){lenis.raf(t*1000);});
+    gsap.ticker.lagSmoothing(0);
+  }
+  /* buttery anchors */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    var h=a.getAttribute('href'); if(h.length<2) return;
+    a.addEventListener('click',function(e){var el=document.querySelector(h);
+      if(el&&lenis){e.preventDefault();lenis.scrollTo(el,{offset:-64});}});
+  });
+  /* entrance choreography */
+  window.addEventListener('load',function(){
+    var tl=gsap.timeline({onComplete:function(){
+      document.documentElement.classList.remove('cine');
+      gsap.set('.hero .copy>*, .hero .media',{clearProps:'opacity,transform'});
+    }});
+    tl.to(lo,{opacity:0,duration:.5,delay:1.05,ease:'power2',onComplete:function(){if(lo)lo.remove();}})
+      .fromTo('.hero .copy>*',{opacity:0,y:26},{opacity:1,y:0,duration:1,stagger:.09,ease:'power3.out'},'-=.15')
+      .fromTo('.hero .media',{opacity:0,scale:.965},{opacity:1,scale:1,duration:1.1,ease:'power3.out'},'-=.85')
+      .fromTo('.hero .frame img',{scale:1.14},{scale:1.03,duration:6,ease:'power2.out'},'<');
+    gsap.to('#rail',{opacity:1,duration:.9,delay:2.1,onComplete:function(){document.getElementById('rail').style.pointerEvents='auto';}});
+    ScrollTrigger.refresh();
+  });
+  /* parallax: hero photo + gallery + search card */
+  gsap.fromTo('.hero .frame img',{yPercent:-4},{yPercent:4,ease:'none',
+    scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:.6}});
+  if(!MOB){
+    gsap.utils.toArray('.gallery figure img').forEach(function(im){
+      gsap.fromTo(im,{yPercent:-7},{yPercent:7,ease:'none',
+        scrollTrigger:{trigger:im.closest('figure'),start:'top bottom',end:'bottom top',scrub:.8}});
+    });
+    gsap.fromTo('.ai .card',{y:34},{y:-34,ease:'none',
+      scrollTrigger:{trigger:'.ai',start:'top bottom',end:'bottom top',scrub:1}});
+    gsap.fromTo('.portrait',{y:22},{y:-22,ease:'none',
+      scrollTrigger:{trigger:'.meet',start:'top bottom',end:'bottom top',scrub:1}});
+  }
+  /* interactive tilt on the arch frame */
+  if(matchMedia('(pointer:fine)').matches&&!MOB){
+    var med=document.querySelector('.hero .media'),fr=med&&med.querySelector('.frame');
+    if(fr){
+      var qy=gsap.quickTo(fr,'rotationY',{duration:.7,ease:'power3'}),
+          qx=gsap.quickTo(fr,'rotationX',{duration:.7,ease:'power3'});
+      med.addEventListener('pointermove',function(e){var r=med.getBoundingClientRect();
+        qy(((e.clientX-r.left)/r.width-.5)*5);qx(-((e.clientY-r.top)/r.height-.5)*4);});
+      med.addEventListener('pointerleave',function(){qy(0);qx(0);});
+    }
+  }
+  /* journey rail sync */
+  var steps=[].slice.call(document.querySelectorAll('#rail .steps span'));
+  function act(i){steps.forEach(function(s,j){s.classList.toggle('on',j<=i);});}
+  [['#top','#how'],['#how','#services'],['#services','#book'],['#book',null]].forEach(function(p,i){
+    ScrollTrigger.create({trigger:p[0],start:'top 55%',endTrigger:p[1]||undefined,end:p[1]?'top 55%':'bottom bottom',
+      onToggle:function(st){if(st.isActive)act(i);}});
+  });
+  ScrollTrigger.create({start:0,end:'max',scrub:0,onUpdate:function(st){
+    var el=document.querySelector('#rail .track i'); if(el)el.style.height=(st.progress*100)+'%';}});
+  /* golden dust (hero-scoped, throttled, pauses off-screen) */
+  (function(){
+    var hero=document.querySelector('.hero'),c=document.getElementById('dust');
+    if(!hero||!c)return;
+    var x=c.getContext('2d'),W,H,D,P=[],px=0,py=0,run=true,t=0;
+    function size(){D=Math.min(devicePixelRatio||1,1.5);
+      W=c.width=hero.offsetWidth*D;H=c.height=hero.offsetHeight*D;
+      c.style.width=hero.offsetWidth+'px';c.style.height=hero.offsetHeight+'px';
+      var n=MOB?14:32;P=[];
+      for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,r:(Math.random()*1.6+.7)*D,s:(Math.random()*.25+.08)*D,ph:Math.random()*6.28,d:Math.random()*.6+.3});}
+    size();addEventListener('resize',size);
+    addEventListener('pointermove',function(e){px=e.clientX/innerWidth-.5;py=e.clientY/innerHeight-.5;},{passive:true});
+    function draw(){
+      if(document.hidden||!run){requestAnimationFrame(draw);return;}
+      t++;x.clearRect(0,0,W,H);
+      for(var i=0;i<P.length;i++){var p=P[i];p.y-=p.s;if(p.y<-8)p.y=H+8;
+        var tw=.5+.5*Math.sin(t*.02+p.ph);
+        x.globalAlpha=.22+.38*tw;x.fillStyle='#d3a869';
+        x.beginPath();x.arc(p.x+px*18*p.d*D,p.y+py*10*p.d*D,p.r*(0.8+.4*tw),0,6.28);x.fill();}
+      x.globalAlpha=1;requestAnimationFrame(draw);}
+    new IntersectionObserver(function(en){run=en[0].isIntersecting;}).observe(hero);
+    requestAnimationFrame(draw);
+  })();
 })();
 </script>
 </body>
