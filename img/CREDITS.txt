@@ -9,3 +9,11 @@ g-cove.jpg  — Pexels / Luciano Silva
 g-town.jpg  — Pexels / JMIP
 g-street.jpg  — Pexels / Carlos Machado
 g-villa.jpg  — Pexels (Portuguese villa, golden hour)
+--- Roam & Root rebrand additions (placeholders, swap before final launch) ---
+rr-hero.jpg       — Pexels / Ahmet ÇÖTÜR (24807132) — sunset infinity pool
+rr-estate.jpg     — Pexels / Pedro Vinicius Garrett (28773939) — stone houses
+rr-still.jpg      — Pexels / Ksenia Chernaya (6801449) — ceramic still life
+rr-terracotta.jpg — Pexels / Mathias Reding (10011988) — terracotta pottery
+rr-interior.jpg   — Pexels (19836795) — warm linen bedroom
+rr-dusk.jpg       — Pexels / Ahmed Abd Allah (6437583) — dusk infinity pool
+rr-cliffs.jpg     — Openverse/Flickr CC-BY (Ponta da Piedade) — see rr-imgs credits

@@ -1,1120 +1,957 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<!-- ROAM & ROOT ALGARVE — Living in Harmony. Concept build by Meridante.
+     Brand: Deep Sea / Earth Clay / Terracotta / Sand / Warm Stone / Salt · Cormorant Garamond + Montserrat (per brand board).
+     All photography = PLACEHOLDER stock (Pexels/Openverse), flagged in img/CREDITS.txt — swap for owned photography before launch. -->
+<html lang="en" class="cine">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Ding Dong — Find your Algarve. A personal guide to your dream home.</title>
-<meta name="description" content="A personal guide to buying your dream home on the Algarve, with a search that never rests until we find it. High standard, easy to approach, and free for buyers. Serving Dutch, French, English and Portuguese speakers.">
-<meta property="og:title" content="Ding Dong — Find your Algarve">
-<meta property="og:description" content="A personal guide to your Algarve dream home — with a search that never rests. Free for buyers. In partnership with Century 21.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Roam &amp; Root Algarve — Real Estate in Harmony with Nature</title>
+<meta name="description" content="Roam & Root Algarve curates timeless properties and experiences that connect you to the earth, the sea and what truly matters. Rooted in the Algarve. Designed for life.">
+<meta property="og:title" content="Roam & Root Algarve — Living in Harmony">
+<meta property="og:description" content="Curated homes and experiences in the most authentic corners of the Algarve. Earth · Sea · Essence.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#f7f1e6">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='15' r='9' fill='none' stroke='%23c56a3d' stroke-width='2'/%3E%3Cpath d='M4 15h2M26 15h2M16 3v2M8 7l1.5 1.5M24 7l-1.5 1.5' stroke='%23c56a3d' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='15' r='3' fill='%23b8894b'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script>try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('cine')}catch(e){}</script>
+<meta property="og:image" content="img/rr-hero.jpg">
+<meta name="theme-color" content="#1F2F30">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23F5F2EF'/%3E%3Ccircle cx='32' cy='19' r='9' fill='%231F2F30'/%3E%3Cpath d='M15 34a17 10 0 0 0 34 0z' fill='%23C7825B'/%3E%3Cpath d='M18 48a14 8 0 0 0 28 0z' fill='%23D6B89A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Ding Dong — Find your Algarve","description":"A personal buyer's agent and concierge for international buyers on the Algarve, with a relentless, personal property search. Free for buyers. In partnership with Century 21.","areaServed":"Algarve, Portugal","knowsLanguage":["en","nl","fr","pt"],"email":"alkojambrienke@century21.pt"}
+{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Roam & Root Algarve",
+"slogan":"Living in Harmony","areaServed":"Algarve, Portugal",
+"description":"Curated properties and experiences in the Algarve — earth, sea, essence.",
+"knowsLanguage":["en","nl","fr","pt"]}
 </script>
 <style>
 :root{
-  --sand:#f7f1e6; --sand2:#f1e8d8; --card:#fffdf8; --ink:#2a2118; --ink2:#4a3f30;
-  --clay:#c56a3d; --clay-d:#9c4d27; --clay-l:#e0a074; --sea:#2f6f6a; --sea-d:#204e4a; --gold:#b8894b; --gold-l:#d3a869;
-  --mut:#8a7d6a; --mut2:#a89a84; --line:rgba(42,33,24,.12); --line2:rgba(42,33,24,.2);
-  --disp:'Fraunces',Georgia,serif; --body:'Hanken Grotesk',system-ui,sans-serif; --mono:'IBM Plex Mono',monospace;
-  --shadow:0 30px 70px -40px rgba(60,40,20,.45);
+  --deepsea:#1F2F30; --clay:#6B3E2E; --terra:#C7825B; --sand:#D6B89A;
+  --stone:#EADCC6; --salt:#F5F2EF; --teal:#2E5F63; --umber:#4A362C;
+  --ink:#22302f; --mut:#5f6b66;
+  --line:rgba(31,47,48,.14); --line-soft:rgba(31,47,48,.08);
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Montserrat',system-ui,sans-serif;
+  --maxw:1340px; --pad:clamp(22px,5vw,64px);
+  --ease:cubic-bezier(.22,.8,.24,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-body{background:var(--sand);color:var(--ink);font:400 17px/1.65 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-::selection{background:rgba(197,106,61,.22)}
-img,svg{display:block}
-h1,h2,h3,h4{font-family:var(--disp);font-weight:400;line-height:1.06;letter-spacing:-.015em}
-em{font-style:italic;color:var(--clay-d)}
-.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(22px,5vw,52px)}
-.mono{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--clay);font-weight:500}
-.eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:22px}
-.eyebrow .ln{width:34px;height:1px;background:var(--clay-l)}
-.btn{display:inline-flex;align-items:center;gap:10px;font:600 14px/1 var(--body);letter-spacing:.02em;color:#fff;background:linear-gradient(135deg,var(--clay-l),var(--clay) 55%,var(--clay-d));padding:16px 28px;border-radius:999px;box-shadow:0 12px 30px -12px rgba(197,106,61,.6),inset 0 1px 0 rgba(255,255,255,.25);transition:transform .28s cubic-bezier(.2,.9,.3,1.4),box-shadow .3s;cursor:pointer;border:0;white-space:nowrap}
-.btn:hover{transform:translateY(-2px);box-shadow:0 18px 40px -12px rgba(197,106,61,.7)}
-.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line2);box-shadow:none}
-.btn.ghost:hover{border-color:var(--clay);color:var(--clay-d);box-shadow:0 12px 30px -18px rgba(197,106,61,.5)}
-.btn.sea{background:linear-gradient(135deg,#3f8880,var(--sea) 55%,var(--sea-d))}
-/* ===== Moorish · Algarve layer ===== */
-
-
-
-.eyebrow .ln{position:relative}
-.eyebrow .ln::after{content:"";position:absolute;right:-8px;top:50%;width:4px;height:4px;margin-top:-2px;background:var(--clay);border-radius:50%}
-footer{position:relative;overflow:hidden}
-footer .wrap{position:relative;z-index:1}
-
-/* nav */
-.nav{position:fixed;top:0;left:0;right:0;z-index:60;transition:.4s;border-bottom:1px solid transparent}
-.nav.sc{background:rgba(247,241,230,.85);backdrop-filter:blur(14px) saturate(130%);-webkit-backdrop-filter:blur(14px) saturate(130%);border-color:var(--line)}
-.nav .in{display:flex;align-items:center;justify-content:space-between;padding:18px clamp(22px,5vw,52px);max-width:1320px;margin:0 auto}
-.brand{display:flex;align-items:center;gap:12px}
-.brand .bell{width:34px;height:34px;flex:none}
-.brand .t b{font-family:var(--disp);font-weight:500;font-size:20px;letter-spacing:.02em;display:block;line-height:1}
-.brand .t small{font-family:var(--mono);font-size:8.5px;letter-spacing:.28em;color:var(--mut);text-transform:uppercase}
-.nav .links{display:flex;gap:30px;align-items:center}
-.nav .links a{font-size:14px;color:var(--ink2);transition:color .25s;position:relative}
-.nav .links a:hover{color:var(--clay-d)}
-.nav .links a::after{content:"";position:absolute;left:0;bottom:-5px;height:1.5px;width:0;background:var(--clay);transition:width .3s}
-.nav .links a:hover::after{width:100%}
-.nav .r{display:flex;align-items:center;gap:16px}
-.nav .btn{padding:12px 22px}
-.langsw{display:flex;align-items:center;gap:1px;border:1px solid var(--line2);border-radius:999px;padding:3px;background:rgba(42,33,24,.03)}
-.langsw button{background:none;border:0;color:var(--mut);font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;padding:6px 8px;border-radius:999px;cursor:pointer;transition:.22s;line-height:1}
-.langsw button:hover{color:var(--ink)}
-.langsw button.on{color:#fff;background:linear-gradient(135deg,var(--clay-l),var(--clay))}
-.mnav .langsw{margin-top:8px}
-.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
-.burger span{width:24px;height:2px;background:var(--ink);transition:.3s;border-radius:2px}
-.mnav{position:fixed;inset:0;z-index:59;background:rgba(247,241,230,.98);backdrop-filter:blur(10px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;opacity:0;pointer-events:none;transition:.35s}
-.mnav.open{opacity:1;pointer-events:auto}
-.mnav a{font-family:var(--disp);font-size:28px;color:var(--ink)}
-body.mopen .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-body.mopen .burger span:nth-child(2){opacity:0}
-body.mopen .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-
-/* hero */
-.hero{position:relative;padding:clamp(130px,17vw,210px) 0 clamp(70px,9vw,120px);overflow:hidden}
-.hero .sun{position:absolute;right:-8vw;top:6vw;width:min(56vw,640px);height:min(56vw,640px);border-radius:50%;pointer-events:none;
- background:radial-gradient(circle at 42% 40%,rgba(224,160,116,.55),rgba(197,106,61,.2) 42%,rgba(184,137,75,.06) 62%,transparent 74%)}
-.hero .arch{position:absolute;right:6vw;bottom:-2vw;width:min(40vw,440px);height:auto;opacity:.5;pointer-events:none;color:var(--clay-l)}
-.hero .in{position:relative;z-index:2;max-width:1180px;display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(30px,5vw,66px);align-items:center}
-.hero .copy{max-width:600px}
-.hero .media{position:relative}
-.hero .frame{position:relative;border-radius:190px 190px 18px 18px;overflow:hidden;border:1px solid var(--line2);box-shadow:0 46px 100px -44px rgba(60,40,20,.6);aspect-ratio:.84}
-.hero .frame::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 6px rgba(255,253,248,.5);border-radius:inherit;pointer-events:none}
-.hero .frame img{width:100%;height:100%;object-fit:cover;display:block}
-.hero h1{font-size:clamp(46px,8.2vw,104px);font-weight:300;line-height:.98;letter-spacing:-.02em}
-.hero h1 em{font-weight:400;display:block}
-.hero .sub{margin-top:30px;font-size:clamp(17px,1.8vw,22px);color:var(--ink2);max-width:52ch;font-weight:300}
-.hero .sub b{font-weight:600;color:var(--ink)}
-.hero .cta{display:flex;gap:14px;margin-top:40px;flex-wrap:wrap}
-.hero .chips{display:flex;gap:10px 22px;flex-wrap:wrap;margin-top:44px}
-.hero .chips span{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--mut);text-transform:uppercase;display:flex;align-items:center;gap:8px}
-.hero .chips span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--sea)}
-
-/* trust strip */
-.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--sand2)}
-.trust .in{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 0;flex-wrap:wrap}
-.trust .c21{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
-.trust .c21 b{color:var(--ink);font-weight:600;letter-spacing:.2em}
-.trust .vals{display:flex;gap:10px 28px;flex-wrap:wrap}
-.trust .vals span{font-size:13.5px;color:var(--ink2);font-weight:400}
-.trust .vals span b{color:var(--clay-d);font-weight:600}
-
-/* generic section */
-section{padding:clamp(70px,10vw,130px) 0}
-h2{font-size:clamp(30px,4.6vw,56px);font-weight:300;max-width:18ch}
-h2 em{font-weight:400}
-.lede{margin-top:22px;font-size:clamp(16px,1.5vw,20px);color:var(--ink2);max-width:60ch;font-weight:300}
-.lede b{color:var(--ink);font-weight:600}
-
-/* manifesto */
-.manifesto{text-align:center;background:linear-gradient(180deg,var(--sand),var(--sand2))}
-.manifesto .in{max-width:900px;margin:0 auto;text-align:center}
-.manifesto h2{font-size:clamp(30px,4.8vw,60px);margin:0 auto;max-width:22ch}
-.manifesto p{margin:26px auto 0;max-width:56ch;color:var(--ink2);font-weight:300;font-size:clamp(16px,1.5vw,19px)}
-
-/* steps */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:56px}
-.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px 26px;box-shadow:0 20px 44px -34px rgba(60,40,20,.4);position:relative;transition:transform .35s}
-.step:hover{transform:translateY(-5px)}
-.step .n{font-family:var(--disp);font-style:italic;font-size:34px;color:var(--clay);line-height:1}
-.step .ic{width:40px;height:40px;margin:6px 0 16px;color:var(--sea)}
-.step h4{font-size:20px}
-.step p{margin-top:10px;color:var(--ink2);font-weight:300;font-size:14.5px}
-
-/* AI band */
-.ai{background:var(--ink);color:var(--sand);position:relative;overflow:hidden}
-.ai .glow{position:absolute;left:50%;top:-30%;width:70vw;height:70vw;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(197,106,61,.22),transparent 62%);pointer-events:none}
-.ai .in{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(40px,6vw,90px);align-items:center}
-.ai h2{color:var(--sand)}
-.ai .lede{color:rgba(247,241,230,.76)}
-.ai .lede b{color:var(--sand)}
-.ai .card{background:linear-gradient(165deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(247,241,230,.16);border-radius:20px;padding:28px 30px;box-shadow:var(--shadow)}
-.ai .card .top{display:flex;align-items:center;gap:10px;margin-bottom:20px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-l)}
-.ai .card .top .dot{width:8px;height:8px;border-radius:50%;background:var(--sea);box-shadow:0 0 0 4px rgba(47,111,106,.25);animation:pulse 2.4s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.ai .match{display:flex;align-items:center;gap:14px;padding:14px 0;border-top:1px solid rgba(247,241,230,.12)}
-.ai .match:first-of-type{border-top:0}
-.ai .match .th{width:52px;height:40px;border-radius:8px;flex:none;background:linear-gradient(135deg,#3a4a48,#2a3634);position:relative;overflow:hidden}
-.ai .match .th{overflow:hidden}.ai .match .th img{width:100%;height:100%;object-fit:cover;display:block}
-.ai .match .mx{flex:1;min-width:0}
-.ai .match .mx b{display:block;font-size:14px;color:var(--sand);font-weight:500}
-.ai .match .mx span{font-family:var(--mono);font-size:10.5px;color:var(--mut2);letter-spacing:.06em}
-.ai .match .pct{font-family:var(--mono);font-size:12px;color:var(--gold-l);font-weight:500}
-
-/* services */
-.svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
-.svc{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:34px 32px;display:flex;flex-direction:column;box-shadow:0 22px 50px -38px rgba(60,40,20,.45);transition:transform .35s,border-color .35s}
-.svc:hover{transform:translateY(-6px);border-color:var(--clay-l)}
-.svc .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sea);margin-bottom:14px}
-.svc h3{font-size:26px}
-.svc .price{margin-top:6px;font-family:var(--disp);font-style:italic;font-size:19px;color:var(--clay-d)}
-.svc .price.free{color:var(--sea-d)}
-.svc p{margin-top:14px;color:var(--ink2);font-weight:300;font-size:15px}
-.svc ul{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:9px;border-top:1px solid var(--line);padding-top:18px}
-.svc li{font-size:14px;color:var(--ink2);font-weight:300;padding-left:20px;position:relative}
-.svc li::before{content:"✦";position:absolute;left:0;color:var(--clay);font-size:10px;top:3px}
-.svc.feat{border-color:var(--clay);box-shadow:0 30px 60px -34px rgba(197,106,61,.5)}
-.svc.feat::before{content:"MOST POPULAR";position:absolute;margin-top:-48px;font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:#fff;background:var(--clay);padding:5px 12px;border-radius:99px}
-
-/* package */
-.pkg{background:linear-gradient(180deg,var(--sand2),var(--sand))}
-.pkg .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,70px);align-items:start;margin-top:20px}
-.pkg .list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
-.pkg .list .row{display:flex;gap:16px;align-items:baseline;padding:17px 2px;border-bottom:1px solid var(--line)}
-.pkg .list .row .num{font-family:var(--mono);font-size:11px;color:var(--clay);flex:none;width:24px}
-.pkg .list .row b{font-weight:600;font-size:15.5px}
-.pkg .list .row span{color:var(--mut);font-weight:300;font-size:14px;display:block}
-.addons{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px 30px;box-shadow:0 22px 50px -40px rgba(60,40,20,.4)}
-.addons h4{font-size:20px;margin-bottom:6px}
-.addons .k{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--sea);margin-bottom:16px}
-.addons .a{display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-top:1px solid var(--line);font-size:14.5px}
-.addons .a:first-of-type{border-top:0}
-.addons .a span{color:var(--ink2);font-weight:400}
-.addons .a em{font-family:var(--mono);font-style:normal;font-size:12px;color:var(--clay-d)}
-
-/* why me */
-.meet{display:grid;grid-template-columns:180px 1fr;gap:clamp(24px,4vw,52px);align-items:center;margin-top:8px}
-.portrait{width:210px;height:264px;border-radius:130px 130px 18px 18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 26px 56px -30px rgba(60,40,20,.55);flex:none;background:#ecdcc4}
-.portrait img{width:100%;height:100%;object-fit:cover;object-position:center top}
-.meetx h2{font-size:clamp(30px,4vw,50px)}
-.meetx p{margin-top:16px;color:var(--ink2);font-weight:300;font-size:clamp(15px,1.4vw,17px);max-width:62ch}
-.sig{margin-top:18px;font-family:var(--disp);font-style:italic;font-size:18px;color:var(--clay-d)}
-@media(max-width:640px){.meet{grid-template-columns:1fr;justify-items:start}.portrait{width:150px;height:190px}}
-.why .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
-.why .w{padding:26px 24px;border-left:2px solid var(--clay-l);background:linear-gradient(90deg,rgba(197,106,61,.04),transparent)}
-.why .w h4{font-size:19px}
-.why .w p{margin-top:8px;color:var(--ink2);font-weight:300;font-size:14.5px}
-.note{margin-top:44px;font-size:14px;color:var(--mut);font-style:italic;max-width:64ch;font-family:var(--disp)}
-
-/* form */
-.book{background:var(--sea-d);color:var(--sand);position:relative;overflow:hidden}
-.book .glow{position:absolute;right:-10%;bottom:-30%;width:60vw;height:60vw;border-radius:50%;background:radial-gradient(circle,rgba(211,168,105,.16),transparent 62%);pointer-events:none}
-.book .in{position:relative;z-index:2;display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(40px,6vw,80px);align-items:start}
-.book h2{color:var(--sand)}
-.book .lede{color:rgba(247,241,230,.8)}
-.book .lede b{color:var(--sand)}
-.book .assure{margin-top:26px;display:flex;flex-direction:column;gap:12px}
-.book .assure div{display:flex;gap:12px;align-items:baseline;font-size:14.5px;color:rgba(247,241,230,.85);font-weight:300}
-.book .assure div::before{content:"✓";color:var(--gold-l);font-weight:700}
-form{background:var(--card);border-radius:22px;padding:clamp(24px,3vw,36px);box-shadow:var(--shadow)}
-form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.field{margin-bottom:14px}
-.field label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:6px}
-.field input,.field select,.field textarea{width:100%;background:var(--sand);border:1px solid var(--line2);border-radius:11px;color:var(--ink);padding:13px 14px;font:400 15px var(--body);transition:.2s}
-.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--clay);background:#fff;box-shadow:0 0 0 3px rgba(197,106,61,.12)}
-.field textarea{resize:vertical;min-height:74px}
-.seg{display:flex;gap:8px}
-.seg label{flex:1;cursor:pointer;margin:0}
-.seg input{position:absolute;opacity:0;pointer-events:none}
-.seg .opt{display:block;text-align:center;padding:12px 8px;border:1px solid var(--line2);border-radius:11px;font-size:14px;color:var(--ink2);transition:.2s;font-weight:500}
-.seg input:checked+.opt{background:linear-gradient(135deg,var(--clay-l),var(--clay));color:#fff;border-color:transparent}
-form .btn{width:100%;justify-content:center;margin-top:6px;font-size:15px;padding:17px}
-form .fine{margin-top:14px;font-size:12px;color:var(--mut);text-align:center}
-.ok{display:none;text-align:center;padding:20px 0}
-.ok.on{display:block}
-.ok .big{font-family:var(--disp);font-size:28px;color:var(--sea-d);margin-bottom:8px}
-.ok p{color:var(--ink2);font-weight:300}
-
-/* gallery */
-/* gallery */
-.gallery .ggrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:46px}
-.gallery figure{margin:0;border-radius:14px;overflow:hidden;aspect-ratio:.82;box-shadow:0 24px 54px -38px rgba(60,40,20,.5);position:relative}
-.gallery figure img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.3,1)}
-.gallery figure:hover img{transform:scale(1.06)}
-@media(max-width:920px){.gallery .ggrid{grid-template-columns:1fr 1fr}}
-@media(max-width:540px){.gallery .ggrid{grid-template-columns:1fr 1fr;gap:10px}}
-
-
-/* ===== world-class cinema layer ===== */
+html{scroll-behavior:smooth}
 html.lenis,html.lenis body{height:auto}
-.lenis.lenis-smooth{scroll-behavior:auto!important}
-#ddload{position:fixed;inset:0;z-index:200;background:var(--sand);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
-#ddload .bell{width:54px;height:54px;color:var(--clay);transform-origin:50% 10%;animation:ddring 1.15s .15s cubic-bezier(.36,.07,.19,.97)}
-@keyframes ddring{0%,100%{transform:rotate(0)}15%{transform:rotate(13deg)}30%{transform:rotate(-11deg)}45%{transform:rotate(7deg)}62%{transform:rotate(-5deg)}80%{transform:rotate(2deg)}}
-#ddload b{font-family:var(--disp);font-weight:500;font-size:26px;letter-spacing:.03em;opacity:0;animation:ddfade .7s .4s forwards}
-#ddload small{font-family:var(--mono);font-size:9px;letter-spacing:.32em;color:var(--mut);text-transform:uppercase;opacity:0;animation:ddfade .7s .55s forwards}
-@keyframes ddfade{to{opacity:1}}
-@media(prefers-reduced-motion:reduce){#ddload{display:none}}
-html.cine .hero .copy>*{opacity:0;transform:translateY(26px)}
-html.cine .hero .media{opacity:0}
-#dust{position:absolute;inset:0;z-index:1;pointer-events:none}
-.hero .sun{animation:sunbreathe 9s ease-in-out infinite alternate}
-@keyframes sunbreathe{from{transform:scale(1)}to{transform:scale(1.07)}}
-.hero .media{perspective:1200px}
-.hero .frame{will-change:transform}
-.hero .frame img{will-change:transform;transform:scale(1.02)}
-/* journey rail */
-#rail{position:fixed;right:clamp(14px,2vw,26px);top:50%;transform:translateY(-50%);z-index:70;display:flex;flex-direction:column;align-items:flex-end;opacity:0;pointer-events:none}
-#rail .lab{font-family:var(--mono);font-size:9px;letter-spacing:.26em;color:var(--mut2);text-transform:uppercase;margin-bottom:12px}
-#rail .track{position:relative;width:1.5px;height:min(30vh,240px);background:rgba(42,33,24,.14);margin-right:5px}
-#rail .track i{position:absolute;top:0;left:0;width:100%;height:0;background:linear-gradient(var(--clay-l),var(--clay))}
-#rail .steps{position:absolute;right:12px;top:0;height:100%;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end}
-#rail .steps span{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut2);transition:color .35s;white-space:nowrap;display:flex;align-items:center;gap:8px}
-#rail .steps span::after{content:"";width:7px;height:7px;border-radius:50%;border:1.5px solid var(--mut2);background:var(--sand);transition:.35s}
-#rail .steps span.on{color:var(--clay-d)}
-#rail .steps span.on::after{background:var(--clay);border-color:var(--clay);box-shadow:0 0 0 4px rgba(197,106,61,.16)}
-@media(max-width:960px){#rail{display:none}}
-/* algarve places marquee */
-.places{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:15px 0;overflow:hidden;background:var(--card)}
-.places .tk{display:flex;width:max-content;animation:pl 38s linear infinite}
-.places span{font-family:var(--disp);font-style:italic;font-size:17px;color:var(--mut);padding:0 24px;white-space:nowrap}
-.places span::after{content:"\2726";color:var(--clay-l);margin-left:48px;font-size:10px;font-style:normal;vertical-align:2px}
-@keyframes pl{to{transform:translateX(-50%)}}
-@media(prefers-reduced-motion:reduce){.places .tk{animation:none}}
-
-/* ===== premium respond/depth layer ===== */
-::-webkit-scrollbar{width:11px}
-::-webkit-scrollbar-track{background:var(--sand)}
-::-webkit-scrollbar-thumb{background:linear-gradient(var(--clay-l),var(--clay));border-radius:99px;border:3px solid var(--sand)}
-:focus-visible{outline:2px solid var(--clay);outline-offset:3px;border-radius:6px}
-/* buttons: shine sweep + spring + press */
-.btn{position:relative;overflow:hidden}
-.btn::after{content:"";position:absolute;top:0;bottom:0;left:-70%;width:45%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);opacity:0;pointer-events:none}
-.btn:hover::after{animation:shine .9s ease}
-@keyframes shine{from{left:-70%;opacity:1}to{left:130%;opacity:0}}
-.btn:active{transform:scale(.97)}
-/* nav: shrink + active section link */
-.nav .in{transition:padding .35s ease}
-.nav.sc .in{padding-top:11px;padding-bottom:11px}
-.nav.sc{box-shadow:0 10px 34px -22px rgba(60,40,20,.35)}
-.nav .links a.on{color:var(--clay-d)}
-.nav .links a.on::after{width:100%}
-/* bell: swings on hover + on chime */
-.brand .bell{transform-origin:50% 10%}
-.brand:hover .bell,.brand .bell.ring{animation:ddring 1.1s cubic-bezier(.36,.07,.19,.97)}
-/* hero: depth veil into the next section */
-.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:90px;background:linear-gradient(transparent,var(--sand));pointer-events:none;z-index:1}
-/* dark bands become inset "sheets" */
-.ai{border-radius:36px;margin:0 clamp(8px,1.6vw,24px)}
-.book{border-radius:36px;margin:0 clamp(8px,1.6vw,24px) 26px}
-/* cards: spring hover physics */
-.step{transition:transform .5s cubic-bezier(.34,1.56,.64,1),box-shadow .5s}
-.step:hover{box-shadow:0 30px 60px -34px rgba(197,106,61,.4)}
-.step .ic{transition:transform .45s cubic-bezier(.34,1.56,.64,1)}
-.step:hover .ic{transform:rotate(-6deg) scale(1.12)}
-.svc{transition:transform .5s cubic-bezier(.34,1.56,.64,1),border-color .35s,box-shadow .5s}
-.svc:hover{box-shadow:0 36px 74px -36px rgba(197,106,61,.45)}
-/* marquee pauses under the cursor */
-.places:hover .tk{animation-play-state:paused}
-/* WhatsApp: gentle attention pulse */
-#wafab.show{animation:wapulse 6s ease-in-out infinite}
-@keyframes wapulse{0%,86%,100%{box-shadow:0 14px 32px -8px rgba(37,211,102,.55),0 6px 14px rgba(0,0,0,.18)}92%{box-shadow:0 14px 32px -8px rgba(37,211,102,.8),0 0 0 13px rgba(37,211,102,.15)}}
-/* form: async submit state */
-form .btn.busy{pointer-events:none;color:transparent}
-form .btn.busy::before{content:"";position:absolute;left:50%;top:50%;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;border:2.5px solid rgba(255,255,255,.4);border-top-color:#fff;animation:ddspin .7s linear infinite}
-@keyframes ddspin{to{transform:rotate(360deg)}}
-/* WhatsApp */
-#wafab{position:fixed;right:22px;bottom:22px;z-index:85;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 32px -8px rgba(37,211,102,.55),0 6px 14px rgba(0,0,0,.18);transform:translateY(20px) scale(.85);opacity:0;pointer-events:none;transition:.4s cubic-bezier(.2,.8,.3,1.3)}
-#wafab.show{opacity:1;transform:none;pointer-events:auto}
-#wafab:hover{transform:translateY(-2px) scale(1.05)}
-#wafab svg{width:32px;height:32px}
-#wafab .watip{position:absolute;right:70px;white-space:nowrap;background:var(--ink);color:var(--sand);font:500 13px var(--body);padding:8px 14px;border-radius:10px;opacity:0;transform:translateX(6px);transition:.25s;pointer-events:none;box-shadow:0 10px 24px -8px rgba(0,0,0,.45)}
-#wafab:hover .watip{opacity:1;transform:none}
-#wafab .watip::after{content:"";position:absolute;right:-4px;top:50%;transform:translateY(-50%) rotate(45deg);width:9px;height:9px;background:var(--ink)}
-@media(max-width:600px){#wafab{right:16px;bottom:16px;width:52px;height:52px}#wafab svg{width:29px;height:29px}#wafab .watip{display:none}}
-.waline{margin-top:20px}
-.waline a{display:inline-flex;align-items:center;gap:10px;color:var(--sand);font-size:14.5px;font-weight:500;border-bottom:1px solid rgba(211,168,105,.45);padding-bottom:4px;transition:color .25s}
-.waline a svg{width:22px;height:22px;color:#25D366;flex:none}
-.waline a:hover{color:#fff}
-/* footer */
-footer{background:var(--ink);color:var(--mut2);padding:60px 0 40px}
-footer .in{display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap}
-footer .brand .t b{color:var(--sand)}
-footer .brand p{color:var(--mut2);font-size:14px;font-weight:300;margin-top:14px;max-width:32ch}
-footer .cols{display:flex;gap:60px;flex-wrap:wrap}
-footer .col{display:flex;flex-direction:column;gap:11px}
-footer .col span{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-l);margin-bottom:4px}
-footer .col a{font-size:14px;color:var(--mut2);font-weight:300;transition:.25s}
-footer .col a:hover{color:var(--sand)}
-footer .base{margin-top:46px;padding-top:22px;border-top:1px solid rgba(247,241,230,.1);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--mut);text-transform:uppercase}
-
-.rv{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
-.rv.in{opacity:1;transform:none}
-
-@media(max-width:920px){
-  .nav .links{display:none} .nav .r .btn{display:none} .nav .langsw{display:none} .burger{display:flex}
-  .hero .in{grid-template-columns:1fr;gap:38px} .hero .media{max-width:420px;margin-top:8px} .hero .frame{border-radius:150px 150px 16px 16px}
-  .ai .in,.book .in,.pkg .grid{grid-template-columns:1fr;gap:36px}
-  .steps{grid-template-columns:1fr 1fr}
-  .svcs{grid-template-columns:1fr}
-  .why .grid{grid-template-columns:1fr}
+.lenis.lenis-smooth{scroll-behavior:auto}
+body{
+  font-family:var(--sans);background:var(--salt);color:var(--ink);
+  font-size:15px;line-height:1.75;font-weight:400;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
 }
-@media(max-width:540px){
-  .steps{grid-template-columns:1fr}
-  form .row{grid-template-columns:1fr}
-  .trust .in{flex-direction:column;align-items:flex-start;gap:14px}
+h1,h2,h3,.serif{font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacing:.005em;color:var(--deepsea)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+::selection{background:var(--terra);color:#fff}
+
+/* —— type utilities —— */
+.eyebrow{
+  font-size:.66rem;font-weight:600;letter-spacing:.34em;text-transform:uppercase;
+  color:var(--terra);display:inline-flex;align-items:center;gap:1em;
 }
-@media(prefers-reduced-motion:reduce){*{animation:none!important}.rv{opacity:1;transform:none}}
+.eyebrow.center{justify-content:center;width:100%}
+.eyebrow::before{content:"";width:30px;height:1px;background:var(--terra);opacity:.75}
+.eyebrow.center::after{content:"";width:30px;height:1px;background:var(--terra);opacity:.75}
+.lead{font-weight:300;font-size:1.02rem;color:var(--mut);max-width:34em}
+
+/* —— buttons —— */
+.btn{
+  display:inline-flex;align-items:center;gap:.9em;cursor:pointer;
+  font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;
+  padding:1.25em 2.3em;border:1px solid var(--deepsea);color:var(--deepsea);background:transparent;
+  transition:background .45s var(--ease),color .45s var(--ease),border-color .45s,transform .45s var(--ease);
+  position:relative;overflow:hidden;
+}
+.btn:hover{background:var(--deepsea);color:var(--salt)}
+.btn-solid{background:var(--deepsea);color:var(--salt)}
+.btn-solid:hover{background:var(--teal);border-color:var(--teal)}
+.btn-ghost{border-color:rgba(245,242,239,.5);color:var(--salt)}
+.btn-ghost:hover{background:var(--salt);color:var(--deepsea);border-color:var(--salt)}
+.btn .arw{width:14px;height:10px;flex:0 0 auto;transition:transform .45s var(--ease)}
+.btn:hover .arw{transform:translateX(5px)}
+.tlink{
+  font-size:.66rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--deepsea);
+  display:inline-flex;align-items:center;gap:.8em;padding-bottom:.5em;border-bottom:1px solid var(--line);
+  transition:color .35s,border-color .35s;
+}
+.tlink:hover{color:var(--terra);border-color:var(--terra)}
+
+/* ============ LOADER ============ */
+#rrload{
+  position:fixed;inset:0;z-index:200;background:var(--deepsea);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;
+}
+#rrload .mk{width:64px;height:88px}
+#rrload .wd{font-family:var(--serif);font-size:1.5rem;letter-spacing:.34em;color:var(--salt);text-transform:uppercase;padding-left:.34em}
+#rrload .tg{font-size:.6rem;letter-spacing:.5em;text-transform:uppercase;color:var(--sand);padding-left:.5em}
+html:not(.cine) #rrload{display:none}
+
+/* pre-hide only while cinema is armed */
+html.cine [data-cine]{opacity:0}
+
+/* ============ NAV ============ */
+header{position:fixed;top:0;left:0;right:0;z-index:90;transition:background .5s var(--ease),box-shadow .5s,transform .5s var(--ease)}
+header.solid{background:rgba(245,242,239,.92);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line-soft)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px var(--pad);max-width:1600px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:14px;color:var(--salt);transition:color .5s}
+header.solid .brand{color:var(--deepsea)}
+.brand svg{width:30px;height:40px;flex:0 0 auto}
+.brand .bt{display:flex;flex-direction:column;line-height:1.15}
+.brand .b1{font-family:var(--serif);font-size:1.02rem;letter-spacing:.22em;text-transform:uppercase;white-space:nowrap}
+.brand .b2{font-size:.5rem;font-weight:600;letter-spacing:.52em;text-transform:uppercase;color:var(--terra)}
+.navlinks{display:flex;gap:clamp(16px,2.4vw,34px);font-size:.64rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,242,239,.85)}
+header.solid .navlinks{color:var(--ink)}
+.navlinks a{position:relative;padding:6px 0;transition:color .3s}
+.navlinks a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--terra);transition:width .4s var(--ease)}
+.navlinks a:hover::after,.navlinks a.on::after{width:100%}
+.navlinks a:hover,.navlinks a.on{color:var(--terra)}
+.nav-right{display:flex;align-items:center;gap:18px}
+.langsw{display:flex;gap:2px;font-size:.6rem;font-weight:600;letter-spacing:.14em;color:rgba(245,242,239,.6)}
+header.solid .langsw{color:var(--mut)}
+.langsw button{
+  background:none;border:0;cursor:pointer;color:inherit;font:inherit;padding:5px 7px;letter-spacing:inherit;
+  transition:color .3s;
+}
+.langsw button.on{color:var(--terra)}
+.langsw button:hover{color:var(--terra)}
+.nav .btn{padding:1em 1.7em;font-size:.62rem}
+.nav .btn-nav{border-color:rgba(245,242,239,.45);color:var(--salt)}
+.nav .btn-nav:hover{background:var(--salt);color:var(--deepsea);border-color:var(--salt)}
+header.solid .btn-nav{border-color:var(--deepsea);color:var(--deepsea)}
+header.solid .btn-nav:hover{background:var(--deepsea);color:var(--salt)}
+#burger{display:none;background:none;border:0;cursor:pointer;width:40px;height:40px;position:relative;z-index:130}
+#burger span{position:absolute;left:8px;right:8px;height:1.5px;background:var(--salt);transition:all .4s var(--ease)}
+header.solid #burger span{background:var(--deepsea)}
+#burger span:nth-child(1){top:14px}#burger span:nth-child(2){top:20px}#burger span:nth-child(3){top:26px}
+body.menu-open #burger span{background:var(--salt)}
+body.menu-open #burger span:nth-child(1){top:20px;transform:rotate(45deg)}
+body.menu-open #burger span:nth-child(2){opacity:0}
+body.menu-open #burger span:nth-child(3){top:20px;transform:rotate(-45deg)}
+#mmenu{
+  position:fixed;inset:0;z-index:120;background:var(--deepsea);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:8px;opacity:0;pointer-events:none;transition:opacity .5s var(--ease);
+}
+body.menu-open #mmenu{opacity:1;pointer-events:auto}
+#mmenu a{font-family:var(--serif);font-size:clamp(1.7rem,7vw,2.3rem);color:var(--salt);padding:8px 0;letter-spacing:.04em}
+#mmenu a:hover{color:var(--terra)}
+#mmenu .mlang{margin-top:26px;display:flex;gap:10px}
+#mmenu .mlang button{background:none;border:1px solid rgba(245,242,239,.3);color:var(--salt);font:600 .62rem/1 var(--sans);letter-spacing:.2em;padding:9px 13px;cursor:pointer}
+#mmenu .mlang button.on{border-color:var(--terra);color:var(--terra)}
+
+/* ============ HERO ============ */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:var(--salt);overflow:hidden;background:var(--deepsea)}
+.hero-imgs{position:absolute;inset:0}
+.hero-imgs .hi{position:absolute;inset:0;opacity:0;transition:opacity 1.6s var(--ease)}
+.hero-imgs .hi.on{opacity:1}
+.hero-imgs img{width:100%;height:100%;object-fit:cover;transform:scale(1.06)}
+.hero-scrim{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(31,47,48,.42) 0%,rgba(31,47,48,.06) 34%,rgba(31,47,48,.66) 88%),
+  linear-gradient(100deg,rgba(31,47,48,.6) 0%,rgba(31,47,48,.14) 55%,transparent 100%)}
+.hero-inner{position:relative;z-index:2;width:100%;max-width:1600px;margin:0 auto;padding:0 var(--pad) clamp(56px,9vh,104px)}
+.hero .eyebrow{color:var(--sand)}
+.hero .eyebrow::before{background:var(--sand)}
+.hero h1{
+  font-size:clamp(2.7rem,6.4vw,5.4rem);color:var(--salt);font-weight:500;
+  margin:.32em 0 .34em;max-width:11em;
+}
+.hero h1 em{font-style:italic;color:var(--stone)}
+.hero .lead{color:rgba(245,242,239,.82);max-width:30em}
+.hero-cta{display:flex;gap:16px;margin-top:2.6em;flex-wrap:wrap}
+.hero-meta{
+  position:absolute;right:var(--pad);bottom:clamp(56px,9vh,104px);z-index:3;
+  display:flex;flex-direction:column;align-items:flex-end;gap:18px;
+}
+.hcount{font-size:.72rem;letter-spacing:.3em;color:rgba(245,242,239,.75);display:flex;align-items:center;gap:12px}
+.hcount .bar{width:44px;height:1px;background:rgba(245,242,239,.35);position:relative;overflow:hidden}
+.hcount .bar i{position:absolute;inset:0;background:var(--sand);transform-origin:left;transform:scaleX(0)}
+.harrows{display:flex;gap:10px}
+.harrows button{
+  width:46px;height:46px;border:1px solid rgba(245,242,239,.35);background:transparent;color:var(--salt);
+  cursor:pointer;display:grid;place-items:center;transition:background .4s,border-color .4s;
+}
+.harrows button:hover{background:rgba(245,242,239,.14);border-color:var(--sand)}
+.scrollcue{
+  position:absolute;left:50%;bottom:18px;transform:translateX(-50%);z-index:3;
+  font-size:.56rem;letter-spacing:.44em;text-transform:uppercase;color:rgba(245,242,239,.55);padding-left:.44em;
+}
+
+/* ============ VALUES ============ */
+.values{background:var(--salt);padding:clamp(64px,9vw,116px) 0}
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr)}
+.vitem{padding:10px clamp(22px,3.4vw,52px);position:relative}
+.vitem+.vitem{border-left:1px solid var(--line-soft)}
+.vitem .ic{width:34px;height:34px;color:var(--clay);margin-bottom:20px}
+.vitem h3{font-size:1.05rem;letter-spacing:.3em;text-transform:uppercase;font-weight:600;margin-bottom:.7em}
+.vitem p{color:var(--mut);font-weight:300;font-size:.94rem;max-width:24em;margin-bottom:1.6em}
+
+/* ============ PROPERTIES ============ */
+.props{background:var(--stone);padding:clamp(76px,10vw,140px) 0;position:relative;overflow:hidden}
+.props-head{display:grid;grid-template-columns:minmax(280px,.9fr) 1.6fr;gap:clamp(28px,5vw,80px);align-items:end;margin-bottom:clamp(40px,5vw,72px)}
+.props-head h2{font-size:clamp(2.1rem,4vw,3.4rem);margin:.4em 0 .5em}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,30px)}
+.pcard{background:var(--salt);display:flex;flex-direction:column;box-shadow:0 30px 60px -42px rgba(31,47,48,.45);transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.pcard:hover{transform:translateY(-8px);box-shadow:0 46px 80px -44px rgba(31,47,48,.6)}
+.pcard .pimg{aspect-ratio:4/4.6;overflow:hidden;position:relative}
+.pcard .pimg img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.pcard:hover .pimg img{transform:scale(1.06)}
+.pcard .ploc{
+  position:absolute;top:18px;left:18px;background:rgba(31,47,48,.72);backdrop-filter:blur(6px);
+  color:var(--stone);font-size:.56rem;font-weight:600;letter-spacing:.32em;text-transform:uppercase;padding:.7em 1.1em .7em 1.3em;
+}
+.pcard .pbody{padding:26px 26px 28px;display:flex;flex-direction:column;gap:12px;flex:1}
+.pcard h3{font-size:1.55rem;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.pcard h3 .go{
+  width:38px;height:38px;flex:0 0 auto;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:var(--deepsea);
+  transition:background .4s,color .4s,border-color .4s,transform .5s var(--ease);
+}
+.pcard:hover h3 .go{background:var(--terra);border-color:var(--terra);color:#fff;transform:rotate(-45deg)}
+.pspecs{display:flex;gap:1.4em;font-size:.64rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.pspecs span{display:inline-flex;align-items:center;gap:.55em}
+.pspecs .dot{width:3px;height:3px;border-radius:50%;background:var(--terra)}
+.pnote{margin-top:clamp(30px,4vw,48px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.pnote .disc{font-size:.72rem;color:var(--mut);font-weight:300;letter-spacing:.04em;max-width:46em}
+
+/* ============ PHILOSOPHY ============ */
+.philo{background:var(--salt);padding:clamp(80px,11vw,150px) 0;position:relative}
+.philo .split{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(36px,6vw,96px);align-items:center}
+.arch{border-radius:999px 999px 0 0;overflow:hidden;aspect-ratio:4/5.4;position:relative;box-shadow:0 44px 90px -50px rgba(31,47,48,.55)}
+.arch img{width:100%;height:100%;object-fit:cover}
+.philo blockquote{font-family:var(--serif);font-size:clamp(1.8rem,3.3vw,2.9rem);line-height:1.22;color:var(--deepsea);font-weight:500;margin:.5em 0 .6em;border:0}
+.philo blockquote em{font-style:italic;color:var(--terra)}
+.philo .body{color:var(--mut);font-weight:300;max-width:36em;margin-bottom:2.2em}
+.chips{display:flex;gap:12px;flex-wrap:wrap}
+.chip{
+  font-size:.6rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--clay);
+  border:1px solid var(--line);padding:.9em 1.5em .9em 1.8em;
+}
+
+/* ============ LOCATIONS ============ */
+.locs{position:relative;color:var(--salt);overflow:hidden;background:var(--deepsea)}
+.locs .lbg{position:absolute;inset:0}
+.locs .lbg img{width:100%;height:110%;object-fit:cover}
+.locs .lbg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,47,48,.82),rgba(31,47,48,.5) 50%,rgba(31,47,48,.86))}
+.locs .linner{position:relative;z-index:2;padding:clamp(80px,11vw,150px) 0;text-align:center}
+.locs .eyebrow{color:var(--sand)}.locs .eyebrow::before,.locs .eyebrow::after{background:var(--sand)}
+.locs h2{color:var(--salt);font-size:clamp(2rem,3.8vw,3.2rem);margin:.5em auto .4em;max-width:18em}
+.locs .lead{margin:0 auto 3em;color:rgba(245,242,239,.75)}
+.lnames{display:flex;justify-content:center;gap:clamp(20px,4vw,54px);flex-wrap:wrap}
+.lname{font-family:var(--serif);font-size:clamp(1.4rem,2.6vw,2.1rem);color:rgba(245,242,239,.6);display:flex;align-items:baseline;gap:.55em;transition:color .4s;cursor:default}
+.lname i{font-style:normal;font-family:var(--sans);font-size:.56rem;letter-spacing:.2em;color:var(--terra);font-weight:600}
+.lname:hover{color:var(--salt)}
+
+/* ============ EXPERIENCES ============ */
+.expr{background:var(--salt);padding:clamp(76px,10vw,140px) 0}
+.expr-head{text-align:center;max-width:660px;margin:0 auto clamp(40px,5vw,72px)}
+.expr-head h2{font-size:clamp(2rem,3.8vw,3.2rem);margin:.5em 0 .45em}
+.egrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,30px)}
+.ecard{position:relative;overflow:hidden;aspect-ratio:4/5.1}
+.ecard img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.ecard:hover img{transform:scale(1.07)}
+.ecard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(31,47,48,.78))}
+.ecard .ecap{position:absolute;left:26px;right:26px;bottom:24px;z-index:2;color:var(--salt)}
+.ecard .ecap .en{font-size:.56rem;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--sand)}
+.ecard .ecap h3{color:var(--salt);font-size:1.5rem;margin-top:.35em}
+
+/* ============ ABOUT ============ */
+.about{background:var(--stone);padding:clamp(80px,11vw,150px) 0}
+.about .split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(36px,6vw,96px);align-items:center}
+.about h2{font-size:clamp(2rem,3.8vw,3.2rem);margin:.45em 0 .5em}
+.about .body{color:var(--mut);font-weight:300;max-width:34em;margin-bottom:1.6em}
+.alist{list-style:none;display:grid;gap:14px;margin:1.8em 0 2.4em}
+.alist li{display:flex;gap:16px;align-items:flex-start;font-size:.95rem;color:var(--ink)}
+.alist .mk2{flex:0 0 auto;width:22px;height:22px;color:var(--terra);margin-top:3px}
+.cred{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mut);font-weight:500;margin-top:2.2em;display:flex;align-items:center;gap:1em}
+.cred::before{content:"";width:26px;height:1px;background:var(--terra);opacity:.6}
+.about .arch{aspect-ratio:4/5}
+
+/* ============ CONTACT ============ */
+.contact{background:var(--deepsea);color:var(--salt);padding:clamp(80px,11vw,150px) 0;position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;right:-16vw;top:-30vh;width:60vw;height:60vw;border-radius:50%;
+  background:radial-gradient(circle,rgba(199,130,91,.16),transparent 62%);pointer-events:none}
+.contact .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,96px);align-items:start;position:relative;z-index:2}
+.contact .eyebrow{color:var(--sand)}.contact .eyebrow::before{background:var(--sand)}
+.contact h2{color:var(--salt);font-size:clamp(2.1rem,4vw,3.4rem);margin:.45em 0 .5em}
+.contact h2 em{font-style:italic;color:var(--stone)}
+.contact .body{color:rgba(245,242,239,.75);font-weight:300;max-width:30em;margin-bottom:2.4em}
+.cmeans{display:grid;gap:18px}
+.cmean{display:flex;align-items:center;gap:18px;padding:18px 0;border-bottom:1px solid rgba(245,242,239,.14)}
+.cmean .ci{width:40px;height:40px;border:1px solid rgba(245,242,239,.25);display:grid;place-items:center;color:var(--sand);flex:0 0 auto}
+.cmean .cl{font-size:.58rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:rgba(245,242,239,.55)}
+.cmean .cv{font-family:var(--serif);font-size:1.14rem;color:var(--salt)}
+form.book{background:var(--salt);color:var(--ink);padding:clamp(28px,3.6vw,52px);box-shadow:0 60px 110px -60px rgba(0,0,0,.65)}
+form.book h3{font-size:1.7rem;margin-bottom:1.4em}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fgroup{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.fgroup label{font-size:.58rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--mut)}
+.fgroup input,.fgroup select,.fgroup textarea{
+  font-family:var(--sans);font-size:.92rem;font-weight:400;color:var(--ink);
+  background:transparent;border:0;border-bottom:1px solid var(--line);padding:10px 2px;outline:none;
+  transition:border-color .35s;border-radius:0;appearance:none;-webkit-appearance:none;
+}
+.fgroup select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%235f6b66'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 4px center}
+.fgroup textarea{min-height:86px;resize:vertical}
+.fgroup input:focus,.fgroup select:focus,.fgroup textarea:focus{border-color:var(--terra)}
+form.book .btn{width:100%;justify-content:center;margin-top:6px}
+form.book .btn.busy{pointer-events:none;opacity:.65}
+.fnote{font-size:.7rem;color:var(--mut);font-weight:300;margin-top:14px;text-align:center}
+#fmsg{display:none;text-align:center;font-size:.86rem;color:var(--teal);font-weight:500;margin-top:14px}
+
+/* ============ FOOTER ============ */
+footer{background:var(--deepsea);color:rgba(245,242,239,.72);border-top:1px solid rgba(245,242,239,.1)}
+.fmain{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:clamp(30px,5vw,80px);padding:clamp(52px,7vw,90px) 0}
+.fbrand .brand{color:var(--salt)}
+.fbrand p{font-size:.86rem;font-weight:300;max-width:24em;margin-top:18px;color:rgba(245,242,239,.6)}
+footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--sand);margin-bottom:20px}
+.fcol a,.fcol span{display:block;font-size:.88rem;font-weight:300;padding:5px 0;color:rgba(245,242,239,.72);transition:color .3s}
+.fcol a:hover{color:var(--terra)}
+.fstrip{
+  border-top:1px solid rgba(245,242,239,.12);padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
+  font-size:.56rem;font-weight:600;letter-spacing:.4em;text-transform:uppercase;color:rgba(245,242,239,.45);
+}
+.fstrip .fm{display:flex;align-items:center;gap:14px}
+.fstrip svg{width:16px;height:22px}
+.fcopy{padding:0 0 26px;font-size:.66rem;font-weight:300;letter-spacing:.06em;color:rgba(245,242,239,.4);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* ============ WHATSAPP FAB ============ */
+#wafab{
+  position:fixed;right:22px;bottom:22px;z-index:80;width:56px;height:56px;border-radius:50%;
+  background:var(--teal);display:grid;place-items:center;color:#fff;
+  box-shadow:0 16px 34px -12px rgba(46,95,99,.7);transition:transform .4s var(--ease),background .4s;
+}
+#wafab:hover{transform:translateY(-4px) scale(1.05);background:var(--terra)}
+#wafab svg{width:26px;height:26px}
+
+/* ============ MOBILE ============ */
+@media(max-width:1020px){
+  .navlinks{display:none}
+  #burger{display:block}
+  .nav .btn-nav{display:none}
+  .vgrid{grid-template-columns:1fr;gap:34px}
+  .vitem+.vitem{border-left:0;border-top:1px solid var(--line-soft);padding-top:34px}
+  .props-head{grid-template-columns:1fr}
+  .pgrid,.egrid{grid-template-columns:1fr;max-width:520px;margin:0 auto}
+  .philo .split,.about .split,.contact .split{grid-template-columns:1fr}
+  .arch{max-width:420px;margin:0 auto}
+  .hero-meta{display:none}
+  .fmain{grid-template-columns:1fr;gap:38px}
+  .frow{grid-template-columns:1fr}
+  .hero h1{font-size:clamp(2.4rem,10.5vw,3.4rem)}
+  .langsw{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
 </style>
 </head>
 <body>
-<div id="ddload" aria-hidden="true">
-  <svg class="bell" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="15" r="9" stroke="#c56a3d" stroke-width="2"/><path d="M4 15h2M26 15h2M16 3v2M8 7l1.5 1.5M24 7l-1.5 1.5" stroke="#c56a3d" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="15" r="3" fill="#b8894b"/></svg>
-  <b>Ding Dong</b><small>Find your Algarve</small>
+
+<!-- ============ LOADER ============ -->
+<div id="rrload" aria-hidden="true">
+  <svg class="mk" viewBox="0 0 64 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle id="mk-c" cx="32" cy="18" r="12" fill="#F5F2EF"/>
+    <path id="mk-a1" d="M12 42a20 12 0 0 0 40 0z" fill="#C7825B"/>
+    <path id="mk-a2" d="M16 64a16 9 0 0 0 32 0z" fill="#D6B89A"/>
+  </svg>
+  <div class="wd">Roam &amp; Root</div>
+  <div class="tg" data-i="loader_tag">Living in Harmony</div>
 </div>
 
-<nav class="nav" id="nav">
-  <div class="in">
-    <a class="brand" href="#top" aria-label="Ding Dong home">
-      <svg class="bell" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="15" r="9" stroke="#c56a3d" stroke-width="2"/><path d="M4 15h2M26 15h2M16 3v2M8 7l1.5 1.5M24 7l-1.5 1.5" stroke="#c56a3d" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="15" r="3" fill="#b8894b"/></svg>
-      <div class="t"><b>Ding Dong</b><small>Find your Algarve</small></div>
+<!-- ============ NAV ============ -->
+<header id="hd">
+  <div class="nav">
+    <a class="brand" href="#top" aria-label="Roam & Root Algarve">
+      <svg viewBox="0 0 64 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="18" r="12" fill="currentColor"/>
+        <path d="M12 42a20 12 0 0 0 40 0z" fill="#C7825B"/>
+        <path d="M16 64a16 9 0 0 0 32 0z" fill="#D6B89A"/>
+      </svg>
+      <span class="bt"><span class="b1">Roam &amp; Root</span><span class="b2">Algarve</span></span>
     </a>
-    <div class="links">
-      <a href="#how">How it works</a>
-      <a href="#ai">The search</a>
-      <a href="#services">Services</a>
-      <a href="#package">The package</a>
-      <a href="#about">Meet Alco</a>
+    <nav class="navlinks" aria-label="Primary">
+      <a href="#properties" data-i="nav_properties">Properties</a>
+      <a href="#philosophy" data-i="nav_philosophy">Philosophy</a>
+      <a href="#locations" data-i="nav_locations">Locations</a>
+      <a href="#experiences" data-i="nav_experiences">Experiences</a>
+      <a href="#about" data-i="nav_about">About</a>
+      <a href="#contact" data-i="nav_contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <div class="langsw" role="group" aria-label="Language">
+        <button data-lang="en" class="on">EN</button><button data-lang="nl">NL</button><button data-lang="fr">FR</button><button data-lang="pt">PT</button>
+      </div>
+      <a class="btn btn-nav" href="#contact" data-i="nav_inquire">Inquire</a>
+      <button id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
-    <div class="r">
-      <div class="langsw" role="group" aria-label="Language"><button data-l="en" class="on">EN</button><button data-l="nl">NL</button><button data-l="fr">FR</button><button data-l="pt">PT</button></div>
-      <a class="btn" href="#book">Start your search</a>
-      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</nav>
-<div class="mnav" id="mnav">
-  <a href="#how">How it works</a><a href="#ai">The search</a><a href="#services">Services</a><a href="#package">The package</a><a href="#about">Meet Alco</a>
-  <a class="btn" href="#book">Start your search</a>
-  <div class="langsw" role="group" aria-label="Language"><button data-l="en" class="on">EN</button><button data-l="nl">NL</button><button data-l="fr">FR</button><button data-l="pt">PT</button></div>
-</div>
-
-<div id="rail" aria-hidden="true">
-  <div class="lab">Your journey</div>
-  <div class="track"><i></i>
-    <div class="steps"><span class="on">Dream</span><span>Search</span><span>Visit</span><span>Keys</span></div>
-  </div>
-</div>
-
-<header class="hero" id="top">
-  <div class="sun"></div>
-  <canvas id="dust" aria-hidden="true"></canvas>
-  
-  <div class="wrap in">
-    <div class="copy">
-    <div class="eyebrow"><span class="ln"></span><span class="mono">Your personal guide to the Algarve</span></div>
-    <h1>Find your <em>Algarve.</em></h1>
-    <p class="sub">A personal guide to buying your dream home on the Algarve — with a <b>search that never rests</b> until we find it. A high standard, easy to approach, and <b>completely free for buyers</b>.</p>
-    <div class="cta">
-      <a class="btn" href="#book">Start your search</a>
-      <a class="btn ghost" href="#how">See how it works</a>
-    </div>
-    <div class="chips">
-      <span>Free for buyers</span><span>NL · FR · EN · PT</span><span>The whole journey, to the deed</span><span>Honest, always</span>
-    </div>
-    </div>
-    <div class="media"><div class="frame"><img src="img/hero-algarve.jpg" alt="The golden cliffs and turquoise sea of the Algarve"></div></div>
   </div>
 </header>
 
-<div class="trust">
-  <div class="wrap in">
-    <div class="c21">In partnership with <b>CENTURY 21</b></div>
-    <div class="vals">
-      <span><b>0%</b> for buyers</span>
-      <span>Local &amp; on the ground</span>
-      <span>Financing, taxes &amp; legal, clear</span>
-      <span>One hand to hold, start to finish</span>
-    </div>
+<!-- mobile menu -->
+<div id="mmenu" class="overlay" aria-hidden="true">
+  <a href="#properties" data-i="nav_properties">Properties</a>
+  <a href="#philosophy" data-i="nav_philosophy">Philosophy</a>
+  <a href="#locations" data-i="nav_locations">Locations</a>
+  <a href="#experiences" data-i="nav_experiences">Experiences</a>
+  <a href="#about" data-i="nav_about">About</a>
+  <a href="#contact" data-i="nav_contact">Contact</a>
+  <div class="mlang">
+    <button data-lang="en" class="on">EN</button><button data-lang="nl">NL</button><button data-lang="fr">FR</button><button data-lang="pt">PT</button>
   </div>
 </div>
 
-<div class="places" aria-hidden="true"><div class="tk"><span>Lagos</span><span>Tavira</span><span>Loulé</span><span>Silves</span><span>Carvoeiro</span><span>Albufeira</span><span>Faro</span><span>Vilamoura</span><span>Sagres</span><span>Olhão</span><span>Lagos</span><span>Tavira</span><span>Loulé</span><span>Silves</span><span>Carvoeiro</span><span>Albufeira</span><span>Faro</span><span>Vilamoura</span><span>Sagres</span><span>Olhão</span></div></div>
-
-<section class="manifesto">
-  <div class="wrap in">
-    <div class="eyebrow" style="justify-content:center"><span class="ln"></span><span class="mono">The idea</span><span class="ln"></span></div>
-    <h2 class="rv">Buying a home should feel like an <em>adventure</em> — not a transaction.</h2>
-    <p class="rv">Most people picture estate agents as stiff, pushy and hard to approach. I do it the other way around: a genuinely high standard, an easy, human relationship, and a search that's actually a pleasure. You bring the dream. I bring the local knowledge, the honesty, and a search that runs for you around the clock.</p>
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-imgs" id="heroimgs">
+    <!-- PLACEHOLDER imagery — see img/CREDITS.txt -->
+    <div class="hi on"><img src="img/rr-hero.jpg" alt="Golden-hour terrace over the Atlantic, Algarve" fetchpriority="high"></div>
+    <div class="hi"><img src="img/g-villa.jpg" alt="Stone villa with pool at dusk" loading="lazy"></div>
+    <div class="hi"><img src="img/rr-cliffs.jpg" alt="Ponta da Piedade sea cliffs, Lagos" loading="lazy"></div>
   </div>
+  <div class="hero-scrim"></div>
+  <div class="hero-inner">
+    <span class="eyebrow" data-cine data-i="hero_eyebrow">Real estate in harmony with nature</span>
+    <h1 data-cine data-i="hero_title">Rooted in the Algarve.<br><em>Designed for life.</em></h1>
+    <p class="lead" data-cine data-i="hero_sub">We curate timeless properties and experiences that connect you to the earth, the sea and what truly matters.</p>
+    <div class="hero-cta" data-cine>
+      <a class="btn btn-solid" href="#properties" style="border-color:transparent"><span data-i="hero_cta1">Explore properties</span><svg class="arw" viewBox="0 0 14 10" fill="none"><path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg></a>
+      <a class="btn btn-ghost" href="#philosophy"><span data-i="hero_cta2">Our philosophy</span></a>
+    </div>
+  </div>
+  <div class="hero-meta" data-cine>
+    <div class="hcount"><span id="hcur">01</span><span class="bar"><i id="hbar"></i></span><span id="htot">03</span></div>
+    <div class="harrows">
+      <button id="hprev" aria-label="Previous image"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M14 5H2M6 1L2 5l4 4" stroke="currentColor" stroke-width="1.2"/></svg></button>
+      <button id="hnext" aria-label="Next image"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg></button>
+    </div>
+  </div>
+  <div class="scrollcue" data-cine data-i="hero_scroll">Discover</div>
 </section>
 
-
-
-<section id="how">
-  <div class="wrap">
-    <div class="eyebrow"><span class="ln"></span><span class="mono">How it works</span></div>
-    <h2 class="rv">Four steps to the <em>right</em> front door.</h2>
-    <p class="lede rv">Everything before the viewing runs quietly in the background. When it's time for the human part, I'm there.</p>
-    <div class="steps">
-      <div class="step rv"><div class="n">01</div>
-        <svg class="ic" viewBox="0 0 32 32" fill="none"><path d="M16 3l3.5 8.5L28 12l-6.5 6 2 9-7.5-4.5L8.5 27l2-9L4 12l8.5-.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
-        <h4>Tell me your dream</h4><p>A few relaxed questions: where, how much, what matters most, and when. Two minutes, and your search is alive.</p></div>
-      <div class="step rv"><div class="n">02</div>
-        <svg class="ic" viewBox="0 0 32 32" fill="none"><circle cx="14" cy="14" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M21 21l6 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M14 10v8M10 14h8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-        <h4>The search never rests</h4><p>Every property portal in Portugal, watched day and night, with new listings matched to your wishes — so nothing good ever slips past.</p></div>
-      <div class="step rv"><div class="n">03</div>
-        <svg class="ic" viewBox="0 0 32 32" fill="none"><path d="M6 27V13l10-7 10 7v14" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M13 27v-7h6v7" stroke="currentColor" stroke-width="1.4"/></svg>
-        <h4>We visit the best, together</h4><p>I go with you to the homes worth your time — and tell you the truth about each: the beautiful, the practical, the flaws.</p></div>
-      <div class="step rv"><div class="n">04</div>
-        <svg class="ic" viewBox="0 0 32 32" fill="none"><path d="M8 4h12l6 6v18H8z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M20 4v6h6M12 17l3 3 6-6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <h4>I guide you to the deed</h4><p>Financing, taxes, total cost, lawyer and notary — the whole package, handled, until the keys are yours.</p></div>
+<!-- ============ VALUES ============ -->
+<section class="values">
+  <div class="wrap vgrid">
+    <div class="vitem" data-rv>
+      <svg class="ic" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M17 28C9 24 6 17 8 9c8-2 15 1 19 9-2 6-6 9-10 10z"/><path d="M10 26C14 20 20 15 26 12"/></svg>
+      <h3 data-i="v1_t">Earth</h3>
+      <p data-i="v1_p">Properties that honour the land and its natural beauty.</p>
+      <a class="tlink" href="#properties"><span data-i="v_more">Learn more</span> →</a>
+    </div>
+    <div class="vitem" data-rv>
+      <svg class="ic" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M4 12c4-3 8-3 12 0s8 3 12 0M4 19c4-3 8-3 12 0s8 3 12 0M4 26c4-3 8-3 12 0s8 3 12 0"/></svg>
+      <h3 data-i="v2_t">Sea</h3>
+      <p data-i="v2_p">Moments from the ocean. Inspired by its energy.</p>
+      <a class="tlink" href="#locations"><span data-i="v_more">Learn more</span> →</a>
+    </div>
+    <div class="vitem" data-rv>
+      <svg class="ic" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M17 5c-6 7-6 12 0 14s6-7 0-14zM17 19v10M11 26c2 2 10 2 12 0"/></svg>
+      <h3 data-i="v3_t">Essence</h3>
+      <p data-i="v3_p">Spaces that nurture wellbeing, connection and simplicity.</p>
+      <a class="tlink" href="#experiences"><span data-i="v_more">Learn more</span> →</a>
     </div>
   </div>
 </section>
 
-<section class="ai" id="ai">
-  <div class="glow"></div>
-  
-  <div class="wrap in">
+<!-- ============ PROPERTIES ============ -->
+<section class="props" id="properties">
+  <div class="wrap">
+    <div class="props-head">
+      <div data-rv>
+        <span class="eyebrow" data-i="p_eyebrow">Handpicked properties</span>
+        <h2 data-i="p_title">Spaces with soul.<br>Places to belong.</h2>
+      </div>
+      <p class="lead" data-rv data-i="p_sub">A curated collection of homes and investment opportunities in the most authentic corners of the Algarve — each one chosen for its light, its land and its promise of a slower, richer life.</p>
+    </div>
+    <div class="pgrid">
+      <!-- Illustrative placeholder listings — imagery + specs are examples, not live inventory -->
+      <article class="pcard" data-rv>
+        <div class="pimg"><span class="ploc">Lagoa</span><img src="img/g-villa.jpg" alt="Coastal villa with pool at golden hour" loading="lazy"></div>
+        <div class="pbody">
+          <h3><span data-i="p1_t">Coastal Villa</span><span class="go"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg></span></h3>
+          <div class="pspecs"><span>4 <i data-i="p_bed">bedrooms</i></span><span class="dot"></span><span>5 <i data-i="p_bath">bathrooms</i></span><span class="dot"></span><span>285 m²</span></div>
+        </div>
+      </article>
+      <article class="pcard" data-rv>
+        <div class="pimg"><span class="ploc">Aljezur</span><img src="img/rr-estate.jpg" alt="Stone estate in the countryside" loading="lazy"></div>
+        <div class="pbody">
+          <h3><span data-i="p2_t">Countryside Estate</span><span class="go"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg></span></h3>
+          <div class="pspecs"><span>6 <i data-i="p_bed">bedrooms</i></span><span class="dot"></span><span>6 <i data-i="p_bath">bathrooms</i></span><span class="dot"></span><span>450 m²</span></div>
+        </div>
+      </article>
+      <article class="pcard" data-rv>
+        <div class="pimg"><span class="ploc">Carvoeiro</span><img src="img/g-town.jpg" alt="Ocean view over Carvoeiro" loading="lazy"></div>
+        <div class="pbody">
+          <h3><span data-i="p3_t">Ocean View Retreat</span><span class="go"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg></span></h3>
+          <div class="pspecs"><span>3 <i data-i="p_bed">bedrooms</i></span><span class="dot"></span><span>4 <i data-i="p_bath">bathrooms</i></span><span class="dot"></span><span>210 m²</span></div>
+        </div>
+      </article>
+    </div>
+    <div class="pnote" data-rv>
+      <p class="disc" data-i="p_disc">An illustrative collection — the current portfolio is shared privately. Tell us what you are looking for and we will search it out, on and off the market.</p>
+      <a class="tlink" href="#contact"><span data-i="p_all">Start your search</span> →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PHILOSOPHY ============ -->
+<section class="philo" id="philosophy">
+  <div class="wrap split">
+    <div class="arch" data-rv data-plx>
+      <img src="img/rr-still.jpg" alt="Ceramic still life in warm light" loading="lazy">
+    </div>
     <div>
-      <div class="eyebrow"><span class="ln"></span><span class="mono" style="color:var(--gold-l)">The difference</span></div>
-      <h2 class="rv">A search that <em>never rests.</em></h2>
-      <p class="lede rv">Most agents wait for listings to land in their inbox. I go looking. The moment you tell me your dream, I put the <b>whole market to work for you</b> — every property portal in Portugal, watched continuously. Every two weeks you receive a short, hand-curated shortlist of homes that genuinely fit, each with a personal note on why. You stay close to the market between viewings, and you never miss the one.</p>
-      <a class="btn sea rv" href="#book" style="margin-top:30px">Start your search</a>
-    </div>
-    <div class="card rv">
-      <div class="top"><span class="dot"></span> Your matches · this fortnight</div>
-      <div class="match"><div class="th"><img src="img/match-1.jpg" alt=""></div><div class="mx"><b>Villa near Tavira, sea view</b><span>3 BED · €745,000 · MATCHED TODAY</span></div><div class="pct">96%</div></div>
-      <div class="match"><div class="th"><img src="img/match-2.jpg" alt=""></div><div class="mx"><b>Townhouse, Loulé old town</b><span>2 BED · €410,000 · WALKABLE</span></div><div class="pct">92%</div></div>
-      <div class="match"><div class="th"><img src="img/match-3.jpg" alt=""></div><div class="mx"><b>Quinta with land, Silves</b><span>4 BED · €890,000 · PROJECT</span></div><div class="pct">89%</div></div>
-      <div style="margin-top:16px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--mut2);text-transform:uppercase">A sample — your shortlist is built around your wishes</div>
+      <span class="eyebrow" data-rv data-i="ph_eyebrow">Our philosophy</span>
+      <blockquote data-rv data-i="ph_quote">“Where nature meets design, and <em>life finds its rhythm.</em>”</blockquote>
+      <p class="body" data-rv data-i="ph_body">A calm, intentional life in tune with nature. Timeless. Grounded. Elevated. We believe a home here is not an escape from life but a return to it — to shared tables, sea air, land that gives, and time that stretches. This is where you belong.</p>
+      <div class="chips" data-rv>
+        <span class="chip" data-i="ph_c1">Natural</span><span class="chip" data-i="ph_c2">Grounded</span><span class="chip" data-i="ph_c3">Authentic</span><span class="chip" data-i="ph_c4">Timeless</span><span class="chip" data-i="ph_c5">Harmonious</span>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="services">
+<!-- ============ LOCATIONS ============ -->
+<section class="locs" id="locations">
+  <div class="lbg" data-plxbg><img src="img/rr-cliffs.jpg" alt="" loading="lazy" aria-hidden="true"></div>
+  <div class="wrap linner">
+    <span class="eyebrow center" data-rv data-i="l_eyebrow">Where we are rooted</span>
+    <h2 data-rv data-i="l_title">The authentic corners of the Algarve</h2>
+    <p class="lead" data-rv data-i="l_sub">From wild western coastlines to golden southern coves — we work where the Algarve is still itself.</p>
+    <div class="lnames" data-rv>
+      <span class="lname"><i>01</i> Lagos</span>
+      <span class="lname"><i>02</i> Aljezur</span>
+      <span class="lname"><i>03</i> Carvoeiro</span>
+      <span class="lname"><i>04</i> Lagoa</span>
+      <span class="lname"><i>05</i> Tavira</span>
+      <span class="lname"><i>06</i> Loulé</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCES ============ -->
+<section class="expr" id="experiences">
   <div class="wrap">
-    <div class="eyebrow"><span class="ln"></span><span class="mono">Services</span></div>
-    <h2 class="rv">One guide. <em>Three ways I help.</em></h2>
-    <div class="svcs">
-      <div class="svc feat rv">
-        <div class="tag">For buyers</div>
-        <h3>Find your home</h3>
-        <div class="price free">Completely free</div>
-        <p>The full concierge — from your first wish to the day you hold the keys. You pay nothing for my help. My fee is zero.</p>
-        <ul>
-          <li>A shortlist from every portal, curated for you</li>
-          <li>Personal viewings, I come with you</li>
-          <li>Honest read on every property</li>
-          <li>Financing, taxes &amp; total cost, clear</li>
-          <li>Lawyer &amp; notary, all the way to the deed</li>
-        </ul>
-      </div>
-      <div class="svc rv">
-        <div class="tag">For sellers</div>
-        <h3>Sell your home</h3>
-        <div class="price">5% + IVA</div>
-        <p>A free market study to price it right, then presentation and distribution that make it move — represented properly, start to finish.</p>
-        <ul>
-          <li>Free, data-backed market study</li>
-          <li>Photography &amp; light staging</li>
-          <li>Listing &amp; distribution</li>
-          <li>Qualified buyers, not tyre-kickers</li>
-        </ul>
-      </div>
-      <div class="svc rv">
-        <div class="tag">For owners &amp; renters</div>
-        <h3>Rent it out, or find one</h3>
-        <div class="price">On match</div>
-        <p>List a property to rent, or tell me what you're after. When there's a match, I make the connection.</p>
-        <ul>
-          <li>List your property to rent</li>
-          <li>Search homes to rent</li>
-          <li>Matched &amp; introduced personally</li>
-        </ul>
-      </div>
+    <div class="expr-head">
+      <span class="eyebrow center" data-rv data-i="e_eyebrow">Experiences</span>
+      <h2 data-rv data-i="e_title">Living here is the experience</h2>
+      <p class="lead" data-rv style="margin-inline:auto" data-i="e_sub">Owning a home with us opens a way of life — slow mornings, open seas and rooms that breathe.</p>
+    </div>
+    <div class="egrid">
+      <figure class="ecard" data-rv>
+        <img src="img/g-cove.jpg" alt="Hidden cove with turquoise water" loading="lazy">
+        <figcaption class="ecap"><span class="en" data-i="e1_n">Sea</span><h3 data-i="e1_t">Coastal mornings</h3></figcaption>
+      </figure>
+      <figure class="ecard" data-rv>
+        <img src="img/rr-terracotta.jpg" alt="Terracotta pottery in warm light" loading="lazy">
+        <figcaption class="ecap"><span class="en" data-i="e2_n">Earth</span><h3 data-i="e2_t">Crafted by hand</h3></figcaption>
+      </figure>
+      <figure class="ecard" data-rv>
+        <img src="img/rr-interior.jpg" alt="Warm linen interior" loading="lazy">
+        <figcaption class="ecap"><span class="en" data-i="e3_n">Essence</span><h3 data-i="e3_t">Rooms that breathe</h3></figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
-
-
-<section class="pkg" id="package">
-  <div class="wrap">
-    <div class="eyebrow"><span class="ln"></span><span class="mono">The whole package</span></div>
-    <h2 class="rv">Everything included, <em>to the deed.</em></h2>
-    <div class="grid">
-      <div class="list rv">
-        <div class="row"><span class="num">01</span><div><b>The search</b><span>A shortlist from every Portuguese portal, hand-curated to your wishes.</span></div></div>
-        <div class="row"><span class="num">02</span><div><b>The viewings</b><span>I go to the house with you and read it honestly — pros and cons.</span></div></div>
-        <div class="row"><span class="num">03</span><div><b>Financing &amp; mortgage</b><span>Clear guidance on what's possible and how it works here.</span></div></div>
-        <div class="row"><span class="num">04</span><div><b>Taxes &amp; total cost</b><span>No surprises — every cost on the table, up front.</span></div></div>
-        <div class="row"><span class="num">05</span><div><b>Lawyer &amp; notary</b><span>Trusted partners handle the legal path from offer to signature.</span></div></div>
-        <div class="row"><span class="num">06</span><div><b>The deed</b><span>All the way to the keys in your hand — and I stay in touch after.</span></div></div>
-      </div>
-      <div class="addons rv">
-        <div class="k">Optional add-ons</div>
-        <h4>To sell for more, or move faster</h4>
-        <div class="a"><span>Professional photoshoot</span><em>small fee</em></div>
-        <div class="a"><span>Light home staging &amp; styling</span><em>small fee</em></div>
-        <div class="a"><span>Paint refresh to lift a room</span><em>small fee</em></div>
-        <div class="a"><span>Full market valuation study</span><em>free</em></div>
-        <p style="margin-top:18px;font-size:13.5px;color:var(--mut);font-weight:300">Small investments that routinely return far more at sale — and make a home feel ready to love.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="why" id="about">
-  <div class="wrap">
-    <div class="eyebrow"><span class="ln"></span><span class="mono">Meet your guide</span></div>
-    <div class="meet rv">
-      <div class="portrait"><img src="img/alco.jpg" alt="Alco, your personal Algarve guide"></div>
-      <div class="meetx">
-        <h2>Meet <em>Alco.</em></h2>
-        <p>I help people from the Netherlands, France, the UK and beyond find a home on the Algarve — and I do it the way I'd want it done for me. I go to the houses myself. I tell you the truth about each one, the good and the flaws alike. I make the money side — financing, taxes, the real total cost — completely clear. And I stay beside you from the first viewing to the day the keys are in your hand.</p>
-        <p>Finding your home costs you nothing. My promise is simple: a high standard, always easy to approach.</p>
-        <div class="sig">Alco &middot; Ding Dong &middot; Century 21 Algarve</div>
-      </div>
-    </div>
-    <div class="eyebrow" style="margin-top:14px"><span class="ln"></span><span class="mono">Why buyers trust me</span></div>
-    <h2 class="rv" style="margin-bottom:8px">Relentless on the search. <em>Personal on everything else.</em></h2>
-    <div class="grid">
-      <div class="w rv"><h4>Truly local</h4><p>On the ground in the Algarve, I go to the houses, meet the sellers, and know what a listing doesn't say.</p></div>
-      <div class="w rv"><h4>Honest, always</h4><p>You'll hear the cons as clearly as the pros. My job is your right home — not the fastest sale.</p></div>
-      <div class="w rv"><h4>Your language</h4><p>Dutch, French, English or Portuguese — the whole journey in the language you're most comfortable in.</p></div>
-      <div class="w rv"><h4>The money, clear</h4><p>Financing, taxes and the real total cost, explained plainly, so you buy with confidence.</p></div>
-      <div class="w rv"><h4>Free for buyers</h4><p>Finding your home costs you nothing. You pay only the notary and lawyer — never a fee to me.</p></div>
-      <div class="w rv"><h4>One hand to hold</h4><p>From the first search to long after the deed — one person who knows your story the whole way.</p></div>
-    </div>
-    <p class="note rv">I'm at the beginning of building something I care deeply about — a more human way to buy a home on the Algarve. If that's the kind of guide you'd want beside you, I'd love to meet you.</p>
-  </div>
-</section>
-
-<section class="gallery" id="gallery">
-  <div class="wrap">
-    <div class="eyebrow"><span class="ln"></span><span class="mono">A taste of the Algarve</span></div>
-    <h2 class="rv">Where your <em>next chapter</em> begins.</h2>
-    <div class="ggrid">
-      <figure class="rv"><img src="img/g-cove.jpg" alt="A turquoise cove beneath the Algarve cliffs" loading="lazy"></figure>
-      <figure class="rv"><img src="img/g-town.jpg" alt="A whitewashed Algarve town above the sea" loading="lazy"></figure>
-      <figure class="rv"><img src="img/g-street.jpg" alt="A sunlit Algarve village street" loading="lazy"></figure>
-      <figure class="rv"><img src="img/g-villa.jpg" alt="A Portuguese villa with a pool at golden hour" loading="lazy"></figure>
-    </div>
-  </div>
-</section>
-
-<section class="book" id="book">
-  <div class="glow"></div>
-  
-  <div class="wrap in">
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="wrap split">
     <div>
-      <div class="eyebrow"><span class="ln"></span><span class="mono" style="color:var(--gold-l)">Start your search</span></div>
-      <h2 class="rv">Tell me your <em>dream.</em></h2>
-      <p class="lede rv">Two minutes now, and your search begins. I'll come back to you personally — never a robot — usually within a day.</p>
-      <div class="assure rv">
-        <div>Completely free for buyers, no obligation</div>
-        <div>Your details are private, and only mine</div>
-        <div>A real, human reply — in your language</div>
-      </div>
-      <div class="waline rv"><a class="wa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M19.11 17.2c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.14-.64.14-.19.29-.74.93-.9 1.12-.17.19-.33.21-.62.07-.29-.15-1.22-.45-2.33-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38 0 1.4 1.02 2.76 1.17 2.95.14.19 2.01 3.08 4.88 4.32.68.29 1.21.47 1.63.6.68.22 1.31.19 1.8.12.55-.08 1.7-.69 1.94-1.37.24-.67.24-1.24.17-1.37-.07-.13-.26-.2-.55-.34z"/><path d="M16.02 3.2c-7.06 0-12.8 5.74-12.8 12.8 0 2.26.59 4.46 1.71 6.4L3.2 28.8l6.56-1.72c1.87 1.02 3.98 1.56 6.13 1.56h.01c7.05 0 12.8-5.74 12.8-12.8 0-3.42-1.33-6.63-3.75-9.05a12.7 12.7 0 0 0-9.05-3.75zm0 23.4h-.01c-1.92 0-3.8-.52-5.44-1.49l-.39-.23-4.04 1.06 1.08-3.94-.25-.4a10.6 10.6 0 0 1-1.63-5.66c0-5.87 4.78-10.65 10.66-10.65 2.85 0 5.52 1.11 7.53 3.12a10.58 10.58 0 0 1 3.12 7.54c0 5.87-4.78 10.65-10.66 10.65z"/></svg><span class="wa-label"></span></a></div>
+      <span class="eyebrow" data-rv data-i="a_eyebrow">Your guide</span>
+      <h2 data-rv data-i="a_title">One person, from first walk to <em style="color:var(--terra)">final keys</em></h2>
+      <p class="body" data-rv data-i="a_body1">Roam &amp; Root is led personally by Alco — your single point of trust through every step. She listens first, then searches relentlessly: on the market, off the market, and through the quiet networks where the Algarve's best homes change hands.</p>
+      <ul class="alist">
+        <li data-rv><svg class="mk2" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 12l6 6L19 5"/></svg><span data-i="a_l1">A personal search shaped around your life, not a listings feed</span></li>
+        <li data-rv><svg class="mk2" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 12l6 6L19 5"/></svg><span data-i="a_l2">Honest guidance on land, light, licences and true value</span></li>
+        <li data-rv><svg class="mk2" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 12l6 6L19 5"/></svg><span data-i="a_l3">At your side through visits, negotiation and completion</span></li>
+      </ul>
+      <div data-rv><a class="btn btn-solid" href="#contact"><span data-i="a_cta">Meet Alco</span><svg class="arw" viewBox="0 0 14 10" fill="none"><path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
+      <p class="cred" data-rv data-i="a_cred">Licensed international agent · in partnership with Century 21</p>
     </div>
-    <form id="leadForm" class="rv">
-      <input type="hidden" name="access_key" value="REPLACE_WITH_WEB3FORMS_KEY">
-      <input type="hidden" name="subject" value="New Ding Dong lead — dream home search">
-      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-      <div class="field">
-        <label>I'm looking to</label>
-        <div class="seg">
-          <label><input type="radio" name="intent" value="Buy" checked><span class="opt">Buy</span></label>
-          <label><input type="radio" name="intent" value="Rent"><span class="opt">Rent</span></label>
-          <label><input type="radio" name="intent" value="Sell"><span class="opt">Sell</span></label>
+    <div class="arch" data-rv data-plx>
+      <!-- PLACEHOLDER portrait — swap for Alco's own photography -->
+      <img src="img/alco.jpg" alt="Alco — founder of Roam & Root Algarve" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow" data-rv data-i="c_eyebrow">Begin the conversation</span>
+      <h2 data-rv data-i="c_title">Tell us how you want <em>to live</em></h2>
+      <p class="body" data-rv data-i="c_body">Share a few words about the life you are imagining — a first home, a retreat, an investment — and we will reply personally within one working day.</p>
+      <div class="cmeans">
+        <div class="cmean" data-rv>
+          <span class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg></span>
+          <div><div class="cl" data-i="c_m1">Write to us</div><div class="cv">hello@roamandroot.pt</div></div>
+        </div>
+        <div class="cmean" data-rv>
+          <span class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s7-5.1 7-11a7 7 0 1 0-14 0c0 5.9 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+          <div><div class="cl" data-i="c_m2">Where</div><div class="cv">Algarve, Portugal</div></div>
+        </div>
+        <div class="cmean" data-rv>
+          <span class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M21 15.5c-1.5 0-3-.3-4.3-.8l-1.5 1.5a15 15 0 0 1-6.4-6.4l1.5-1.5A12 12 0 0 1 9.5 4H4a16 16 0 0 0 16 16v-4.5z"/></svg></span>
+          <div><div class="cl" data-i="c_m3">WhatsApp</div><div class="cv">+31 6 15471303</div></div>
         </div>
       </div>
-      <div class="row">
-        <div class="field"><label>Area of the Algarve</label><input name="area" placeholder="e.g. Tavira, Loulé, anywhere"></div>
-        <div class="field"><label>Budget</label><input name="budget" placeholder="e.g. €500k – €800k"></div>
+    </div>
+    <form class="book" id="bookform" data-rv novalidate>
+      <h3 data-i="f_title">Request a private consultation</h3>
+      <div class="frow">
+        <div class="fgroup"><label for="f-name" data-i="f_name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="fgroup"><label for="f-email" data-i="f_email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
       </div>
-      <div class="row">
-        <div class="field"><label>Bedrooms</label>
-          <select name="bedrooms"><option value="">Any</option><option>1+</option><option>2+</option><option>3+</option><option>4+</option><option>5+</option></select></div>
-        <div class="field"><label>Timeline</label>
-          <select name="timeline"><option value="">Flexible</option><option>Ready now</option><option>Within 3 months</option><option>This year</option><option>Just exploring</option></select></div>
+      <div class="fgroup"><label for="f-int" data-i="f_int">I am looking for</label>
+        <select id="f-int" name="interest">
+          <option data-i="f_o1">A home to live in</option>
+          <option data-i="f_o2">A holiday retreat</option>
+          <option data-i="f_o3">An investment</option>
+          <option data-i="f_o4">To sell a property</option>
+        </select>
       </div>
-      <div class="row">
-        <div class="field"><label>Your name</label><input name="name" required placeholder="Full name"></div>
-        <div class="field"><label>Email</label><input type="email" name="email" required placeholder="you@email.com"></div>
-      </div>
-      <div class="field"><label>Preferred language</label>
-        <select name="language"><option>English</option><option>Nederlands</option><option>Français</option><option>Português</option><option>Deutsch</option></select></div>
-      <div class="field"><label>Anything else about your dream home?</label><textarea name="message" placeholder="Sea view, a pool, a project to make my own, near a village…"></textarea></div>
-      <button type="submit" class="btn">Begin the adventure</button>
-      <p class="fine">By sending this you agree I may contact you about your search. No spam, ever.</p>
+      <div class="fgroup"><label for="f-msg" data-i="f_msg">Your story</label><textarea id="f-msg" name="message" data-ip="f_msg_ph" placeholder="The places, spaces and pace of life you are drawn to…"></textarea></div>
+      <button class="btn btn-solid" type="submit"><span data-i="f_send">Send inquiry</span><svg class="arw" viewBox="0 0 14 10" fill="none"><path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg></button>
+      <p class="fnote" data-i="f_note">Your details stay private and are never shared.</p>
+      <p id="fmsg" data-i="f_ok">Thank you — your message is on its way. We will reply personally.</p>
     </form>
-    <div class="ok" id="ok"><div class="big">Your search has begun.</div><p>Thank you — I've got your dream, and I'll be in touch personally very soon.</p></div>
   </div>
 </section>
 
+<!-- ============ FOOTER ============ -->
 <footer>
-  
-  <div class="wrap in">
-    <div class="brand">
-      <a class="brand" href="#top" style="gap:12px"><svg class="bell" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="15" r="9" stroke="#c56a3d" stroke-width="2"/><path d="M4 15h2M26 15h2M16 3v2M8 7l1.5 1.5M24 7l-1.5 1.5" stroke="#c56a3d" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="15" r="3" fill="#b8894b"/></svg><div class="t"><b>Ding Dong</b><small style="color:var(--mut2)">Find your Algarve</small></div></a>
-      <p>A personal guide to your dream home on the Algarve, with a search that never rests until you find it.</p>
+  <div class="wrap fmain">
+    <div class="fbrand">
+      <a class="brand" href="#top">
+        <svg viewBox="0 0 64 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="18" r="12" fill="#F5F2EF"/>
+          <path d="M12 42a20 12 0 0 0 40 0z" fill="#C7825B"/>
+          <path d="M16 64a16 9 0 0 0 32 0z" fill="#D6B89A"/>
+        </svg>
+        <span class="bt"><span class="b1">Roam &amp; Root</span><span class="b2">Algarve</span></span>
+      </a>
+      <p data-i="ft_body">Rooted in the Algarve. Inspired by nature. Cultivating meaningful stays, soulful experiences and a deeper connection to place.</p>
     </div>
-    <div class="cols">
-      <div class="col"><span>Explore</span><a href="#how">How it works</a><a href="#ai">The search</a><a href="#services">Services</a><a href="#package">The package</a></div>
-      <div class="col"><span>Get started</span><a href="#book">Start your search</a><a href="mailto:alkojambrienke@century21.pt">Email me</a></div>
-      <div class="col"><span>Contact</span><a href="mailto:alkojambrienke@century21.pt">alkojambrienke@century21.pt</a><a class="wa" href="#" target="_blank" rel="noopener">WhatsApp</a><span style="color:var(--mut);text-transform:none;letter-spacing:0;font-family:var(--body)">Algarve · Portugal</span></div>
+    <div class="fcol">
+      <h4 data-i="ft_explore">Explore</h4>
+      <a href="#properties" data-i="nav_properties">Properties</a>
+      <a href="#philosophy" data-i="nav_philosophy">Philosophy</a>
+      <a href="#locations" data-i="nav_locations">Locations</a>
+      <a href="#experiences" data-i="nav_experiences">Experiences</a>
+    </div>
+    <div class="fcol">
+      <h4 data-i="ft_contact">Contact</h4>
+      <span>Algarve, Portugal</span>
+      <a href="mailto:hello@roamandroot.pt">hello@roamandroot.pt</a>
+      <a id="ftwa" href="https://wa.me/31615471303" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="#contact" data-i="nav_inquire">Inquire</a>
     </div>
   </div>
-  <div class="wrap base">
-    <span>© 2026 Ding Dong · Find your Algarve</span>
-    <span>In partnership with Century 21</span>
-    <span>NL · FR · EN · PT</span>
+  <div class="wrap fstrip">
+    <span data-i="ft_s1">Earth · Sea · Essence</span>
+    <span class="fm"><svg viewBox="0 0 64 88" fill="none"><circle cx="32" cy="18" r="12" fill="#C7825B"/><path d="M12 42a20 12 0 0 0 40 0z" fill="#D6B89A" opacity=".7"/><path d="M16 64a16 9 0 0 0 32 0z" fill="#F5F2EF" opacity=".4"/></svg></span>
+    <span data-i="ft_s2">Living in Harmony</span>
+  </div>
+  <div class="wrap fcopy">
+    <span>© Roam &amp; Root Algarve</span>
+    <span data-i="ft_concept">Concept preview by Meridante · placeholder imagery</span>
   </div>
 </footer>
 
-<a id="wafab" class="wa" href="#" target="_blank" rel="noopener" aria-label="Chat with Alco on WhatsApp">
-  <span class="watip wa-label"></span>
-  <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M19.11 17.2c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.14-.64.14-.19.29-.74.93-.9 1.12-.17.19-.33.21-.62.07-.29-.15-1.22-.45-2.33-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38 0 1.4 1.02 2.76 1.17 2.95.14.19 2.01 3.08 4.88 4.32.68.29 1.21.47 1.63.6.68.22 1.31.19 1.8.12.55-.08 1.7-.69 1.94-1.37.24-.67.24-1.24.17-1.37-.07-.13-.26-.2-.55-.34z"/><path d="M16.02 3.2c-7.06 0-12.8 5.74-12.8 12.8 0 2.26.59 4.46 1.71 6.4L3.2 28.8l6.56-1.72c1.87 1.02 3.98 1.56 6.13 1.56h.01c7.05 0 12.8-5.74 12.8-12.8 0-3.42-1.33-6.63-3.75-9.05a12.7 12.7 0 0 0-9.05-3.75zm0 23.4h-.01c-1.92 0-3.8-.52-5.44-1.49l-.39-.23-4.04 1.06 1.08-3.94-.25-.4a10.6 10.6 0 0 1-1.63-5.66c0-5.87 4.78-10.65 10.66-10.65 2.85 0 5.52 1.11 7.53 3.12a10.58 10.58 0 0 1 3.12 7.54c0 5.87-4.78 10.65-10.66 10.65z"/></svg>
+<!-- ============ WHATSAPP ============ -->
+<a id="wafab" href="https://wa.me/31615471303" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.1-.7l.4-.5c.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.6-.3z"/></svg>
 </a>
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
-const nav=document.getElementById('nav');
-addEventListener('scroll',()=>nav.classList.toggle('sc',scrollY>30),{passive:true});
-const burger=document.getElementById('burger'),mnav=document.getElementById('mnav');
-burger.onclick=()=>{document.body.classList.toggle('mopen');mnav.classList.toggle('open');};
-mnav.querySelectorAll('a').forEach(a=>a.onclick=()=>{document.body.classList.remove('mopen');mnav.classList.remove('open');});
+/* ================= I18N ================= */
+const DICT = {
+nl:{
+ loader_tag:"Leven in harmonie",
+ nav_properties:"Woningen",nav_philosophy:"Filosofie",nav_locations:"Locaties",nav_experiences:"Ervaringen",nav_about:"Over ons",nav_contact:"Contact",nav_inquire:"Informeer",
+ hero_eyebrow:"Vastgoed in harmonie met de natuur",
+ hero_title:"Geworteld in de Algarve.<br><em>Ontworpen voor het leven.</em>",
+ hero_sub:"Wij cureren tijdloze woningen en ervaringen die u verbinden met het land, de zee en wat er werkelijk toe doet.",
+ hero_cta1:"Bekijk woningen",hero_cta2:"Onze filosofie",hero_scroll:"Ontdek",
+ v1_t:"Aarde",v1_p:"Woningen die het land en zijn natuurlijke schoonheid eren.",
+ v2_t:"Zee",v2_p:"Op enkele minuten van de oceaan. Geïnspireerd door haar energie.",
+ v3_t:"Essentie",v3_p:"Ruimtes die welzijn, verbinding en eenvoud voeden.",
+ v_more:"Lees meer",
+ p_eyebrow:"Zorgvuldig geselecteerd",
+ p_title:"Ruimtes met ziel.<br>Plekken om thuis te komen.",
+ p_sub:"Een gecureerde collectie woningen en investeringskansen in de meest authentieke hoeken van de Algarve — elk gekozen om het licht, het land en de belofte van een langzamer, rijker leven.",
+ p1_t:"Kustvilla",p2_t:"Landgoed",p3_t:"Retraite aan zee",
+ p_bed:"slaapkamers",p_bath:"badkamers",
+ p_disc:"Een illustratieve collectie — het actuele aanbod delen wij persoonlijk. Vertel ons wat u zoekt en wij vinden het, op en buiten de markt.",
+ p_all:"Start uw zoektocht",
+ ph_eyebrow:"Onze filosofie",
+ ph_quote:"“Waar natuur en design samenkomen, en <em>het leven zijn ritme vindt.</em>”",
+ ph_body:"Een kalm, bewust leven in harmonie met de natuur. Tijdloos. Geaard. Verfijnd. Een huis hier is geen vlucht uit het leven, maar een terugkeer ernaar — naar gedeelde tafels, zeelucht en tijd die zich uitstrekt. Hier hoort u thuis.",
+ ph_c1:"Natuurlijk",ph_c2:"Geaard",ph_c3:"Authentiek",ph_c4:"Tijdloos",ph_c5:"Harmonieus",
+ l_eyebrow:"Waar wij geworteld zijn",l_title:"De authentieke hoeken van de Algarve",
+ l_sub:"Van wilde westkusten tot gouden baaien in het zuiden — wij werken waar de Algarve nog zichzelf is.",
+ e_eyebrow:"Ervaringen",e_title:"Hier wonen ís de ervaring",
+ e_sub:"Een huis bij ons opent een manier van leven — trage ochtenden, open zee en kamers die ademen.",
+ e1_n:"Zee",e1_t:"Ochtenden aan de kust",e2_n:"Aarde",e2_t:"Met de hand gemaakt",e3_n:"Essentie",e3_t:"Kamers die ademen",
+ a_eyebrow:"Uw gids",a_title:"Eén persoon, van eerste wandeling tot <em style=\"color:var(--terra)\">de sleutels</em>",
+ a_body1:"Roam & Root wordt persoonlijk geleid door Alco — uw enige aanspreekpunt bij elke stap. Zij luistert eerst en zoekt dan onvermoeibaar: op de markt, buiten de markt en via de stille netwerken waar de mooiste huizen van de Algarve van eigenaar wisselen.",
+ a_l1:"Een persoonlijke zoektocht rond uw leven, geen advertentiefeed",
+ a_l2:"Eerlijk advies over grond, licht, vergunningen en echte waarde",
+ a_l3:"Aan uw zijde bij bezichtigingen, onderhandeling en overdracht",
+ a_cta:"Maak kennis met Alco",
+ a_cred:"Erkend internationaal makelaar · in samenwerking met Century 21",
+ c_eyebrow:"Begin het gesprek",c_title:"Vertel ons hoe u wilt <em>leven</em>",
+ c_body:"Deel een paar woorden over het leven dat u voor ogen heeft — een eerste huis, een toevluchtsoord, een investering — en wij antwoorden persoonlijk binnen één werkdag.",
+ c_m1:"Schrijf ons",c_m2:"Waar",c_m3:"WhatsApp",
+ f_title:"Vraag een privéconsult aan",f_name:"Naam",f_email:"E-mail",f_int:"Ik zoek",
+ f_o1:"Een huis om in te wonen",f_o2:"Een vakantiewoning",f_o3:"Een investering",f_o4:"Een woning verkopen",
+ f_msg:"Uw verhaal",f_msg_ph:"De plekken, ruimtes en het levensritme waar u zich toe aangetrokken voelt…",
+ f_send:"Verstuur aanvraag",f_note:"Uw gegevens blijven privé en worden nooit gedeeld.",
+ f_ok:"Dank u — uw bericht is onderweg. Wij antwoorden persoonlijk.",
+ ft_body:"Geworteld in de Algarve. Geïnspireerd door de natuur. Wij cultiveren betekenisvolle verblijven, zielvolle ervaringen en een diepere verbinding met de plek.",
+ ft_explore:"Ontdek",ft_contact:"Contact",ft_s1:"Aarde · Zee · Essentie",ft_s2:"Leven in harmonie",
+ ft_concept:"Conceptpreview door Meridante · placeholderbeelden",
+ wa_msg:"Hallo Alco, ik zag de Roam & Root website en denk na over een woning in de Algarve. Kunnen we praten?"
+},
+fr:{
+ loader_tag:"Vivre en harmonie",
+ nav_properties:"Propriétés",nav_philosophy:"Philosophie",nav_locations:"Lieux",nav_experiences:"Expériences",nav_about:"À propos",nav_contact:"Contact",nav_inquire:"Demande",
+ hero_eyebrow:"L'immobilier en harmonie avec la nature",
+ hero_title:"Enraciné en Algarve.<br><em>Conçu pour la vie.</em>",
+ hero_sub:"Nous sélectionnons des propriétés et des expériences intemporelles qui vous relient à la terre, à la mer et à l'essentiel.",
+ hero_cta1:"Voir les propriétés",hero_cta2:"Notre philosophie",hero_scroll:"Découvrir",
+ v1_t:"Terre",v1_p:"Des propriétés qui honorent la terre et sa beauté naturelle.",
+ v2_t:"Mer",v2_p:"À quelques instants de l'océan. Inspiré par son énergie.",
+ v3_t:"Essence",v3_p:"Des espaces qui nourrissent le bien-être, le lien et la simplicité.",
+ v_more:"En savoir plus",
+ p_eyebrow:"Sélection privée",
+ p_title:"Des lieux avec une âme.<br>Des endroits où s'ancrer.",
+ p_sub:"Une collection choisie de maisons et d'opportunités d'investissement dans les coins les plus authentiques de l'Algarve — chacune retenue pour sa lumière, sa terre et sa promesse d'une vie plus lente et plus riche.",
+ p1_t:"Villa côtière",p2_t:"Domaine de campagne",p3_t:"Refuge vue mer",
+ p_bed:"chambres",p_bath:"salles de bain",
+ p_disc:"Une collection illustrative — le portefeuille actuel est partagé en privé. Dites-nous ce que vous cherchez et nous le trouverons, sur le marché et hors marché.",
+ p_all:"Lancer votre recherche",
+ ph_eyebrow:"Notre philosophie",
+ ph_quote:"« Là où la nature rencontre le design, <em>la vie trouve son rythme.</em> »",
+ ph_body:"Une vie calme et intentionnelle, accordée à la nature. Intemporelle. Enracinée. Élevée. Une maison ici n'est pas une fuite hors de la vie, mais un retour vers elle — vers les tables partagées, l'air marin et le temps qui s'étire. C'est ici que vous êtes chez vous.",
+ ph_c1:"Naturel",ph_c2:"Enraciné",ph_c3:"Authentique",ph_c4:"Intemporel",ph_c5:"Harmonieux",
+ l_eyebrow:"Là où nous sommes enracinés",l_title:"Les coins authentiques de l'Algarve",
+ l_sub:"Des côtes sauvages de l'ouest aux criques dorées du sud — nous travaillons là où l'Algarve est encore elle-même.",
+ e_eyebrow:"Expériences",e_title:"Vivre ici est l'expérience",
+ e_sub:"Une maison chez nous ouvre un art de vivre — matins lents, mer ouverte et pièces qui respirent.",
+ e1_n:"Mer",e1_t:"Matins sur la côte",e2_n:"Terre",e2_t:"Façonné à la main",e3_n:"Essence",e3_t:"Des pièces qui respirent",
+ a_eyebrow:"Votre guide",a_title:"Une seule personne, de la première visite aux <em style=\"color:var(--terra)\">clés</em>",
+ a_body1:"Roam & Root est mené personnellement par Alco — votre unique interlocutrice de confiance à chaque étape. Elle écoute d'abord, puis cherche sans relâche : sur le marché, hors marché, et à travers les réseaux discrets où s'échangent les plus belles maisons de l'Algarve.",
+ a_l1:"Une recherche personnelle façonnée autour de votre vie, pas un flux d'annonces",
+ a_l2:"Des conseils honnêtes sur le terrain, la lumière, les licences et la vraie valeur",
+ a_l3:"À vos côtés pour les visites, la négociation et la signature",
+ a_cta:"Rencontrer Alco",
+ a_cred:"Agent international agréé · en partenariat avec Century 21",
+ c_eyebrow:"Commencer la conversation",c_title:"Dites-nous comment vous voulez <em>vivre</em>",
+ c_body:"Partagez quelques mots sur la vie que vous imaginez — une première maison, un refuge, un investissement — et nous répondrons personnellement sous un jour ouvré.",
+ c_m1:"Écrivez-nous",c_m2:"Où",c_m3:"WhatsApp",
+ f_title:"Demander une consultation privée",f_name:"Nom",f_email:"E-mail",f_int:"Je recherche",
+ f_o1:"Une résidence principale",f_o2:"Une maison de vacances",f_o3:"Un investissement",f_o4:"Vendre un bien",
+ f_msg:"Votre histoire",f_msg_ph:"Les lieux, les espaces et le rythme de vie qui vous attirent…",
+ f_send:"Envoyer la demande",f_note:"Vos informations restent privées et ne sont jamais partagées.",
+ f_ok:"Merci — votre message est en route. Nous répondrons personnellement.",
+ ft_body:"Enraciné en Algarve. Inspiré par la nature. Nous cultivons des séjours pleins de sens, des expériences d'âme et un lien plus profond au lieu.",
+ ft_explore:"Explorer",ft_contact:"Contact",ft_s1:"Terre · Mer · Essence",ft_s2:"Vivre en harmonie",
+ ft_concept:"Aperçu concept par Meridante · images provisoires",
+ wa_msg:"Bonjour Alco, j'ai vu le site Roam & Root et je réfléchis à une propriété en Algarve. Pouvons-nous en parler ?"
+},
+pt:{
+ loader_tag:"Viver em harmonia",
+ nav_properties:"Imóveis",nav_philosophy:"Filosofia",nav_locations:"Lugares",nav_experiences:"Experiências",nav_about:"Sobre",nav_contact:"Contacto",nav_inquire:"Contactar",
+ hero_eyebrow:"Imobiliário em harmonia com a natureza",
+ hero_title:"Enraizado no Algarve.<br><em>Desenhado para a vida.</em>",
+ hero_sub:"Curamos imóveis e experiências intemporais que o ligam à terra, ao mar e ao que verdadeiramente importa.",
+ hero_cta1:"Ver imóveis",hero_cta2:"A nossa filosofia",hero_scroll:"Descobrir",
+ v1_t:"Terra",v1_p:"Imóveis que honram a terra e a sua beleza natural.",
+ v2_t:"Mar",v2_p:"A instantes do oceano. Inspirado pela sua energia.",
+ v3_t:"Essência",v3_p:"Espaços que alimentam o bem-estar, a ligação e a simplicidade.",
+ v_more:"Saber mais",
+ p_eyebrow:"Seleção criteriosa",
+ p_title:"Espaços com alma.<br>Lugares para pertencer.",
+ p_sub:"Uma coleção curada de casas e oportunidades de investimento nos cantos mais autênticos do Algarve — cada uma escolhida pela luz, pela terra e pela promessa de uma vida mais lenta e mais rica.",
+ p1_t:"Villa Costeira",p2_t:"Herdade no Campo",p3_t:"Refúgio Vista Mar",
+ p_bed:"quartos",p_bath:"casas de banho",
+ p_disc:"Uma coleção ilustrativa — o portefólio atual é partilhado em privado. Diga-nos o que procura e nós encontramos, dentro e fora do mercado.",
+ p_all:"Começar a sua procura",
+ ph_eyebrow:"A nossa filosofia",
+ ph_quote:"“Onde a natureza encontra o design, <em>a vida encontra o seu ritmo.</em>”",
+ ph_body:"Uma vida calma e intencional, em sintonia com a natureza. Intemporal. Enraizada. Elevada. Uma casa aqui não é uma fuga à vida, é um regresso a ela — às mesas partilhadas, ao ar do mar, à terra que dá e ao tempo que se estende. É aqui que pertence.",
+ ph_c1:"Natural",ph_c2:"Enraizado",ph_c3:"Autêntico",ph_c4:"Intemporal",ph_c5:"Harmonioso",
+ l_eyebrow:"Onde estamos enraizados",l_title:"Os cantos autênticos do Algarve",
+ l_sub:"Das costas selvagens do oeste às enseadas douradas do sul — trabalhamos onde o Algarve ainda é ele próprio.",
+ e_eyebrow:"Experiências",e_title:"Viver aqui é a experiência",
+ e_sub:"Uma casa connosco abre um modo de vida — manhãs lentas, mar aberto e espaços que respiram.",
+ e1_n:"Mar",e1_t:"Manhãs na costa",e2_n:"Terra",e2_t:"Feito à mão",e3_n:"Essência",e3_t:"Espaços que respiram",
+ a_eyebrow:"A sua guia",a_title:"Uma só pessoa, do primeiro passeio às <em style=\"color:var(--terra)\">chaves</em>",
+ a_body1:"A Roam & Root é conduzida pessoalmente pela Alco — o seu único ponto de confiança em cada etapa. Primeiro escuta, depois procura sem descanso: no mercado, fora do mercado e nas redes discretas onde as melhores casas do Algarve mudam de mãos.",
+ a_l1:"Uma procura pessoal desenhada à volta da sua vida, não um feed de anúncios",
+ a_l2:"Aconselhamento honesto sobre terreno, luz, licenças e valor real",
+ a_l3:"Ao seu lado nas visitas, na negociação e na escritura",
+ a_cta:"Conhecer a Alco",
+ a_cred:"Agente internacional licenciada · em parceria com a Century 21",
+ c_eyebrow:"Comece a conversa",c_title:"Diga-nos como quer <em>viver</em>",
+ c_body:"Partilhe algumas palavras sobre a vida que imagina — uma primeira casa, um refúgio, um investimento — e responderemos pessoalmente dentro de um dia útil.",
+ c_m1:"Escreva-nos",c_m2:"Onde",c_m3:"WhatsApp",
+ f_title:"Pedir uma consulta privada",f_name:"Nome",f_email:"Email",f_int:"Procuro",
+ f_o1:"Uma casa para viver",f_o2:"Um refúgio de férias",f_o3:"Um investimento",f_o4:"Vender um imóvel",
+ f_msg:"A sua história",f_msg_ph:"Os lugares, os espaços e o ritmo de vida que o atraem…",
+ f_send:"Enviar pedido",f_note:"Os seus dados permanecem privados e nunca são partilhados.",
+ f_ok:"Obrigado — a sua mensagem segue caminho. Responderemos pessoalmente.",
+ ft_body:"Enraizado no Algarve. Inspirado pela natureza. Cultivamos estadias com significado, experiências com alma e uma ligação mais profunda ao lugar.",
+ ft_explore:"Explorar",ft_contact:"Contacto",ft_s1:"Terra · Mar · Essência",ft_s2:"Viver em harmonia",
+ ft_concept:"Pré-visualização de conceito por Meridante · imagens provisórias",
+ wa_msg:"Olá Alco, vi o site Roam & Root e estou a pensar numa casa no Algarve. Podemos falar?"
+},
+en:{ wa_msg:"Hi Alco, I found the Roam & Root website and I'm thinking about a home in the Algarve. Can we talk?" }
+};
+// capture EN originals once, then swap innerHTML by key
+const EN = {};
+document.querySelectorAll('[data-i]').forEach(el => { EN[el.dataset.i] = EN[el.dataset.i] ?? el.innerHTML; });
+const EN_PH = {}; document.querySelectorAll('[data-ip]').forEach(el => { EN_PH[el.dataset.ip] = el.getAttribute('placeholder'); });
+function setLang(lg){
+  const d = DICT[lg] || {};
+  document.querySelectorAll('[data-i]').forEach(el => {
+    const k = el.dataset.i;
+    el.innerHTML = (lg !== 'en' && d[k]) ? d[k] : EN[k];
+  });
+  document.querySelectorAll('[data-ip]').forEach(el => {
+    const k = el.dataset.ip;
+    el.setAttribute('placeholder', (lg !== 'en' && d[k]) ? d[k] : EN_PH[k]);
+  });
+  document.documentElement.lang = lg;
+  document.querySelectorAll('.langsw button, .mlang button').forEach(b => b.classList.toggle('on', b.dataset.lang === lg));
+  // language-aware WhatsApp message
+  const msg = encodeURIComponent((d.wa_msg) || DICT.en.wa_msg);
+  document.querySelectorAll('#wafab, #ftwa').forEach(a => a.href = 'https://wa.me/31615471303?text=' + msg);
+  try{ localStorage.setItem('rr-lang', lg); }catch(e){}
+}
+window.setLang = setLang;
+document.querySelectorAll('.langsw button, .mlang button').forEach(b =>
+  b.addEventListener('click', () => { setLang(b.dataset.lang); document.body.classList.remove('menu-open'); }));
+(function(){
+  let lg = null;
+  try{ lg = localStorage.getItem('rr-lang'); }catch(e){}
+  if(!lg){
+    const n = (navigator.language || 'en').slice(0,2).toLowerCase();
+    lg = ['nl','fr','pt'].includes(n) ? n : 'en';
+  }
+  setLang(lg);
+})();
 
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.14});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+/* ================= MOBILE MENU ================= */
+const burger = document.getElementById('burger');
+burger.addEventListener('click', () => document.body.classList.toggle('menu-open'));
+document.querySelectorAll('#mmenu a').forEach(a => a.addEventListener('click', () => document.body.classList.remove('menu-open')));
 
-/* Lead form — Web3Forms when a key is set, graceful email fallback until then */
-const form=document.getElementById('leadForm'), ok=document.getElementById('ok');
-const TO='alkojambrienke@century21.pt';
-form.addEventListener('submit',async e=>{
+/* ================= HERO SLIDESHOW ================= */
+const slides = [...document.querySelectorAll('#heroimgs .hi')];
+let hcur = 0, htimer = null;
+const hbar = document.getElementById('hbar');
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+function hgo(n, user){
+  slides[hcur].classList.remove('on');
+  hcur = (n + slides.length) % slides.length;
+  slides[hcur].classList.add('on');
+  document.getElementById('hcur').textContent = String(hcur+1).padStart(2,'0');
+  if(window.gsap && hbar && !RM){ gsap.fromTo(hbar, {scaleX:0}, {scaleX:1, duration:7, ease:'none'}); }
+  if(user){ clearInterval(htimer); if(!RM) htimer = setInterval(()=>hgo(hcur+1), 7000); }
+}
+document.getElementById('hnext').addEventListener('click', ()=>hgo(hcur+1, true));
+document.getElementById('hprev').addEventListener('click', ()=>hgo(hcur-1, true));
+if(!RM){ htimer = setInterval(()=>hgo(hcur+1), 7000); }
+
+/* ================= FORM ================= */
+document.getElementById('bookform').addEventListener('submit', function(e){
   e.preventDefault();
-  const data=Object.fromEntries(new FormData(form).entries());
-  const key=form.querySelector('[name=access_key]').value;
-  const configured = key && key.indexOf('REPLACE_')===-1;
-  const done=()=>{form.style.display='none';ok.classList.add('on');ok.scrollIntoView({behavior:'smooth',block:'center'});};
-  if(configured){
-    try{
-      const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)});
-      if(r.ok){done();return;}
-    }catch(err){}
-  }
-  /* fallback: open a pre-filled personal email to the agent */
-  const body=`Looking to: ${data.intent}\nArea: ${data.area||'-'}\nBudget: ${data.budget||'-'}\nBedrooms: ${data.bedrooms||'Any'}\nTimeline: ${data.timeline||'Flexible'}\nLanguage: ${data.language}\n\nName: ${data.name}\nEmail: ${data.email}\n\n${data.message||''}`;
-  window.location.href=`mailto:${TO}?subject=${encodeURIComponent('New dream-home search — '+data.name)}&body=${encodeURIComponent(body)}`;
-  setTimeout(done,600);
+  const f = this, btn = f.querySelector('button[type=submit]');
+  const name = f.name.value.trim(), email = f.email.value.trim();
+  if(!name || !email){ (name ? f.email : f.name).focus(); return; }
+  btn.classList.add('busy');
+  const interest = f.interest.value, msg = f.message.value.trim();
+  // mailto handoff (Web3Forms key can replace this without changing markup)
+  const subject = encodeURIComponent('Roam & Root — inquiry from ' + name);
+  const body = encodeURIComponent(name + ' <' + email + '>\n' + interest + '\n\n' + msg);
+  setTimeout(()=>{
+    window.location.href = 'mailto:alkojambrienke@century21.pt?subject=' + subject + '&body=' + body;
+    btn.classList.remove('busy');
+    document.getElementById('fmsg').style.display = 'block';
+  }, 350);
 });
-</script>
 
-<script>
-/* ============ Ding Dong i18n — EN · NL · FR · PT ============ */
+/* ================= CINEMA ================= */
 (function(){
-  const norm=s=>s.replace(/&amp;/g,'&').replace(/\s+/g,' ').trim();
-  const META={
-    en:{t:"Ding Dong — Find your Algarve. A personal guide to your dream home.",d:"A personal guide to buying your dream home on the Algarve, with a search that never rests until we find it. Free for buyers."},
-    nl:{t:"Ding Dong — Vind jouw Algarve. Een persoonlijke gids naar jouw droomhuis.",d:"Een persoonlijke gids bij het kopen van je droomhuis in de Algarve, met een zoektocht die nooit rust tot we het vinden. Gratis voor kopers."},
-    fr:{t:"Ding Dong — Trouvez votre Algarve. Un guide personnel vers la maison de vos rêves.",d:"Un guide personnel pour acheter la maison de vos rêves en Algarve, avec une recherche qui ne s'arrête jamais. Gratuit pour les acheteurs."},
-    pt:{t:"Ding Dong — Encontre o seu Algarve. Um guia pessoal para a casa dos seus sonhos.",d:"Um guia pessoal para comprar a casa dos seus sonhos no Algarve, com uma procura que nunca descansa. Grátis para compradores."}
-  };
-  const T=[
-    // nav / buttons / tagline
-    ["How it works","Hoe het werkt","Comment ça marche","Como funciona"],
-    ["The search","De zoektocht","La recherche","A procura"],
-    ["Services","Diensten","Services","Serviços"],
-    ["The package","Het pakket","La formule","O pacote"],
-    ["Meet Alco","Maak kennis met Alco","Rencontrez Alco","Conheça o Alco"],
-    ["Start your search","Start je zoektocht","Lancez votre recherche","Iniciar a procura"],
-    ["Find your Algarve","Vind jouw Algarve","Trouvez votre Algarve","Encontre o seu Algarve"],
-    ["See how it works","Bekijk hoe het werkt","Voir comment ça marche","Ver como funciona"],
-    // hero
-    ["Your personal guide to the Algarve","Jouw persoonlijke gids in de Algarve","Votre guide personnel en Algarve","O seu guia pessoal no Algarve"],
-    ["Find your <em>Algarve.</em>","Vind jouw <em>Algarve.</em>","Trouvez votre <em>Algarve.</em>","Encontre o seu <em>Algarve.</em>"],
-    ["A personal guide to buying your dream home on the Algarve — with a <b>search that never rests</b> until we find it. A high standard, easy to approach, and <b>completely free for buyers</b>.",
-     "Een persoonlijke gids bij het kopen van je droomhuis in de Algarve — met een <b>zoektocht die nooit rust</b> tot we het vinden. Een hoge standaard, laagdrempelig, en <b>volledig gratis voor kopers</b>.",
-     "Un guide personnel pour acheter la maison de vos rêves en Algarve — avec une <b>recherche qui ne s'arrête jamais</b> jusqu'à la trouver. Un niveau d'exigence élevé, d'un abord facile, et <b>entièrement gratuit pour les acheteurs</b>.",
-     "Um guia pessoal para comprar a casa dos seus sonhos no Algarve — com uma <b>procura que nunca descansa</b> até a encontrarmos. Um padrão elevado, de fácil acesso, e <b>totalmente gratuito para compradores</b>."],
-    ["Free for buyers","Gratis voor kopers","Gratuit pour les acheteurs","Grátis para compradores"],
-    ["The whole journey, to the deed","De hele reis, tot aan de akte","Tout le parcours, jusqu'à l'acte","Toda a jornada, até à escritura"],
-    ["Honest, always","Altijd eerlijk","Honnête, toujours","Honesto, sempre"],
-    // trust strip
-    ["In partnership with <b>CENTURY 21</b>","In samenwerking met <b>CENTURY 21</b>","En partenariat avec <b>CENTURY 21</b>","Em parceria com <b>CENTURY 21</b>"],
-    ["<b>0%</b> for buyers","<b>0%</b> voor kopers","<b>0%</b> pour les acheteurs","<b>0%</b> para compradores"],
-    ["Local &amp; on the ground","Lokaal en ter plaatse","Local et sur le terrain","Local e no terreno"],
-    ["Financing, taxes &amp; legal, clear","Financiering, belastingen en juridisch, helder","Financement, impôts et juridique, clairs","Financiamento, impostos e jurídico, claros"],
-    ["One hand to hold, start to finish","Eén aanspreekpunt, van begin tot eind","Un seul interlocuteur, du début à la fin","Uma só mão, do início ao fim"],
-    // manifesto
-    ["The idea","Het idee","L'idée","A ideia"],
-    ["Buying a home should feel like an <em>adventure</em> — not a transaction.","Een huis kopen zou moeten voelen als een <em>avontuur</em> — niet als een transactie.","Acheter une maison devrait être une <em>aventure</em> — pas une transaction.","Comprar uma casa devia ser uma <em>aventura</em> — não uma transação."],
-    ["Most people picture estate agents as stiff, pushy and hard to approach. I do it the other way around: a genuinely high standard, an easy, human relationship, and a search that's actually a pleasure. You bring the dream. I bring the local knowledge, the honesty, and a search that runs for you around the clock.",
-     "De meeste mensen zien makelaars als stijf, opdringerig en moeilijk benaderbaar. Ik doe het andersom: een echt hoge standaard, een prettige, menselijke relatie, en een zoektocht die juist een plezier is. Jij brengt de droom. Ik breng de lokale kennis, de eerlijkheid, en een zoektocht die dag en nacht voor je doorloopt.",
-     "La plupart des gens imaginent les agents immobiliers rigides, insistants et difficiles d'accès. Je fais l'inverse : une exigence vraiment élevée, une relation simple et humaine, et une recherche qui devient un plaisir. Vous apportez le rêve. J'apporte la connaissance du terrain, l'honnêteté, et une recherche qui tourne pour vous jour et nuit.",
-     "A maioria imagina os agentes imobiliários como rígidos, insistentes e difíceis de abordar. Eu faço o contrário: um padrão verdadeiramente elevado, uma relação simples e humana, e uma procura que é, na verdade, um prazer. Você traz o sonho. Eu trago o conhecimento local, a honestidade, e uma procura que trabalha por si a toda a hora."],
-    // how it works
-    ["Four steps to the <em>right</em> front door.","Vier stappen naar de <em>juiste</em> voordeur.","Quatre étapes vers la <em>bonne</em> porte.","Quatro passos até à porta <em>certa</em>."],
-    ["Everything before the viewing runs quietly in the background. When it's time for the human part, I'm there.",
-     "Alles vóór de bezichtiging loopt rustig op de achtergrond. Als het menselijke deel begint, ben ik er.",
-     "Tout ce qui précède la visite se fait discrètement en coulisses. Quand vient la partie humaine, je suis là.",
-     "Tudo antes da visita corre discretamente nos bastidores. Quando chega a parte humana, estou lá."],
-    ["Tell me your dream","Vertel me je droom","Dites-moi votre rêve","Diga-me o seu sonho"],
-    ["A few relaxed questions: where, how much, what matters most, and when. Two minutes, and your search is alive.",
-     "Een paar ontspannen vragen: waar, hoeveel, wat het belangrijkst is en wanneer. Twee minuten, en je zoektocht leeft.",
-     "Quelques questions détendues : où, combien, ce qui compte le plus, et quand. Deux minutes, et votre recherche est lancée.",
-     "Algumas perguntas tranquilas: onde, quanto, o que mais importa e quando. Dois minutos, e a sua procura ganha vida."],
-    ["The search never rests","De zoektocht rust nooit","La recherche ne s'arrête jamais","A procura nunca descansa"],
-    ["Every property portal in Portugal, watched day and night, with new listings matched to your wishes — so nothing good ever slips past.",
-     "Elk vastgoedportaal in Portugal, dag en nacht in de gaten gehouden, met nieuwe aanbiedingen die passen bij jouw wensen — zodat niets goeds ooit ontglipt.",
-     "Chaque portail immobilier du Portugal, surveillé jour et nuit, avec les nouvelles annonces mises en regard de vos envies — pour que rien de bon ne vous échappe.",
-     "Cada portal imobiliário em Portugal, vigiado dia e noite, com novos anúncios cruzados com os seus desejos — para que nada de bom lhe escape."],
-    ["We visit the best, together","We bezoeken de beste, samen","On visite les meilleures, ensemble","Visitamos as melhores, juntos"],
-    ["I go with you to the homes worth your time — and tell you the truth about each: the beautiful, the practical, the flaws.",
-     "Ik ga met je mee naar de huizen die je tijd waard zijn — en vertel je de waarheid over elk: het mooie, het praktische, de gebreken.",
-     "Je vous accompagne dans les maisons qui en valent la peine — et je vous dis la vérité sur chacune : le beau, le pratique, les défauts.",
-     "Vou consigo às casas que valem o seu tempo — e digo-lhe a verdade sobre cada uma: o bonito, o prático, os defeitos."],
-    ["I guide you to the deed","Ik begeleid je tot de akte","Je vous guide jusqu'à l'acte","Acompanho-o até à escritura"],
-    ["Financing, taxes, total cost, lawyer and notary — the whole package, handled, until the keys are yours.",
-     "Financiering, belastingen, totale kosten, advocaat en notaris — het hele pakket, geregeld, tot de sleutels van jou zijn.",
-     "Financement, impôts, coût total, avocat et notaire — toute la formule, prise en charge, jusqu'à ce que les clés soient à vous.",
-     "Financiamento, impostos, custo total, advogado e notário — o pacote inteiro, tratado, até as chaves serem suas."],
-    // the search band
-    ["The difference","Het verschil","La différence","A diferença"],
-    ["A search that <em>never rests.</em>","Een zoektocht die <em>nooit rust.</em>","Une recherche qui <em>ne s'arrête jamais.</em>","Uma procura que <em>nunca descansa.</em>"],
-    ["Most agents wait for listings to land in their inbox. I go looking. The moment you tell me your dream, I put the <b>whole market to work for you</b> — every property portal in Portugal, watched continuously. Every two weeks you receive a short, hand-curated shortlist of homes that genuinely fit, each with a personal note on why. You stay close to the market between viewings, and you never miss the one.",
-     "De meeste makelaars wachten tot aanbiedingen in hun inbox belanden. Ik ga zoeken. Zodra je me je droom vertelt, zet ik <b>de hele markt voor je aan het werk</b> — elk vastgoedportaal in Portugal, continu in de gaten gehouden. Elke twee weken ontvang je een korte, met de hand samengestelde selectie van huizen die echt passen, elk met een persoonlijke toelichting. Je blijft dicht bij de markt tussen bezichtigingen, en je mist die ene nooit.",
-     "La plupart des agents attendent que les annonces arrivent dans leur boîte mail. Moi, je vais les chercher. Dès que vous me confiez votre rêve, je mets <b>tout le marché à votre service</b> — chaque portail immobilier du Portugal, surveillé en continu. Toutes les deux semaines, vous recevez une courte sélection faite à la main de biens qui vous correspondent vraiment, chacun accompagné d'un mot personnel. Vous restez proche du marché entre les visites, et vous ne manquez jamais la bonne.",
-     "A maioria dos agentes espera que os anúncios cheguem ao e-mail. Eu vou à procura. Assim que me conta o seu sonho, ponho <b>o mercado inteiro a trabalhar para si</b> — cada portal imobiliário em Portugal, vigiado continuamente. A cada duas semanas recebe uma pequena seleção, feita à mão, de casas que encaixam de verdade, cada uma com uma nota pessoal. Fica perto do mercado entre visitas, e nunca perde a certa."],
-    ["<span class=\"dot\"></span> Your matches · this fortnight","<span class=\"dot\"></span> Jouw selectie · deze twee weken","<span class=\"dot\"></span> Votre sélection · cette quinzaine","<span class=\"dot\"></span> A sua seleção · esta quinzena"],
-    ["Villa near Tavira, sea view","Villa bij Tavira, zeezicht","Villa près de Tavira, vue mer","Villa perto de Tavira, vista mar"],
-    ["Townhouse, Loulé old town","Stadswoning, oude centrum Loulé","Maison de ville, vieux Loulé","Casa, centro antigo de Loulé"],
-    ["Quinta with land, Silves","Quinta met grond, Silves","Quinta avec terrain, Silves","Quinta com terreno, Silves"],
-    ["A sample — your shortlist is built around your wishes","Een voorbeeld — jouw selectie wordt rond jouw wensen gebouwd","Un exemple — votre sélection est construite autour de vos envies","Um exemplo — a sua seleção é feita à volta dos seus desejos"],
-    // services
-    ["For buyers","Voor kopers","Pour les acheteurs","Para compradores"],
-    ["Find your home","Vind je huis","Trouvez votre maison","Encontre a sua casa"],
-    ["Completely free","Volledig gratis","Entièrement gratuit","Totalmente grátis"],
-    ["The full concierge — from your first wish to the day you hold the keys. You pay nothing for my help. My fee is zero.",
-     "De volledige begeleiding — van je eerste wens tot de dag dat je de sleutels vasthoudt. Je betaalt niets voor mijn hulp. Mijn tarief is nul.",
-     "La conciergerie complète — de votre premier souhait au jour où vous tenez les clés. Vous ne payez rien pour mon aide. Mes honoraires sont nuls.",
-     "O acompanhamento completo — do seu primeiro desejo ao dia em que segura as chaves. Não paga nada pela minha ajuda. A minha comissão é zero."],
-    ["A shortlist from every portal, curated for you","Een selectie uit elk portaal, voor jou samengesteld","Une sélection de chaque portail, faite pour vous","Uma seleção de cada portal, feita para si"],
-    ["Personal viewings, I come with you","Persoonlijke bezichtigingen, ik ga met je mee","Visites personnelles, je vous accompagne","Visitas pessoais, vou consigo"],
-    ["Honest read on every property","Eerlijke beoordeling van elk pand","Un avis honnête sur chaque bien","Uma leitura honesta de cada imóvel"],
-    ["Financing, taxes &amp; total cost, clear","Financiering, belastingen en totale kosten, helder","Financement, impôts et coût total, clairs","Financiamento, impostos e custo total, claros"],
-    ["Lawyer &amp; notary, all the way to the deed","Advocaat en notaris, helemaal tot de akte","Avocat et notaire, jusqu'à l'acte","Advogado e notário, até à escritura"],
-    ["For sellers","Voor verkopers","Pour les vendeurs","Para vendedores"],
-    ["Sell your home","Verkoop je huis","Vendez votre maison","Venda a sua casa"],
-    ["A free market study to price it right, then presentation and distribution that make it move — represented properly, start to finish.",
-     "Een gratis marktstudie voor de juiste prijs, daarna presentatie en verspreiding die het laten bewegen — goed vertegenwoordigd, van begin tot eind.",
-     "Une étude de marché gratuite pour fixer le juste prix, puis une présentation et une diffusion qui font vendre — bien représenté, du début à la fin.",
-     "Um estudo de mercado gratuito para o preço certo, depois apresentação e divulgação que fazem vender — bem representado, do início ao fim."],
-    ["Free, data-backed market study","Gratis, cijfermatig onderbouwde marktstudie","Étude de marché gratuite, fondée sur les données","Estudo de mercado gratuito, com base em dados"],
-    ["Photography &amp; light staging","Fotografie en lichte styling","Photographie et home staging léger","Fotografia e styling ligeiro"],
-    ["Listing &amp; distribution","Publicatie en verspreiding","Mise en ligne et diffusion","Publicação e divulgação"],
-    ["Qualified buyers, not tyre-kickers","Gekwalificeerde kopers, geen kijkers","Des acheteurs qualifiés, pas des curieux","Compradores qualificados, não curiosos"],
-    ["For owners &amp; renters","Voor eigenaren en huurders","Pour propriétaires et locataires","Para proprietários e inquilinos"],
-    ["Rent it out, or find one","Verhuur het, of vind er een","Louez, ou trouvez à louer","Arrende, ou encontre uma"],
-    ["List a property to rent, or tell me what you're after. When there's a match, I make the connection.",
-     "Zet een woning te huur, of vertel me wat je zoekt. Bij een match breng ik jullie samen.",
-     "Proposez un bien à louer, ou dites-moi ce que vous cherchez. Quand il y a une correspondance, je fais le lien.",
-     "Coloque um imóvel para arrendar, ou diga-me o que procura. Quando há correspondência, faço a ligação."],
-    ["List your property to rent","Zet je woning te huur","Proposez votre bien à louer","Coloque o seu imóvel para arrendar"],
-    ["Search homes to rent","Zoek huurwoningen","Cherchez à louer","Procure casas para arrendar"],
-    ["Matched &amp; introduced personally","Persoonlijk gematcht en voorgesteld","Mis en relation personnellement","Correspondido e apresentado pessoalmente"],
-    // package
-    ["Everything included, <em>to the deed.</em>","Alles inbegrepen, <em>tot de akte.</em>","Tout compris, <em>jusqu'à l'acte.</em>","Tudo incluído, <em>até à escritura.</em>"],
-    ["The search","De zoektocht","La recherche","A procura"],
-    ["A shortlist from every Portuguese portal, hand-curated to your wishes.","Een selectie uit elk Portugees portaal, met de hand afgestemd op jouw wensen.","Une sélection de chaque portail portugais, faite à la main selon vos envies.","Uma seleção de cada portal português, feita à mão segundo os seus desejos."],
-    ["The viewings","De bezichtigingen","Les visites","As visitas"],
-    ["I go to the house with you and read it honestly — pros and cons.","Ik ga met je naar het huis en beoordeel het eerlijk — voor- en nadelen.","Je vais à la maison avec vous et je la juge honnêtement — avantages et inconvénients.","Vou à casa consigo e leio-a honestamente — prós e contras."],
-    ["Financing &amp; mortgage","Financiering en hypotheek","Financement et prêt","Financiamento e crédito"],
-    ["Clear guidance on what's possible and how it works here.","Heldere begeleiding over wat mogelijk is en hoe het hier werkt.","Des conseils clairs sur ce qui est possible et comment ça marche ici.","Orientação clara sobre o que é possível e como funciona aqui."],
-    ["Taxes &amp; total cost","Belastingen en totale kosten","Impôts et coût total","Impostos e custo total"],
-    ["No surprises — every cost on the table, up front.","Geen verrassingen — elke kost op tafel, vooraf.","Aucune surprise — chaque coût sur la table, dès le départ.","Sem surpresas — cada custo na mesa, à partida."],
-    ["Lawyer &amp; notary","Advocaat en notaris","Avocat et notaire","Advogado e notário"],
-    ["Trusted partners handle the legal path from offer to signature.","Vertrouwde partners regelen het juridische traject van bod tot handtekening.","Des partenaires de confiance gèrent le parcours juridique, de l'offre à la signature.","Parceiros de confiança tratam do percurso jurídico, da proposta à assinatura."],
-    ["The deed","De akte","L'acte","A escritura"],
-    ["All the way to the keys in your hand — and I stay in touch after.","Helemaal tot de sleutels in je hand — en daarna houd ik contact.","Jusqu'aux clés dans votre main — et je reste en contact ensuite.","Até às chaves na sua mão — e mantenho o contacto depois."],
-    ["Optional add-ons","Optionele extra's","Options complémentaires","Extras opcionais"],
-    ["To sell for more, or move faster","Voor een hogere verkoop, of sneller","Pour vendre plus cher, ou plus vite","Para vender por mais, ou mais depressa"],
-    ["Professional photoshoot","Professionele fotoshoot","Shooting photo professionnel","Sessão fotográfica profissional"],
-    ["Light home staging &amp; styling","Lichte home staging en styling","Home staging et mise en valeur","Home staging e styling ligeiro"],
-    ["Paint refresh to lift a room","Verfbeurt om een ruimte op te frissen","Un coup de peinture pour sublimer une pièce","Pintura para valorizar um espaço"],
-    ["Full market valuation study","Volledige marktwaardebepaling","Étude d'évaluation complète","Estudo de avaliação de mercado completo"],
-    ["small fee","kleine vergoeding","petit forfait","pequena taxa"],
-    ["free","gratis","gratuit","grátis"],
-    ["Small investments that routinely return far more at sale — and make a home feel ready to love.","Kleine investeringen die bij verkoop doorgaans veel meer opleveren — en een huis meteen om van te houden maken.","De petits investissements qui rapportent souvent bien plus à la vente — et rendent une maison prête à être aimée.","Pequenos investimentos que costumam render muito mais na venda — e deixam a casa pronta para amar."],
-    // meet alco
-    ["Meet your guide","Maak kennis met je gids","Rencontrez votre guide","Conheça o seu guia"],
-    ["Meet <em>Alco.</em>","Maak kennis met <em>Alco.</em>","Rencontrez <em>Alco.</em>","Conheça o <em>Alco.</em>"],
-    ["I help people from the Netherlands, France, the UK and beyond find a home on the Algarve — and I do it the way I'd want it done for me. I go to the houses myself. I tell you the truth about each one, the good and the flaws alike. I make the money side — financing, taxes, the real total cost — completely clear. And I stay beside you from the first viewing to the day the keys are in your hand.",
-     "Ik help mensen uit Nederland, Frankrijk, het VK en daarbuiten een huis vinden in de Algarve — en ik doe het zoals ik het voor mezelf zou willen. Ik ga zelf naar de huizen. Ik vertel je de waarheid over elk huis, het goede én de gebreken. Ik maak de financiële kant — financiering, belastingen, de echte totale kosten — volledig helder. En ik sta naast je, van de eerste bezichtiging tot de dag dat de sleutels in je hand liggen.",
-     "J'aide des gens des Pays-Bas, de France, du Royaume-Uni et d'ailleurs à trouver une maison en Algarve — et je le fais comme je le voudrais pour moi. Je vais voir les maisons moi-même. Je vous dis la vérité sur chacune, le bon comme les défauts. Je rends le côté financier — financement, impôts, le vrai coût total — parfaitement clair. Et je reste à vos côtés, de la première visite au jour où les clés sont dans votre main.",
-     "Ajudo pessoas dos Países Baixos, de França, do Reino Unido e não só a encontrar casa no Algarve — e faço-o como gostaria que fizessem por mim. Vou eu mesmo às casas. Digo-lhe a verdade sobre cada uma, o bom e os defeitos. Torno o lado financeiro — financiamento, impostos, o custo total real — completamente claro. E fico ao seu lado, da primeira visita ao dia em que as chaves estão na sua mão."],
-    ["Finding your home costs you nothing. My promise is simple: a high standard, always easy to approach.",
-     "Je huis vinden kost je niets. Mijn belofte is simpel: een hoge standaard, altijd laagdrempelig.",
-     "Trouver votre maison ne vous coûte rien. Ma promesse est simple : un niveau élevé, toujours d'un abord facile.",
-     "Encontrar a sua casa não lhe custa nada. A minha promessa é simples: um padrão elevado, sempre de fácil acesso."],
-    ["Alco &middot; Ding Dong &middot; Century 21 Algarve","Alco &middot; Ding Dong &middot; Century 21 Algarve","Alco &middot; Ding Dong &middot; Century 21 Algarve","Alco &middot; Ding Dong &middot; Century 21 Algarve"],
-    ["Why buyers trust me","Waarom kopers me vertrouwen","Pourquoi les acheteurs me font confiance","Porque os compradores confiam em mim"],
-    ["Relentless on the search. <em>Personal on everything else.</em>","Onvermoeibaar in de zoektocht. <em>Persoonlijk in al het andere.</em>","Infatigable dans la recherche. <em>Personnel pour tout le reste.</em>","Incansável na procura. <em>Pessoal em tudo o resto.</em>"],
-    ["Truly local","Echt lokaal","Vraiment local","Verdadeiramente local"],
-    ["On the ground in the Algarve, I go to the houses, meet the sellers, and know what a listing doesn't say.","Ter plaatse in de Algarve ga ik naar de huizen, ontmoet de verkopers en weet wat een advertentie niet vertelt.","Sur le terrain en Algarve, je vais aux maisons, je rencontre les vendeurs, et je sais ce qu'une annonce ne dit pas.","No terreno, no Algarve, vou às casas, conheço os vendedores e sei o que um anúncio não diz."],
-    ["Honest, always","Altijd eerlijk","Honnête, toujours","Honesto, sempre"],
-    ["You'll hear the cons as clearly as the pros. My job is your right home — not the fastest sale.","Je hoort de nadelen even duidelijk als de voordelen. Mijn taak is jouw juiste huis — niet de snelste verkoop.","Vous entendrez les inconvénients aussi clairement que les avantages. Mon métier, c'est votre bonne maison — pas la vente la plus rapide.","Vai ouvir os contras tão claramente como os prós. O meu trabalho é a sua casa certa — não a venda mais rápida."],
-    ["Your language","Jouw taal","Votre langue","A sua língua"],
-    ["Dutch, French, English or Portuguese — the whole journey in the language you're most comfortable in.","Nederlands, Frans, Engels of Portugees — de hele reis in de taal waarin jij je het prettigst voelt.","Néerlandais, français, anglais ou portugais — tout le parcours dans la langue où vous êtes le plus à l'aise.","Neerlandês, francês, inglês ou português — toda a jornada na língua em que se sente mais à vontade."],
-    ["The money, clear","De cijfers, helder","L'argent, clair","O dinheiro, claro"],
-    ["Financing, taxes and the real total cost, explained plainly, so you buy with confidence.","Financiering, belastingen en de echte totale kosten, helder uitgelegd, zodat je met vertrouwen koopt.","Financement, impôts et vrai coût total, expliqués simplement, pour acheter en confiance.","Financiamento, impostos e o custo total real, explicados de forma simples, para comprar com confiança."],
-    ["Free for buyers","Gratis voor kopers","Gratuit pour les acheteurs","Grátis para compradores"],
-    ["Finding your home costs you nothing. You pay only the notary and lawyer — never a fee to me.","Je huis vinden kost je niets. Je betaalt alleen de notaris en advocaat — nooit een vergoeding aan mij.","Trouver votre maison ne coûte rien. Vous ne payez que le notaire et l'avocat — jamais d'honoraires pour moi.","Encontrar a sua casa não custa nada. Paga apenas o notário e o advogado — nunca uma comissão a mim."],
-    ["One hand to hold","Eén aanspreekpunt","Un seul interlocuteur","Uma só mão"],
-    ["From the first search to long after the deed — one person who knows your story the whole way.","Van de eerste zoektocht tot lang na de akte — één persoon die je verhaal de hele weg kent.","De la première recherche à bien après l'acte — une seule personne qui connaît votre histoire tout du long.","Da primeira procura a muito depois da escritura — uma pessoa que conhece a sua história do princípio ao fim."],
-    ["I'm at the beginning of building something I care deeply about — a more human way to buy a home on the Algarve. If that's the kind of guide you'd want beside you, I'd love to meet you.",
-     "Ik sta aan het begin van iets waar ik veel om geef — een menselijkere manier om een huis te kopen in de Algarve. Als dat de gids is die jij naast je wilt, ontmoet ik je graag.",
-     "Je suis au début d'un projet qui me tient à cœur — une façon plus humaine d'acheter une maison en Algarve. Si c'est le genre de guide que vous voudriez à vos côtés, j'aimerais vous rencontrer.",
-     "Estou no início de algo que me é muito querido — uma forma mais humana de comprar casa no Algarve. Se é esse o guia que quer ao seu lado, teria muito gosto em conhecê-lo."],
-    // booking
-    ["Start your search","Start je zoektocht","Lancez votre recherche","Iniciar a procura"],
-    ["Tell me your <em>dream.</em>","Vertel me je <em>droom.</em>","Dites-moi votre <em>rêve.</em>","Diga-me o seu <em>sonho.</em>"],
-    ["Two minutes now, and your search begins. I'll come back to you personally — never a robot — usually within a day.",
-     "Twee minuten nu, en je zoektocht begint. Ik kom persoonlijk bij je terug — nooit een robot — meestal binnen een dag.",
-     "Deux minutes maintenant, et votre recherche commence. Je reviens vers vous personnellement — jamais un robot — en général sous un jour.",
-     "Dois minutos agora, e a sua procura começa. Volto a si pessoalmente — nunca um robô — normalmente dentro de um dia."],
-    ["Completely free for buyers, no obligation","Volledig gratis voor kopers, vrijblijvend","Entièrement gratuit pour les acheteurs, sans engagement","Totalmente grátis para compradores, sem compromisso"],
-    ["Your details are private, and only mine","Je gegevens zijn privé, en alleen voor mij","Vos informations restent privées, et pour moi seul","Os seus dados são privados, e só meus"],
-    ["A real, human reply — in your language","Een echt, menselijk antwoord — in jouw taal","Une vraie réponse humaine — dans votre langue","Uma resposta real e humana — na sua língua"],
-    ["I'm looking to","Ik wil","Je souhaite","Pretendo"],
-    ["Buy","Kopen","Acheter","Comprar"],["Rent","Huren","Louer","Arrendar"],["Sell","Verkopen","Vendre","Vender"],
-    ["Area of the Algarve","Regio in de Algarve","Région de l'Algarve","Zona do Algarve"],
-    ["Budget","Budget","Budget","Orçamento"],
-    ["Bedrooms","Slaapkamers","Chambres","Quartos"],
-    ["Timeline","Tijdlijn","Échéance","Prazo"],
-    ["Your name","Je naam","Votre nom","O seu nome"],
-    ["Email","E-mail","E-mail","E-mail"],
-    ["Preferred language","Voorkeurstaal","Langue préférée","Língua preferida"],
-    ["Anything else about your dream home?","Nog iets over je droomhuis?","Autre chose sur la maison de vos rêves ?","Mais alguma coisa sobre a casa dos seus sonhos?"],
-    ["Begin the adventure","Begin het avontuur","Commencer l'aventure","Começar a aventura"],
-    ["By sending this you agree I may contact you about your search. No spam, ever.","Door dit te versturen ga je ermee akkoord dat ik contact opneem over je zoektocht. Nooit spam.","En envoyant ceci, vous acceptez que je vous contacte au sujet de votre recherche. Jamais de spam.","Ao enviar, aceita que eu o contacte sobre a sua procura. Nunca spam."],
-    ["Your search has begun.","Je zoektocht is begonnen.","Votre recherche a commencé.","A sua procura começou."],
-    ["Thank you — I've got your dream, and I'll be in touch personally very soon.","Bedankt — ik heb je droom, en ik neem heel binnenkort persoonlijk contact op.","Merci — j'ai votre rêve, et je vous recontacte personnellement très vite.","Obrigado — tenho o seu sonho, e entrarei em contacto pessoalmente muito em breve."],
-    // select options (beds any / timeline)
-    ["Any","Alle","Peu importe","Qualquer"],
-    ["Ready now","Nu klaar","Prêt maintenant","Já"],
-    ["Within 3 months","Binnen 3 maanden","D'ici 3 mois","Dentro de 3 meses"],
-    ["This year","Dit jaar","Cette année","Este ano"],
-    ["Just exploring","Nog aan het oriënteren","Je me renseigne","Só a explorar"],
-    ["Flexible","Flexibel","Flexible","Flexível"],
-    // footer
-    ["A personal guide to your dream home on the Algarve, with a search that never rests until you find it.","Een persoonlijke gids naar je droomhuis in de Algarve, met een zoektocht die nooit rust tot je het vindt.","Un guide personnel vers la maison de vos rêves en Algarve, avec une recherche qui ne s'arrête jamais jusqu'à ce que vous la trouviez.","Um guia pessoal para a casa dos seus sonhos no Algarve, com uma procura que nunca descansa até a encontrar."],
-    ["Explore","Ontdek","Explorer","Explorar"],
-    ["Get started","Aan de slag","Commencer","Começar"],
-    ["Contact","Contact","Contact","Contacto"],
-    ["Email me","Mail me","Écrivez-moi","Envie-me um e-mail"],
-    ["© 2026 Ding Dong · Find your Algarve","© 2026 Ding Dong · Vind jouw Algarve","© 2026 Ding Dong · Trouvez votre Algarve","© 2026 Ding Dong · Encontre o seu Algarve"],
-    ["In partnership with Century 21","In samenwerking met Century 21","En partenariat avec Century 21","Em parceria com a Century 21"],
-    ["One guide. <em>Three ways I help.</em>","Eén gids. <em>Drie manieren waarop ik help.</em>","Un seul guide. <em>Trois façons de vous aider.</em>","Um só guia. <em>Três formas de ajudar.</em>"],
-    ["The whole package","Het hele pakket","La formule complète","O pacote completo"],
-    ["On match","Bij match","À la mise en relation","Por correspondência"],
-    ["5% + IVA","5% + btw","5% + TVA","5% + IVA"],
-    ["A taste of the Algarve","Een vleugje Algarve","Un avant-goût de l'Algarve","Um pouco do Algarve"],
-    ["Where your <em>next chapter</em> begins.","Waar je <em>volgende hoofdstuk</em> begint.","Où commence votre <em>prochain chapitre</em>.","Onde começa o seu <em>próximo capítulo</em>."],
-    ["Your journey","Jouw reis","Votre parcours","O seu percurso"],
-    ["Dream","Droom","Rêve","Sonho"],
-    ["Search","Zoektocht","Recherche","Procura"],
-    ["Visit","Bezoek","Visite","Visita"],
-    ["Keys","Sleutels","Clés","Chaves"]
-  ];
-  const D={nl:{},fr:{},pt:{}};
-  T.forEach(r=>{const k=norm(r[0]);D.nl[k]=r[1];D.fr[k]=r[2];D.pt[k]=r[3];});
-
-  const SEL=['.nav .links a','.nav a.btn','.mnav > a','.mnav a.btn','.brand .t small',
-    '.hero .sub','.hero h1','.hero .cta a','.hero .chips span','.eyebrow .mono',
-    '.trust .c21','.trust .vals span','.manifesto p','h2','.lede',
-    '.step h4','.step p','.ai .card .top','.ai .match .mx b','.ai .match .mx span','.ai a.btn','.ai .card > div:last-child',
-    '.svc .tag','.svc h3','.svc .price','.svc > p','.svc li',
-    '.pkg .list .row b','.pkg .list .row span','.addons h4','.addons .k','.addons .a span','.addons .a em','.addons > p',
-    '.meetx p','.sig','.why .w h4','.why .w p','.note',
-    '.book .assure div','form .field > label','.seg .opt','form button.btn','.fine','.ok .big','.ok p',
-    'footer .brand p','footer .col span','footer .col a','footer .base span','form select option','#rail .lab','#rail .steps span'].join(',');
-  const PHSEL='form [placeholder]';
-
-  const els=[...document.querySelectorAll(SEL)];
-  els.forEach(el=>{ if(el.dataset.i===undefined) el.dataset.i=el.innerHTML; });
-  const phEls=[...document.querySelectorAll(PHSEL)];
-  phEls.forEach(el=>{ if(el.dataset.ph===undefined) el.dataset.ph=el.getAttribute('placeholder')||''; });
-
-  function setLang(lang){
-    if(!['en','nl','fr','pt'].includes(lang)) lang='en';
-    els.forEach(el=>{ const en=el.dataset.i; el.innerHTML=(lang==='en')?en:(D[lang][norm(en)]||en); });
-    phEls.forEach(el=>{ const en=el.dataset.ph; if(!en)return; el.setAttribute('placeholder',(lang==='en')?en:(D[lang][norm(en)]||en)); });
-    document.documentElement.setAttribute('lang',lang);
-    const m=META[lang]; if(m){document.title=m.t;const md=document.querySelector('meta[name=description]');if(md)md.setAttribute('content',m.d);}
-    document.querySelectorAll('.langsw button').forEach(b=>b.classList.toggle('on',b.dataset.l===lang));
-    try{localStorage.setItem('dd_lang',lang);}catch(e){}
+  const html = document.documentElement;
+  const failsafe = setTimeout(unveil, 3200);   // never trap the page hidden
+  function unveil(){
+    html.classList.remove('cine');
+    const l = document.getElementById('rrload'); if(l) l.style.display = 'none';
   }
-  window.setLang=setLang;
-  document.querySelectorAll('.langsw button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.l)));
-  let saved=null;try{saved=localStorage.getItem('dd_lang');}catch(e){}
-  const n2=(navigator.language||'en').slice(0,2).toLowerCase();
-  setLang(saved||(['nl','fr','pt'].includes(n2)?n2:'en'));
-})();
-</script>
-<script>
-(function(){
-  var NUM="31615471303";
-  var MSG={en:"Hi Alco! I'd love your help finding a home on the Algarve.",nl:"Hoi Alco! Ik zou graag je hulp willen bij het vinden van een huis in de Algarve.",fr:"Bonjour Alco ! J'aimerais votre aide pour trouver une maison en Algarve.",pt:"Olá Alco! Gostaria da sua ajuda para encontrar casa no Algarve."};
-  var LAB={en:"Chat with Alco",nl:"Chat met Alco",fr:"Discuter avec Alco",pt:"Falar com o Alco"};
-  function upd(){var l=(document.documentElement.lang||"en");if(!MSG[l])l="en";
-    var href="https://wa.me/"+NUM+"?text="+encodeURIComponent(MSG[l]);
-    document.querySelectorAll("a.wa").forEach(function(a){a.href=href;});
-    document.querySelectorAll(".wa-label").forEach(function(e){e.textContent=LAB[l];});}
-  upd();
-  if(window.setLang){var _sl=window.setLang;window.setLang=function(l){_sl(l);upd();};}
-  var fab=document.getElementById("wafab");
-  function onS(){fab.classList.toggle("show",(window.scrollY||0)>520);} 
-  addEventListener("scroll",onS,{passive:true});onS();
-})();
-</script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-<script>
-(function(){
-  var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var lo=document.getElementById('ddload');
-  if(RM||!window.gsap){document.documentElement.classList.remove('cine');if(lo)lo.remove();return;}
+  if(!window.gsap || RM){
+    // graceful: no cinema — show everything instantly
+    clearTimeout(failsafe); unveil();
+    return;
+  }
   gsap.registerPlugin(ScrollTrigger);
-  var MOB=matchMedia('(max-width: 960px)').matches;
-  var lenis=null;
+  // Lenis smooth scroll
+  let lenis = null;
   if(window.Lenis){
-    lenis=new Lenis({duration:1.1,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));}});
-    lenis.on('scroll',ScrollTrigger.update);
-    gsap.ticker.add(function(t){lenis.raf(t*1000);});
+    lenis = new Lenis({ duration: 1.15, smoothWheel: true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(t => lenis.raf(t * 1000));
     gsap.ticker.lagSmoothing(0);
   }
-  /* buttery anchors */
-  document.querySelectorAll('a[href^="#"]').forEach(function(a){
-    var h=a.getAttribute('href'); if(h.length<2) return;
-    a.addEventListener('click',function(e){var el=document.querySelector(h);
-      if(el&&lenis){e.preventDefault();lenis.scrollTo(el,{offset:-64});}});
-  });
-  /* entrance choreography */
-  window.addEventListener('load',function(){
-    var tl=gsap.timeline({onComplete:function(){
-      document.documentElement.classList.remove('cine');
-      gsap.set('.hero .copy>*, .hero .media',{clearProps:'opacity,transform'});
-    }});
-    tl.to(lo,{opacity:0,duration:.5,delay:1.05,ease:'power2',onComplete:function(){if(lo)lo.remove();}})
-      .fromTo('.hero .copy>*',{opacity:0,y:26},{opacity:1,y:0,duration:1,stagger:.09,ease:'power3.out'},'-=.15')
-      .fromTo('.hero .media',{opacity:0,scale:.965},{opacity:1,scale:1,duration:1.1,ease:'power3.out'},'-=.85')
-      .fromTo('.hero .frame img',{scale:1.14},{scale:1.03,duration:6,ease:'power2.out'},'<');
-    gsap.to('#rail',{opacity:1,duration:.9,delay:2.1,onComplete:function(){document.getElementById('rail').style.pointerEvents='auto';}});
-    ScrollTrigger.refresh();
-  });
-  /* parallax: hero photo + gallery + search card */
-  gsap.fromTo('.hero .frame img',{yPercent:-4},{yPercent:4,ease:'none',
-    scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:.6}});
-  if(!MOB){
-    gsap.utils.toArray('.gallery figure img').forEach(function(im){
-      gsap.fromTo(im,{yPercent:-7},{yPercent:7,ease:'none',
-        scrollTrigger:{trigger:im.closest('figure'),start:'top bottom',end:'bottom top',scrub:.8}});
-    });
-    gsap.fromTo('.ai .card',{y:34},{y:-34,ease:'none',
-      scrollTrigger:{trigger:'.ai',start:'top bottom',end:'bottom top',scrub:1}});
-    gsap.fromTo('.portrait',{y:22},{y:-22,ease:'none',
-      scrollTrigger:{trigger:'.meet',start:'top bottom',end:'bottom top',scrub:1}});
-  }
-  /* interactive tilt on the arch frame */
-  if(matchMedia('(pointer:fine)').matches&&!MOB){
-    var med=document.querySelector('.hero .media'),fr=med&&med.querySelector('.frame');
-    if(fr){
-      var qy=gsap.quickTo(fr,'rotationY',{duration:.7,ease:'power3'}),
-          qx=gsap.quickTo(fr,'rotationX',{duration:.7,ease:'power3'});
-      med.addEventListener('pointermove',function(e){var r=med.getBoundingClientRect();
-        qy(((e.clientX-r.left)/r.width-.5)*5);qx(-((e.clientY-r.top)/r.height-.5)*4);});
-      med.addEventListener('pointerleave',function(){qy(0);qx(0);});
-    }
-  }
-  /* journey rail sync */
-  var steps=[].slice.call(document.querySelectorAll('#rail .steps span'));
-  function act(i){steps.forEach(function(s,j){s.classList.toggle('on',j<=i);});}
-  [['#top','#how'],['#how','#services'],['#services','#book'],['#book',null]].forEach(function(p,i){
-    ScrollTrigger.create({trigger:p[0],start:'top 55%',endTrigger:p[1]||undefined,end:p[1]?'top 55%':'bottom bottom',
-      onToggle:function(st){if(st.isActive)act(i);}});
-  });
-  ScrollTrigger.create({start:0,end:'max',scrub:0,onUpdate:function(st){
-    var el=document.querySelector('#rail .track i'); if(el)el.style.height=(st.progress*100)+'%';}});
-  /* golden dust (hero-scoped, throttled, pauses off-screen) */
-  (function(){
-    var hero=document.querySelector('.hero'),c=document.getElementById('dust');
-    if(!hero||!c)return;
-    var x=c.getContext('2d'),W,H,D,P=[],px=0,py=0,run=true,t=0;
-    function size(){D=Math.min(devicePixelRatio||1,1.5);
-      W=c.width=hero.offsetWidth*D;H=c.height=hero.offsetHeight*D;
-      c.style.width=hero.offsetWidth+'px';c.style.height=hero.offsetHeight+'px';
-      var n=MOB?14:32;P=[];
-      for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,r:(Math.random()*1.6+.7)*D,s:(Math.random()*.25+.08)*D,ph:Math.random()*6.28,d:Math.random()*.6+.3});}
-    size();addEventListener('resize',size);
-    addEventListener('pointermove',function(e){px=e.clientX/innerWidth-.5;py=e.clientY/innerHeight-.5;},{passive:true});
-    function draw(){
-      if(document.hidden||!run){requestAnimationFrame(draw);return;}
-      t++;x.clearRect(0,0,W,H);
-      for(var i=0;i<P.length;i++){var p=P[i];p.y-=p.s;if(p.y<-8)p.y=H+8;
-        var tw=.5+.5*Math.sin(t*.02+p.ph);
-        x.globalAlpha=.22+.38*tw;x.fillStyle='#d3a869';
-        x.beginPath();x.arc(p.x+px*18*p.d*D,p.y+py*10*p.d*D,p.r*(0.8+.4*tw),0,6.28);x.fill();}
-      x.globalAlpha=1;requestAnimationFrame(draw);}
-    new IntersectionObserver(function(en){run=en[0].isIntersecting;}).observe(hero);
-    requestAnimationFrame(draw);
-  })();
-})();
-</script>
+  // loader → hero choreography
+  const tl = gsap.timeline({ defaults:{ ease:'power3.out' } });
+  tl.from('#rrload .mk > *', { y: 18, opacity: 0, duration: .7, stagger: .14 })
+    .from('#rrload .wd', { opacity: 0, letterSpacing: '.6em', duration: .8 }, '-=.3')
+    .from('#rrload .tg', { opacity: 0, duration: .5 }, '-=.4')
+    .to('#rrload', { opacity: 0, duration: .8, delay: .5, onComplete(){
+        clearTimeout(failsafe);
+        document.getElementById('rrload').style.display = 'none';
+        html.classList.remove('cine');
+      }})
+    .from('.hero-imgs img', { scale: 1.16, duration: 2.4, ease: 'power2.out' }, '-=.7')
+    .fromTo('[data-cine]', { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 1.1, stagger: .12 }, '-=2.0');
+  initScroll();
 
-<script>
-(function(){
-  var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var FINE=matchMedia('(pointer:fine)').matches, MOB=matchMedia('(max-width: 960px)').matches;
-  /* signature: the site goes "ding dong" */
-  function ding(){
-    if(RM) return;
-    try{
-      var A=window.__ac||(window.__ac=new (window.AudioContext||window.webkitAudioContext)());
-      if(A.state==='suspended')A.resume();
-      var t=A.currentTime;
-      [[659.25,0],[523.25,.22]].forEach(function(nf){
-        var o=A.createOscillator(),g=A.createGain();
-        o.type='sine';o.frequency.value=nf[0];
-        g.gain.setValueAtTime(0,t+nf[1]);
-        g.gain.linearRampToValueAtTime(.16,t+nf[1]+.02);
-        g.gain.exponentialRampToValueAtTime(.0001,t+nf[1]+1.0);
-        o.connect(g);g.connect(A.destination);o.start(t+nf[1]);o.stop(t+nf[1]+1.1);
+  function initScroll(){
+    // section reveals
+    document.querySelectorAll('[data-rv]').forEach(el => {
+      gsap.fromTo(el, { opacity: 0, y: 44 }, {
+        opacity: 1, y: 0, duration: 1.05, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true }
       });
-    }catch(e){}
-  }
-  document.querySelectorAll('.brand').forEach(function(b){
-    b.addEventListener('click',function(){
-      ding();
-      var bell=b.querySelector('.bell');
-      if(bell){bell.classList.remove('ring');void bell.offsetWidth;bell.classList.add('ring');}
     });
-  });
-  /* magnetic CTAs (desktop) */
-  if(FINE&&!MOB&&window.gsap){
-    document.querySelectorAll('.hero .cta .btn, .nav a.btn').forEach(function(b){
-      var qx=gsap.quickTo(b,'x',{duration:.4,ease:'power3'}),
-          qy=gsap.quickTo(b,'y',{duration:.4,ease:'power3'});
-      b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();
-        qx((e.clientX-r.left-r.width/2)*.16);qy((e.clientY-r.top-r.height/2)*.28);});
-      b.addEventListener('pointerleave',function(){qx(0);qy(0);});
+    // gentle parallax on arches + locations bg
+    document.querySelectorAll('[data-plx] img').forEach(img => {
+      gsap.fromTo(img, { yPercent: -6 }, { yPercent: 6, ease: 'none',
+        scrollTrigger: { trigger: img.closest('[data-plx]'), start: 'top bottom', end: 'bottom top', scrub: true } });
     });
-  }
-  /* nav active-section sync */
-  if(window.gsap&&window.ScrollTrigger){
-    [['#how','#how'],['#ai','#ai'],['#services','#services'],['#package','#package'],['#about','#about']].forEach(function(p){
-      var link=document.querySelector('.nav .links a[href="'+p[1]+'"]'); if(!link)return;
-      ScrollTrigger.create({trigger:p[0],start:'top 45%',end:'bottom 45%',
-        onToggle:function(st){link.classList.toggle('on',st.isActive);}});
+    const lbg = document.querySelector('[data-plxbg] img');
+    if(lbg){ gsap.fromTo(lbg, { yPercent: -8 }, { yPercent: 2, ease: 'none',
+      scrollTrigger: { trigger: '.locs', start: 'top bottom', end: 'bottom top', scrub: true } }); }
+    // nav state
+    const hd = document.getElementById('hd');
+    window.addEventListener('scroll', () => hd.classList.toggle('solid', window.scrollY > 80), { passive: true });
+    if(lenis){ lenis.on('scroll', e => hd.classList.toggle('solid', e.scroll > 80)); }
+    // active section links
+    ['properties','philosophy','locations','experiences','about','contact'].forEach(id => {
+      const sec = document.getElementById(id); if(!sec) return;
+      ScrollTrigger.create({ trigger: sec, start: 'top 45%', end: 'bottom 45%',
+        onToggle(self){ document.querySelectorAll('.navlinks a[href="#'+id+'"]').forEach(a => a.classList.toggle('on', self.isActive)); } });
     });
   }
-  /* form async state */
-  var f=document.getElementById('leadForm');
-  if(f){f.addEventListener('submit',function(){var b=f.querySelector('button.btn');if(b)b.classList.add('busy');},true);}
 })();
 </script>
 </body>
