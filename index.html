@@ -101,16 +101,16 @@ header.solid{background:rgba(245,242,239,.92);backdrop-filter:blur(14px);box-sha
 header.solid .brand{color:var(--deepsea)}
 .brand svg{width:30px;height:40px;flex:0 0 auto}
 .brand .bt{display:flex;flex-direction:column;line-height:1.15}
-.brand .b1{font-family:var(--serif);font-size:1.02rem;letter-spacing:.22em;text-transform:uppercase;white-space:nowrap}
-.brand .b2{font-size:.5rem;font-weight:600;letter-spacing:.52em;text-transform:uppercase;color:var(--terra)}
-.navlinks{display:flex;gap:clamp(16px,2.4vw,34px);font-size:.64rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,242,239,.85)}
+.brand .b1{font-family:var(--serif);font-size:1.18rem;letter-spacing:.22em;text-transform:uppercase;white-space:nowrap}
+.brand .b2{font-size:.58rem;font-weight:600;letter-spacing:.52em;text-transform:uppercase;color:var(--terra)}
+.navlinks{display:flex;gap:clamp(16px,2.4vw,34px);font-size:.74rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,242,239,.9)}
 header.solid .navlinks{color:var(--ink)}
 .navlinks a{position:relative;padding:6px 0;transition:color .3s}
 .navlinks a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--terra);transition:width .4s var(--ease)}
 .navlinks a:hover::after,.navlinks a.on::after{width:100%}
 .navlinks a:hover,.navlinks a.on{color:var(--terra)}
 .nav-right{display:flex;align-items:center;gap:18px}
-.langsw{display:flex;gap:2px;font-size:.6rem;font-weight:600;letter-spacing:.14em;color:rgba(245,242,239,.6)}
+.langsw{display:flex;gap:2px;font-size:.68rem;font-weight:600;letter-spacing:.14em;color:rgba(245,242,239,.65)}
 header.solid .langsw{color:var(--mut)}
 .langsw button{
   background:none;border:0;cursor:pointer;color:inherit;font:inherit;padding:5px 7px;letter-spacing:inherit;
@@ -118,7 +118,7 @@ header.solid .langsw{color:var(--mut)}
 }
 .langsw button.on{color:var(--terra)}
 .langsw button:hover{color:var(--terra)}
-.nav .btn{padding:1em 1.7em;font-size:.62rem}
+.nav .btn{padding:1em 1.7em;font-size:.7rem}
 .nav .btn-nav{border-color:rgba(245,242,239,.45);color:var(--salt)}
 .nav .btn-nav:hover{background:var(--salt);color:var(--deepsea);border-color:var(--salt)}
 header.solid .btn-nav{border-color:var(--deepsea);color:var(--deepsea)}
@@ -325,6 +325,40 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
 #wafab:hover{transform:translateY(-4px) scale(1.05);background:var(--terra)}
 #wafab svg{width:26px;height:26px}
 
+/* ============ CONCIERGE ============ */
+#ccfab{
+  position:fixed;right:22px;bottom:92px;z-index:80;width:56px;height:56px;border-radius:50%;
+  background:var(--deepsea);display:grid;place-items:center;color:var(--stone);border:0;cursor:pointer;
+  box-shadow:0 16px 34px -12px rgba(31,47,48,.7);transition:transform .4s var(--ease),background .4s;
+}
+#ccfab:hover{transform:translateY(-4px) scale(1.05);background:var(--terra);color:#fff}
+#ccfab svg{width:24px;height:24px}
+#cpanel{
+  position:fixed;right:22px;bottom:162px;z-index:86;width:min(92vw,360px);max-height:min(70vh,560px);
+  background:var(--salt);box-shadow:0 40px 90px -30px rgba(0,0,0,.5);display:none;flex-direction:column;overflow:hidden;
+  border:1px solid var(--line);
+}
+#cpanel.open{display:flex}
+.cphead{background:var(--deepsea);color:var(--salt);padding:16px 18px;display:flex;align-items:center;gap:12px}
+.cphead svg{width:20px;height:27px;flex:0 0 auto}
+.cphead .t1{font-family:var(--serif);font-size:1.05rem;letter-spacing:.12em;text-transform:uppercase}
+.cphead .t2{font-size:.58rem;font-weight:500;letter-spacing:.14em;color:var(--sand)}
+.cphead .cpx{margin-left:auto;background:none;border:0;color:rgba(245,242,239,.7);cursor:pointer;font-size:1.1rem;padding:4px}
+.cpbody{padding:16px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;flex:1}
+.cmsg{background:var(--stone);color:var(--ink);font-size:.85rem;font-weight:400;line-height:1.6;
+  padding:12px 15px;border-radius:2px 14px 14px 14px;max-width:88%;align-self:flex-start}
+.cme{background:var(--teal);color:#fff;border-radius:14px 2px 14px 14px;align-self:flex-end}
+.cchips{display:flex;flex-wrap:wrap;gap:8px;padding:0 16px 16px}
+.cchips button{
+  background:transparent;border:1px solid var(--line);color:var(--deepsea);cursor:pointer;
+  font:600 .62rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:.85em 1.2em;
+  transition:background .3s,color .3s,border-color .3s;
+}
+.cchips button:hover{background:var(--deepsea);color:var(--salt);border-color:var(--deepsea)}
+.cchips button.act{border-color:var(--terra);color:var(--terra)}
+.cchips button.act:hover{background:var(--terra);color:#fff}
+@media(max-width:560px){#cpanel{right:4vw;bottom:158px}}
+
 /* ============ MOBILE ============ */
 @media(max-width:1020px){
   .navlinks{display:none}
@@ -490,7 +524,10 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
     </div>
     <div class="pnote" data-rv>
       <p class="disc" data-i="p_disc">An illustrative collection — the current portfolio is shared privately. Tell us what you are looking for and we will search it out, on and off the market.</p>
-      <a class="tlink" href="#contact"><span data-i="p_all">Start your search</span> →</a>
+      <span style="display:flex;gap:26px;flex-wrap:wrap">
+        <a class="tlink" href="#contact"><span data-i="p_all">Start your search</span> →</a>
+        <a class="tlink" id="selllink" href="#contact"><span data-i="p_sell">Selling? Free market study</span> →</a>
+      </span>
     </div>
   </div>
 </section>
@@ -559,20 +596,20 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
 <section class="about" id="about">
   <div class="wrap split">
     <div>
-      <span class="eyebrow" data-rv data-i="a_eyebrow">Your guide</span>
-      <h2 data-rv data-i="a_title">One person, from first walk to <em style="color:var(--terra)">final keys</em></h2>
-      <p class="body" data-rv data-i="a_body1">Roam &amp; Root is led personally by Alco — your single point of trust through every step. She listens first, then searches relentlessly: on the market, off the market, and through the quiet networks where the Algarve's best homes change hands.</p>
+      <span class="eyebrow" data-rv data-i="a_eyebrow">The founders</span>
+      <h2 data-rv data-i="a_title">We made this journey <em style="color:var(--terra)">ourselves</em></h2>
+      <p class="body" data-rv data-i="a_body1">Roam &amp; Root is Alco and Nellie — a Dutch family who left the Netherlands, put down roots in the western Algarve and never looked back. Alco walks every step with you personally: he listens first, then searches relentlessly — on the market, off the market, and through the quiet networks where the Algarve's best homes change hands.</p>
       <ul class="alist">
         <li data-rv><svg class="mk2" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 12l6 6L19 5"/></svg><span data-i="a_l1">A personal search shaped around your life, not a listings feed</span></li>
         <li data-rv><svg class="mk2" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 12l6 6L19 5"/></svg><span data-i="a_l2">Honest guidance on land, light, licences and true value</span></li>
         <li data-rv><svg class="mk2" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 12l6 6L19 5"/></svg><span data-i="a_l3">At your side through visits, negotiation and completion</span></li>
       </ul>
-      <div data-rv><a class="btn btn-solid" href="#contact"><span data-i="a_cta">Meet Alco</span><svg class="arw" viewBox="0 0 14 10" fill="none"><path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
+      <div data-rv><a class="btn btn-solid" href="#contact"><span data-i="a_cta">Meet Alco &amp; Nellie</span><svg class="arw" viewBox="0 0 14 10" fill="none"><path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
       <p class="cred" data-rv data-i="a_cred">Licensed international agent · in partnership with Century 21</p>
     </div>
     <div class="arch" data-rv data-plx>
-      <!-- PLACEHOLDER portrait — swap for Alco's own photography -->
-      <img src="img/alco.jpg" alt="Alco — founder of Roam & Root Algarve" loading="lazy">
+      <!-- PLACEHOLDER — swap for Alco & Nellie's own family photography -->
+      <img src="img/rr-founders.jpg" alt="Alco and Nellie — founders of Roam & Root Algarve" loading="lazy">
     </div>
   </div>
 </section>
@@ -598,6 +635,7 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
           <div><div class="cl" data-i="c_m3">WhatsApp</div><div class="cv">+31 6 15471303</div></div>
         </div>
       </div>
+      <p data-rv data-i="c_note" style="font-size:.72rem;font-weight:300;color:rgba(245,242,239,.55);margin-top:1.6em;letter-spacing:.04em">Write to us in any language — we reply personally in English or Dutch.</p>
     </div>
     <form class="book" id="bookform" data-rv novalidate>
       <h3 data-i="f_title">Request a private consultation</h3>
@@ -605,13 +643,23 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
         <div class="fgroup"><label for="f-name" data-i="f_name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
         <div class="fgroup"><label for="f-email" data-i="f_email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
       </div>
-      <div class="fgroup"><label for="f-int" data-i="f_int">I am looking for</label>
-        <select id="f-int" name="interest">
-          <option data-i="f_o1">A home to live in</option>
-          <option data-i="f_o2">A holiday retreat</option>
-          <option data-i="f_o3">An investment</option>
-          <option data-i="f_o4">To sell a property</option>
-        </select>
+      <div class="frow">
+        <div class="fgroup"><label for="f-int" data-i="f_int">I am looking for</label>
+          <select id="f-int" name="interest">
+            <option data-i="f_o1">A home to live in</option>
+            <option data-i="f_o2">A holiday retreat</option>
+            <option data-i="f_o3">An investment</option>
+            <option data-i="f_o4">To sell a property</option>
+            <option data-i="f_o5">To rent / rent out</option>
+          </select>
+        </div>
+        <div class="fgroup"><label for="f-stage" data-i="f_stage">Where are you on the journey?</label>
+          <select id="f-stage" name="stage">
+            <option data-i="f_s1">Ready to move now</option>
+            <option data-i="f_s2">Exploring — the coming months</option>
+            <option data-i="f_s3">Dreaming of a life in Portugal</option>
+          </select>
+        </div>
       </div>
       <div class="fgroup"><label for="f-msg" data-i="f_msg">Your story</label><textarea id="f-msg" name="message" data-ip="f_msg_ph" placeholder="The places, spaces and pace of life you are drawn to…"></textarea></div>
       <button class="btn btn-solid" type="submit"><span data-i="f_send">Send inquiry</span><svg class="arw" viewBox="0 0 14 10" fill="none"><path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg></button>
@@ -661,6 +709,20 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
   </div>
 </footer>
 
+<!-- ============ CONCIERGE ============ -->
+<button id="ccfab" aria-label="Concierge chat" aria-expanded="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12a8 8 0 0 1-8 8H4l2-3a8 8 0 1 1 15-5z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01" stroke-linecap="round" stroke-width="2.4"/></svg>
+</button>
+<div id="cpanel" class="overlay" role="dialog" aria-label="Roam & Root concierge">
+  <div class="cphead">
+    <svg viewBox="0 0 64 88" fill="none"><circle cx="32" cy="18" r="12" fill="#F5F2EF"/><path d="M12 42a20 12 0 0 0 40 0z" fill="#C7825B"/><path d="M16 64a16 9 0 0 0 32 0z" fill="#D6B89A"/></svg>
+    <div><div class="t1">Concierge</div><div class="t2" id="cpstatus"></div></div>
+    <button class="cpx" id="cpclose" aria-label="Close">✕</button>
+  </div>
+  <div class="cpbody" id="cpbody"></div>
+  <div class="cchips" id="cpchips"></div>
+</div>
+
 <!-- ============ WHATSAPP ============ -->
 <a id="wafab" href="https://wa.me/31615471303" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.1-.7l.4-.5c.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.6-.3z"/></svg>
@@ -699,12 +761,16 @@ nl:{
  e_eyebrow:"Ervaringen",e_title:"Hier wonen ís de ervaring",
  e_sub:"Een huis bij ons opent een manier van leven — trage ochtenden, open zee en kamers die ademen.",
  e1_n:"Zee",e1_t:"Ochtenden aan de kust",e2_n:"Aarde",e2_t:"Met de hand gemaakt",e3_n:"Essentie",e3_t:"Kamers die ademen",
- a_eyebrow:"Uw gids",a_title:"Eén persoon, van eerste wandeling tot <em style=\"color:var(--terra)\">de sleutels</em>",
- a_body1:"Roam & Root wordt persoonlijk geleid door Alco — uw enige aanspreekpunt bij elke stap. Zij luistert eerst en zoekt dan onvermoeibaar: op de markt, buiten de markt en via de stille netwerken waar de mooiste huizen van de Algarve van eigenaar wisselen.",
+ a_eyebrow:"De oprichters",a_title:"Wij maakten deze reis <em style=\"color:var(--terra)\">zelf</em>",
+ a_body1:"Roam & Root, dat zijn Alco en Nellie — een Nederlands gezin dat Nederland achterliet, wortel schoot in de westelijke Algarve en nooit meer omkeek. Alco loopt elke stap persoonlijk met u mee: eerst luistert hij, daarna zoekt hij onvermoeibaar — op de markt, buiten de markt en via de stille netwerken waar de mooiste huizen van de Algarve van eigenaar wisselen.",
  a_l1:"Een persoonlijke zoektocht rond uw leven, geen advertentiefeed",
  a_l2:"Eerlijk advies over grond, licht, vergunningen en echte waarde",
  a_l3:"Aan uw zijde bij bezichtigingen, onderhandeling en overdracht",
- a_cta:"Maak kennis met Alco",
+ a_cta:"Ontmoet Alco & Nellie",
+ f_o5:"Huren / verhuren",f_stage:"Waar staat u op de reis?",
+ f_s1:"Klaar om nu te verhuizen",f_s2:"Aan het verkennen — komende maanden",f_s3:"Dromen van een leven in Portugal",
+ c_note:"Schrijf ons in elke taal — wij antwoorden persoonlijk in het Engels of Nederlands.",
+ p_sell:"Verkopen? Gratis marktstudie",
  a_cred:"Erkend internationaal makelaar · in samenwerking met Century 21",
  c_eyebrow:"Begin het gesprek",c_title:"Vertel ons hoe u wilt <em>leven</em>",
  c_body:"Deel een paar woorden over het leven dat u voor ogen heeft — een eerste huis, een toevluchtsoord, een investering — en wij antwoorden persoonlijk binnen één werkdag.",
@@ -746,12 +812,16 @@ fr:{
  e_eyebrow:"Expériences",e_title:"Vivre ici est l'expérience",
  e_sub:"Une maison chez nous ouvre un art de vivre — matins lents, mer ouverte et pièces qui respirent.",
  e1_n:"Mer",e1_t:"Matins sur la côte",e2_n:"Terre",e2_t:"Façonné à la main",e3_n:"Essence",e3_t:"Des pièces qui respirent",
- a_eyebrow:"Votre guide",a_title:"Une seule personne, de la première visite aux <em style=\"color:var(--terra)\">clés</em>",
- a_body1:"Roam & Root est mené personnellement par Alco — votre unique interlocutrice de confiance à chaque étape. Elle écoute d'abord, puis cherche sans relâche : sur le marché, hors marché, et à travers les réseaux discrets où s'échangent les plus belles maisons de l'Algarve.",
+ a_eyebrow:"Les fondateurs",a_title:"Nous avons fait ce chemin <em style=\"color:var(--terra)\">nous-mêmes</em>",
+ a_body1:"Roam & Root, c'est Alco et Nellie — une famille néerlandaise qui a quitté les Pays-Bas, pris racine dans l'ouest de l'Algarve et n'est jamais revenue en arrière. Alco fait chaque pas avec vous personnellement : il écoute d'abord, puis cherche sans relâche — sur le marché, hors marché et à travers les réseaux discrets où s'échangent les plus belles maisons de l'Algarve.",
  a_l1:"Une recherche personnelle façonnée autour de votre vie, pas un flux d'annonces",
  a_l2:"Des conseils honnêtes sur le terrain, la lumière, les licences et la vraie valeur",
  a_l3:"À vos côtés pour les visites, la négociation et la signature",
- a_cta:"Rencontrer Alco",
+ a_cta:"Rencontrer Alco & Nellie",
+ f_o5:"Louer / mettre en location",f_stage:"Où en êtes-vous du voyage ?",
+ f_s1:"Prêt à partir maintenant",f_s2:"En exploration — les prochains mois",f_s3:"Le rêve d'une vie au Portugal",
+ c_note:"Écrivez-nous dans n'importe quelle langue — nous répondons personnellement en anglais ou en néerlandais.",
+ p_sell:"Vous vendez ? Étude de marché gratuite",
  a_cred:"Agent international agréé · en partenariat avec Century 21",
  c_eyebrow:"Commencer la conversation",c_title:"Dites-nous comment vous voulez <em>vivre</em>",
  c_body:"Partagez quelques mots sur la vie que vous imaginez — une première maison, un refuge, un investissement — et nous répondrons personnellement sous un jour ouvré.",
@@ -793,12 +863,16 @@ pt:{
  e_eyebrow:"Experiências",e_title:"Viver aqui é a experiência",
  e_sub:"Uma casa connosco abre um modo de vida — manhãs lentas, mar aberto e espaços que respiram.",
  e1_n:"Mar",e1_t:"Manhãs na costa",e2_n:"Terra",e2_t:"Feito à mão",e3_n:"Essência",e3_t:"Espaços que respiram",
- a_eyebrow:"A sua guia",a_title:"Uma só pessoa, do primeiro passeio às <em style=\"color:var(--terra)\">chaves</em>",
- a_body1:"A Roam & Root é conduzida pessoalmente pela Alco — o seu único ponto de confiança em cada etapa. Primeiro escuta, depois procura sem descanso: no mercado, fora do mercado e nas redes discretas onde as melhores casas do Algarve mudam de mãos.",
+ a_eyebrow:"Os fundadores",a_title:"Nós fizemos esta viagem <em style=\"color:var(--terra)\">primeiro</em>",
+ a_body1:"A Roam & Root são o Alco e a Nellie — uma família holandesa que deixou os Países Baixos, criou raízes no barlavento algarvio e nunca olhou para trás. O Alco caminha pessoalmente consigo em cada passo: primeiro escuta, depois procura sem descanso — no mercado, fora do mercado e nas redes discretas onde as melhores casas do Algarve mudam de mãos.",
  a_l1:"Uma procura pessoal desenhada à volta da sua vida, não um feed de anúncios",
  a_l2:"Aconselhamento honesto sobre terreno, luz, licenças e valor real",
  a_l3:"Ao seu lado nas visitas, na negociação e na escritura",
- a_cta:"Conhecer a Alco",
+ a_cta:"Conhecer o Alco e a Nellie",
+ f_o5:"Arrendar / colocar para arrendar",f_stage:"Em que ponto da viagem está?",
+ f_s1:"Pronto para avançar já",f_s2:"A explorar — nos próximos meses",f_s3:"A sonhar com uma vida em Portugal",
+ c_note:"Escreva-nos em qualquer língua — respondemos pessoalmente em inglês ou neerlandês.",
+ p_sell:"Vai vender? Estudo de mercado grátis",
  a_cred:"Agente internacional licenciada · em parceria com a Century 21",
  c_eyebrow:"Comece a conversa",c_title:"Diga-nos como quer <em>viver</em>",
  c_body:"Partilhe algumas palavras sobre a vida que imagina — uma primeira casa, um refúgio, um investimento — e responderemos pessoalmente dentro de um dia útil.",
@@ -878,16 +952,107 @@ document.getElementById('bookform').addEventListener('submit', function(e){
   const name = f.name.value.trim(), email = f.email.value.trim();
   if(!name || !email){ (name ? f.email : f.name).focus(); return; }
   btn.classList.add('busy');
-  const interest = f.interest.value, msg = f.message.value.trim();
+  const interest = f.interest.value, stage = f.stage.value, msg = f.message.value.trim();
   // mailto handoff (Web3Forms key can replace this without changing markup)
   const subject = encodeURIComponent('Roam & Root — inquiry from ' + name);
-  const body = encodeURIComponent(name + ' <' + email + '>\n' + interest + '\n\n' + msg);
+  const body = encodeURIComponent(name + ' <' + email + '>\n' + interest + ' · ' + stage + '\n\n' + msg);
   setTimeout(()=>{
     window.location.href = 'mailto:alkojambrienke@century21.pt?subject=' + subject + '&body=' + body;
     btn.classList.remove('busy');
     document.getElementById('fmsg').style.display = 'block';
   }, 350);
 });
+
+/* ================= SELLER SHORTCUT ================= */
+document.getElementById('selllink').addEventListener('click', () => {
+  const s = document.getElementById('f-int'); if(s) s.selectedIndex = 3;
+});
+
+/* ================= CONCIERGE ================= */
+const CB = {
+en:{status:"Alco replies personally within 24h",
+ hi:"Welcome to Roam & Root. I can point you the right way — what brings you here?",
+ buy:"Buying a home",sell:"Selling my property",rent:"Renting",other:"Something else",
+ stageQ:"Lovely. Where are you on the journey?",
+ s1:"Ready now",s2:"In the coming months",s3:"Dreaming of moving",
+ r1:"Then let's not lose momentum. The current portfolio is shared privately — Alco can walk you through it this week.",
+ r2:"The perfect moment to explore calmly. Tell us what you are drawn to and we will start watching the market for you.",
+ r3:"A beautiful dream — and a very possible one. We made the move ourselves and can show you what the road looks like.",
+ rsell:"One good listing finds its buyer fast. Alco prepares a free, honest market study of your property — no strings attached.",
+ rrent:"We are building a rentals collection. Tell us what you are looking for — or would like to rent out — and we will come back to you.",
+ rother:"Ask us anything. The fastest way is WhatsApp — or leave your details and we reply within one working day.",
+ props:"See properties",wa:"WhatsApp Alco",form:"Leave my details",email:"Write an email"},
+nl:{status:"Alco antwoordt persoonlijk binnen 24 uur",
+ hi:"Welkom bij Roam & Root. Ik wijs u graag de weg — wat brengt u hier?",
+ buy:"Een huis kopen",sell:"Mijn huis verkopen",rent:"Huren",other:"Iets anders",
+ stageQ:"Mooi. Waar staat u op de reis?",
+ s1:"Klaar om nu te gaan",s2:"De komende maanden",s3:"Dromen van de stap",
+ r1:"Laten we het momentum vasthouden. Het actuele aanbod delen wij persoonlijk — Alco neemt het deze week graag met u door.",
+ r2:"Het perfecte moment om rustig te verkennen. Vertel ons wat u aanspreekt en wij houden de markt voor u in de gaten.",
+ r3:"Een prachtige droom — en heel goed mogelijk. Wij maakten de stap zelf en laten u graag zien hoe de weg eruitziet.",
+ rsell:"Eén goede listing vindt snel zijn koper. Alco maakt een gratis, eerlijke marktstudie van uw woning — vrijblijvend.",
+ rrent:"Wij bouwen aan een huuraanbod. Vertel ons wat u zoekt — of wilt verhuren — en wij komen bij u terug.",
+ rother:"Vraag ons alles. WhatsApp is het snelst — of laat uw gegevens achter en wij antwoorden binnen één werkdag.",
+ props:"Bekijk woningen",wa:"WhatsApp Alco",form:"Gegevens achterlaten",email:"Stuur een e-mail"},
+fr:{status:"Alco répond personnellement sous 24 h",
+ hi:"Bienvenue chez Roam & Root. Je vous montre le chemin — qu'est-ce qui vous amène ?",
+ buy:"Acheter une maison",sell:"Vendre mon bien",rent:"Louer",other:"Autre chose",
+ stageQ:"Très bien. Où en êtes-vous du voyage ?",
+ s1:"Prêt maintenant",s2:"Dans les prochains mois",s3:"Un rêve qui mûrit",
+ r1:"Alors ne perdons pas l'élan. Le portefeuille actuel est partagé en privé — Alco peut vous le présenter cette semaine.",
+ r2:"Le moment parfait pour explorer calmement. Dites-nous ce qui vous attire et nous surveillerons le marché pour vous.",
+ r3:"Un beau rêve — et très possible. Nous avons fait le chemin nous-mêmes et pouvons vous montrer la route.",
+ rsell:"Une bonne annonce trouve vite son acheteur. Alco prépare une étude de marché gratuite et honnête de votre bien — sans engagement.",
+ rrent:"Nous construisons une collection de locations. Dites-nous ce que vous cherchez — ou souhaitez louer — et nous reviendrons vers vous.",
+ rother:"Posez-nous toutes vos questions. WhatsApp est le plus rapide — ou laissez vos coordonnées et nous répondons sous un jour ouvré.",
+ props:"Voir les propriétés",wa:"WhatsApp Alco",form:"Laisser mes coordonnées",email:"Écrire un e-mail"},
+pt:{status:"O Alco responde pessoalmente em 24h",
+ hi:"Bem-vindo à Roam & Root. Eu aponto-lhe o caminho — o que o traz aqui?",
+ buy:"Comprar casa",sell:"Vender o meu imóvel",rent:"Arrendar",other:"Outra coisa",
+ stageQ:"Ótimo. Em que ponto da viagem está?",
+ s1:"Pronto para já",s2:"Nos próximos meses",s3:"A sonhar com a mudança",
+ r1:"Então não percamos o embalo. O portefólio atual é partilhado em privado — o Alco pode mostrar-lho esta semana.",
+ r2:"O momento perfeito para explorar com calma. Diga-nos o que o atrai e ficamos atentos ao mercado por si.",
+ r3:"Um sonho bonito — e bem possível. Nós fizemos a mudança primeiro e mostramos-lhe como é o caminho.",
+ rsell:"Uma boa angariação encontra comprador depressa. O Alco prepara um estudo de mercado grátis e honesto do seu imóvel — sem compromisso.",
+ rrent:"Estamos a construir uma coleção de arrendamento. Diga-nos o que procura — ou quer arrendar — e voltamos ao contacto.",
+ rother:"Pergunte-nos o que quiser. O WhatsApp é o mais rápido — ou deixe os seus dados e respondemos num dia útil.",
+ props:"Ver imóveis",wa:"WhatsApp Alco",form:"Deixar os meus dados",email:"Escrever um email"}
+};
+(function(){
+  const fab=document.getElementById('ccfab'), panel=document.getElementById('cpanel');
+  const body=document.getElementById('cpbody'), chips=document.getElementById('cpchips');
+  const status=document.getElementById('cpstatus');
+  const t=()=>CB[document.documentElement.lang]||CB.en;
+  function say(txt,me){ const d=document.createElement('div'); d.className='cmsg'+(me?' cme':''); d.textContent=txt;
+    body.appendChild(d); body.scrollTop=body.scrollHeight; }
+  function opts(list){ chips.innerHTML='';
+    list.forEach(([label,fn,act])=>{ const b=document.createElement('button'); b.textContent=label;
+      if(act) b.className='act'; b.addEventListener('click',fn); chips.appendChild(b); }); }
+  function goForm(intIdx,stageIdx){ close();
+    const fi=document.getElementById('f-int'), fs=document.getElementById('f-stage');
+    if(fi&&intIdx!=null) fi.selectedIndex=intIdx; if(fs&&stageIdx!=null) fs.selectedIndex=stageIdx;
+    document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+    setTimeout(()=>document.getElementById('f-name').focus(),900); }
+  function goWA(){ window.open(document.getElementById('wafab').href,'_blank'); }
+  function actions(intIdx,stageIdx,withProps){
+    const c=t(); const l=[];
+    if(withProps) l.push([c.props,()=>{close();document.getElementById('properties').scrollIntoView({behavior:'smooth'});}]);
+    l.push([c.wa,goWA,true],[c.form,()=>goForm(intIdx,stageIdx)]);
+    return l; }
+  function stagePick(i){ const c=t(); say(c['s'+(i+1)],true); say(c['r'+(i+1)]); opts(actions(i===2?0:0,i,true)); }
+  function start(){ const c=t(); status.textContent=c.status; body.innerHTML=''; say(c.hi);
+    opts([[c.buy,()=>{say(c.buy,true);say(c.stageQ);opts([[c.s1,()=>stagePick(0)],[c.s2,()=>stagePick(1)],[c.s3,()=>stagePick(2)]]);}],
+          [c.sell,()=>{say(c.sell,true);say(c.rsell);opts(actions(3,null,false));}],
+          [c.rent,()=>{say(c.rent,true);say(c.rrent);opts(actions(4,null,false));}],
+          [c.other,()=>{say(c.other,true);say(c.rother);
+            opts([[c.wa,goWA,true],[c.email,()=>{location.href='mailto:alkojambrienke@century21.pt';}]]);}]]);
+  }
+  function close(){ panel.classList.remove('open'); fab.setAttribute('aria-expanded','false'); }
+  fab.addEventListener('click',()=>{ const open=panel.classList.toggle('open');
+    fab.setAttribute('aria-expanded',open); if(open) start(); });
+  document.getElementById('cpclose').addEventListener('click',close);
+})();
 
 /* ================= CINEMA ================= */
 (function(){
