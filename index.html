@@ -13,10 +13,10 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="img/rr-hero.jpg">
 <meta name="theme-color" content="#1F2F30">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23F5F2EF'/%3E%3Ccircle cx='32' cy='19' r='9' fill='%231F2F30'/%3E%3Cpath d='M15 34a17 10 0 0 0 34 0z' fill='%23C7825B'/%3E%3Cpath d='M18 48a14 8 0 0 0 28 0z' fill='%23D6B89A'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 150'%3E%3Crect width='120' height='150' fill='%23F5F2EF'/%3E%3Cg fill='none' stroke='%231F2F30'%3E%3Cpath d='M22 148 V58 C22 30 38 12 60 6 C82 12 98 30 98 58 V148' stroke-width='3'/%3E%3Cpath d='M47 122 V48 H66 A13 13 0 0 1 66 74 H47' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M58 74 C66 86 66 98 80 106 C87 110 93 106 94 99' stroke-width='7' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=League+Spartan:wght@300;400;500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"RealEstateAgent","name":"Roam & Root Algarve",
 "slogan":"Living in Harmony","areaServed":"Algarve, Portugal",
@@ -30,6 +30,7 @@
   --ink:#22302f; --mut:#5f6b66;
   --line:rgba(31,47,48,.14); --line-soft:rgba(31,47,48,.08);
   --serif:'Cormorant Garamond',Georgia,serif; --sans:'Montserrat',system-ui,sans-serif;
+  --geo:'League Spartan','Montserrat',system-ui,sans-serif;
   --maxw:1340px; --pad:clamp(22px,5vw,64px);
   --ease:cubic-bezier(.22,.8,.24,1);
 }
@@ -85,8 +86,8 @@ img{max-width:100%;display:block}
   position:fixed;inset:0;z-index:200;background:var(--deepsea);
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;
 }
-#rrload .mk{width:64px;height:88px}
-#rrload .wd{font-family:var(--serif);font-size:1.5rem;letter-spacing:.34em;color:var(--salt);text-transform:uppercase;padding-left:.34em}
+#rrload .mk{width:72px;height:90px}
+#rrload .wd{font-family:var(--geo);font-weight:300;font-size:1.5rem;letter-spacing:.32em;color:var(--salt);text-transform:uppercase;padding-left:.32em}
 #rrload .tg{font-size:.6rem;letter-spacing:.5em;text-transform:uppercase;color:var(--sand);padding-left:.5em}
 html:not(.cine) #rrload{display:none}
 
@@ -99,10 +100,10 @@ header.solid{background:rgba(245,242,239,.92);backdrop-filter:blur(14px);box-sha
 .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px var(--pad);max-width:1600px;margin:0 auto}
 .brand{display:flex;align-items:center;gap:14px;color:var(--salt);transition:color .5s}
 header.solid .brand{color:var(--deepsea)}
-.brand svg{width:30px;height:40px;flex:0 0 auto}
-.brand .bt{display:flex;flex-direction:column;line-height:1.15}
-.brand .b1{font-family:var(--serif);font-size:1.18rem;letter-spacing:.22em;text-transform:uppercase;white-space:nowrap}
-.brand .b2{font-size:.58rem;font-weight:600;letter-spacing:.52em;text-transform:uppercase;color:var(--terra)}
+.brand svg{width:33px;height:42px;flex:0 0 auto}
+.brand .bt{display:flex;flex-direction:column;line-height:1.1}
+.brand .b1{font-family:var(--geo);font-weight:400;font-size:1.16rem;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap}
+.brand .b2{font-family:var(--geo);font-size:.56rem;font-weight:500;letter-spacing:.5em;text-transform:uppercase;color:var(--terra);margin-top:2px}
 .navlinks{display:flex;gap:clamp(16px,2.4vw,34px);font-size:.74rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,242,239,.9)}
 header.solid .navlinks{color:var(--ink)}
 .navlinks a{position:relative;padding:6px 0;transition:color .3s}
@@ -385,10 +386,10 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
 
 <!-- ============ LOADER ============ -->
 <div id="rrload" aria-hidden="true">
-  <svg class="mk" viewBox="0 0 64 88" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle id="mk-c" cx="32" cy="18" r="12" fill="#F5F2EF"/>
-    <path id="mk-a1" d="M12 42a20 12 0 0 0 40 0z" fill="#C7825B"/>
-    <path id="mk-a2" d="M16 64a16 9 0 0 0 32 0z" fill="#D6B89A"/>
+  <svg class="mk" viewBox="0 0 120 150" fill="none" stroke="#F5F2EF" xmlns="http://www.w3.org/2000/svg">
+    <path d="M22 148 V58 C22 30 38 12 60 6 C82 12 98 30 98 58 V148" stroke-width="3"/>
+    <path d="M47 122 V48 H66 A13 13 0 0 1 66 74 H47" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M58 74 C66 86 66 98 80 106 C87 110 93 106 94 99" stroke-width="7" stroke-linecap="round"/>
   </svg>
   <div class="wd">Roam &amp; Root</div>
   <div class="tg" data-i="loader_tag">Living in Harmony</div>
@@ -398,10 +399,10 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
 <header id="hd">
   <div class="nav">
     <a class="brand" href="#top" aria-label="Roam & Root Algarve">
-      <svg viewBox="0 0 64 88" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="32" cy="18" r="12" fill="currentColor"/>
-        <path d="M12 42a20 12 0 0 0 40 0z" fill="#C7825B"/>
-        <path d="M16 64a16 9 0 0 0 32 0z" fill="#D6B89A"/>
+      <svg viewBox="0 0 120 150" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22 148 V58 C22 30 38 12 60 6 C82 12 98 30 98 58 V148" stroke-width="3"/>
+        <path d="M47 122 V48 H66 A13 13 0 0 1 66 74 H47" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M58 74 C66 86 66 98 80 106 C87 110 93 106 94 99" stroke-width="7" stroke-linecap="round"/>
       </svg>
       <span class="bt"><span class="b1">Roam &amp; Root</span><span class="b2">Algarve</span></span>
     </a>
@@ -674,10 +675,10 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
   <div class="wrap fmain">
     <div class="fbrand">
       <a class="brand" href="#top">
-        <svg viewBox="0 0 64 88" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="32" cy="18" r="12" fill="#F5F2EF"/>
-          <path d="M12 42a20 12 0 0 0 40 0z" fill="#C7825B"/>
-          <path d="M16 64a16 9 0 0 0 32 0z" fill="#D6B89A"/>
+        <svg viewBox="0 0 120 150" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 148 V58 C22 30 38 12 60 6 C82 12 98 30 98 58 V148" stroke-width="3"/>
+          <path d="M47 122 V48 H66 A13 13 0 0 1 66 74 H47" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M58 74 C66 86 66 98 80 106 C87 110 93 106 94 99" stroke-width="7" stroke-linecap="round"/>
         </svg>
         <span class="bt"><span class="b1">Roam &amp; Root</span><span class="b2">Algarve</span></span>
       </a>
@@ -700,7 +701,7 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
   </div>
   <div class="wrap fstrip">
     <span data-i="ft_s1">Earth · Sea · Essence</span>
-    <span class="fm"><svg viewBox="0 0 64 88" fill="none"><circle cx="32" cy="18" r="12" fill="#C7825B"/><path d="M12 42a20 12 0 0 0 40 0z" fill="#D6B89A" opacity=".7"/><path d="M16 64a16 9 0 0 0 32 0z" fill="#F5F2EF" opacity=".4"/></svg></span>
+    <span class="fm"><svg viewBox="0 0 120 150" fill="none" stroke="#C7825B"><path d="M22 148 V58 C22 30 38 12 60 6 C82 12 98 30 98 58 V148" stroke-width="4"/><path d="M47 122 V48 H66 A13 13 0 0 1 66 74 H47" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M58 74 C66 86 66 98 80 106 C87 110 93 106 94 99" stroke-width="8" stroke-linecap="round"/></svg></span>
     <span data-i="ft_s2">Living in Harmony</span>
   </div>
   <div class="wrap fcopy">
