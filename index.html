@@ -86,13 +86,37 @@ img{max-width:100%;display:block}
   position:fixed;inset:0;z-index:200;background:var(--deepsea);
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;
 }
-#rrload .mk{width:72px;height:90px}
+#rrload .mk{width:78px;height:96px}
 #rrload .wd{font-family:var(--geo);font-weight:300;font-size:1.5rem;letter-spacing:.32em;color:var(--salt);text-transform:uppercase;padding-left:.32em}
 #rrload .tg{font-size:.6rem;letter-spacing:.5em;text-transform:uppercase;color:var(--sand);padding-left:.5em}
-html:not(.cine) #rrload{display:none}
+#veil{position:fixed;inset:0;z-index:190;pointer-events:none;display:block;width:100%;height:100%}
+html:not(.cine) #rrload,html:not(.cine) #veil{display:none}
 
 /* pre-hide only while cinema is armed */
 html.cine [data-cine]{opacity:0}
+
+/* —— experience system —— */
+.grain{position:fixed;inset:-40px;z-index:60;pointer-events:none;opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+#cur,#curing{position:fixed;top:0;left:0;z-index:210;pointer-events:none;border-radius:50%;
+  display:none;transform:translate(-50%,-50%)}
+#cur{width:7px;height:7px;background:var(--salt);mix-blend-mode:difference}
+#curing{width:38px;height:38px;border:1px solid rgba(245,242,239,.85);mix-blend-mode:difference;
+  display:none;align-items:center;justify-content:center;transition:width .35s var(--ease),height .35s var(--ease)}
+#curing::after{content:"+";font:300 15px/1 var(--geo);color:var(--salt);opacity:0;transition:opacity .3s}
+#curing.big{width:76px;height:76px}
+#curing.big::after{opacity:1}
+body.has-cursor a,body.has-cursor button,body.has-cursor .pcard,body.has-cursor .ecard{cursor:none}
+body.has-cursor{cursor:none}
+body.has-cursor input,body.has-cursor textarea,body.has-cursor select{cursor:auto}
+header.hid{transform:translateY(-102%)}
+.scrollcue{animation:cueBreath 3.2s ease-in-out infinite}
+@keyframes cueBreath{0%,100%{opacity:.55;transform:translateX(-50%) translateY(0)}50%{opacity:.95;transform:translateX(-50%) translateY(6px)}}
+.philo blockquote .w{opacity:.16;display:inline-block;will-change:opacity}
+.fsig{overflow:hidden;padding:clamp(56px,9vw,120px) 0 0;text-align:center;position:relative}
+.fsig .line{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--stone);
+  font-size:clamp(2.4rem,7vw,6rem);line-height:1.05;letter-spacing:.02em}
+.fsig .mkwm{width:clamp(120px,16vw,200px);opacity:.07;position:absolute;left:50%;top:50%;transform:translate(-50%,-58%);pointer-events:none}
 
 /* ============ NAV ============ */
 header{position:fixed;top:0;left:0;right:0;z-index:90;transition:background .5s var(--ease),box-shadow .5s,transform .5s var(--ease)}
@@ -387,13 +411,17 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
 <!-- ============ LOADER ============ -->
 <div id="rrload" aria-hidden="true">
   <svg class="mk" viewBox="0 0 120 150" fill="none" stroke="#F5F2EF" xmlns="http://www.w3.org/2000/svg">
-    <path d="M22 148 V58 C22 30 38 12 60 6 C82 12 98 30 98 58 V148" stroke-width="3"/>
-    <path d="M47 122 V48 H66 A13 13 0 0 1 66 74 H47" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M58 74 C66 86 66 98 80 106 C87 110 93 106 94 99" stroke-width="7" stroke-linecap="round"/>
+    <path class="dr" pathLength="100" d="M22 148 V58 C22 30 38 12 60 6 C82 12 98 30 98 58 V148" stroke-width="3"/>
+    <path class="dr" pathLength="100" d="M47 122 V48 H66 A13 13 0 0 1 66 74 H47" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path class="dr" pathLength="100" d="M58 74 C66 86 66 98 80 106 C87 110 93 106 94 99" stroke-width="7" stroke-linecap="round"/>
   </svg>
   <div class="wd">Roam &amp; Root</div>
   <div class="tg" data-i="loader_tag">Living in Harmony</div>
 </div>
+<!-- arch curtain: the page is revealed through a rising Moorish arch -->
+<svg id="veil" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+  <path id="veilp" fill="#1F2F30" d="M0 0 H100 V100 Q50 100 0 100 Z"/>
+</svg>
 
 <!-- ============ NAV ============ -->
 <header id="hd">
@@ -672,6 +700,14 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
 
 <!-- ============ FOOTER ============ -->
 <footer>
+  <div class="fsig">
+    <svg class="mkwm" viewBox="0 0 120 150" fill="none" stroke="#F5F2EF" aria-hidden="true">
+      <path d="M22 148 V58 C22 30 38 12 60 6 C82 12 98 30 98 58 V148" stroke-width="3"/>
+      <path d="M47 122 V48 H66 A13 13 0 0 1 66 74 H47" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M58 74 C66 86 66 98 80 106 C87 110 93 106 94 99" stroke-width="7" stroke-linecap="round"/>
+    </svg>
+    <div class="line" data-rv data-i="ft_s2">Living in Harmony</div>
+  </div>
   <div class="wrap fmain">
     <div class="fbrand">
       <a class="brand" href="#top">
@@ -728,6 +764,10 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
 <a id="wafab" href="https://wa.me/31615471303" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.1-.7l.4-.5c.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.6-.3z"/></svg>
 </a>
+
+<div class="grain" aria-hidden="true"></div>
+<div id="cur" aria-hidden="true"></div>
+<div id="curing" aria-hidden="true"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
@@ -910,6 +950,7 @@ function setLang(lg){
   const msg = encodeURIComponent((d.wa_msg) || DICT.en.wa_msg);
   document.querySelectorAll('#wafab, #ftwa').forEach(a => a.href = 'https://wa.me/31615471303?text=' + msg);
   try{ localStorage.setItem('rr-lang', lg); }catch(e){}
+  if(window.__rrResplit) window.__rrResplit();   // re-split the painted quote for the new language
 }
 window.setLang = setLang;
 document.querySelectorAll('.langsw button, .mlang button').forEach(b =>
@@ -938,8 +979,15 @@ function hgo(n, user){
   slides[hcur].classList.remove('on');
   hcur = (n + slides.length) % slides.length;
   slides[hcur].classList.add('on');
-  document.getElementById('hcur').textContent = String(hcur+1).padStart(2,'0');
-  if(window.gsap && hbar && !RM){ gsap.fromTo(hbar, {scaleX:0}, {scaleX:1, duration:7, ease:'none'}); }
+  const hc = document.getElementById('hcur');
+  hc.textContent = String(hcur+1).padStart(2,'0');
+  if(window.gsap && !RM){
+    if(hbar) gsap.fromTo(hbar, {scaleX:0}, {scaleX:1, duration:7, ease:'none', overwrite:true});
+    // counter rolls in; incoming slide breathes (slow zoom for the slide's lifetime)
+    gsap.fromTo(hc, {y:12, opacity:0}, {y:0, opacity:1, duration:.6, ease:'power3.out', overwrite:true});
+    const img = slides[hcur].querySelector('img');
+    if(img) gsap.fromTo(img, {scale:1.1}, {scale:1.02, duration:8, ease:'none', overwrite:true});
+  }
   if(user){ clearInterval(htimer); if(!RM) htimer = setInterval(()=>hgo(hcur+1), 7000); }
 }
 document.getElementById('hnext').addEventListener('click', ()=>hgo(hcur+1, true));
@@ -1055,67 +1103,167 @@ pt:{status:"O Alco responde pessoalmente em 24h",
   document.getElementById('cpclose').addEventListener('click',close);
 })();
 
-/* ================= CINEMA ================= */
+/* ================= EXPERIENCE =================
+   The thesis: you enter the Algarve through the arch.
+   Loader draws the monogram → the deep-sea veil lifts with a Moorish-arch
+   bow → the hero settles. From there: masked reveals, image curtains,
+   a scroll-painted philosophy quote, a quiet custom cursor. All RM-safe. */
 (function(){
   const html = document.documentElement;
-  const failsafe = setTimeout(unveil, 3200);   // never trap the page hidden
+  const failsafe = setTimeout(unveil, 5000);   // never trap the page hidden
   function unveil(){
     html.classList.remove('cine');
-    const l = document.getElementById('rrload'); if(l) l.style.display = 'none';
+    ['rrload','veil'].forEach(id => { const el = document.getElementById(id); if(el) el.style.display = 'none'; });
   }
   if(!window.gsap || RM){
-    // graceful: no cinema — show everything instantly
     clearTimeout(failsafe); unveil();
     return;
   }
   gsap.registerPlugin(ScrollTrigger);
+
   // Lenis smooth scroll
   let lenis = null;
   if(window.Lenis){
-    lenis = new Lenis({ duration: 1.15, smoothWheel: true });
+    lenis = new Lenis({ duration: 1.2, smoothWheel: true });
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add(t => lenis.raf(t * 1000));
     gsap.ticker.lagSmoothing(0);
   }
-  // loader → hero choreography
-  const tl = gsap.timeline({ defaults:{ ease:'power3.out' } });
-  tl.from('#rrload .mk > *', { y: 18, opacity: 0, duration: .7, stagger: .14 })
-    .from('#rrload .wd', { opacity: 0, letterSpacing: '.6em', duration: .8 }, '-=.3')
-    .from('#rrload .tg', { opacity: 0, duration: .5 }, '-=.4')
-    .to('#rrload', { opacity: 0, duration: .8, delay: .5, onComplete(){
-        clearTimeout(failsafe);
-        document.getElementById('rrload').style.display = 'none';
-        html.classList.remove('cine');
-      }})
-    .from('.hero-imgs img', { scale: 1.16, duration: 2.4, ease: 'power2.out' }, '-=.7')
-    .fromTo('[data-cine]', { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 1.1, stagger: .12 }, '-=2.0');
-  initScroll();
 
-  function initScroll(){
-    // section reveals
-    document.querySelectorAll('[data-rv]').forEach(el => {
-      gsap.fromTo(el, { opacity: 0, y: 44 }, {
-        opacity: 1, y: 0, duration: 1.05, ease: 'power3.out',
-        scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+  /* —— entry: the monogram draws itself, then the arch veil lifts —— */
+  gsap.set('#rrload .dr', { strokeDasharray: 100, strokeDashoffset: 100 });
+  const tl = gsap.timeline({ defaults:{ ease:'power3.out' } });
+  tl.to('#rrload .dr', { strokeDashoffset: 0, duration: .95, stagger: .2, ease: 'power2.inOut' })
+    .from('#rrload .wd', { opacity: 0, letterSpacing: '.6em', duration: .8 }, '-=.6')
+    .from('#rrload .tg', { opacity: 0, duration: .5 }, '-=.45')
+    .to('#rrload', { opacity: 0, duration: .4, delay: .3 })
+    .set('#rrload', { display: 'none' })
+    // bottom edge bows upward into an arch as the veil rises
+    .to('#veilp', { attr:{ d:'M0 0 H100 V55 Q50 -14 0 55 Z' }, duration: .85, ease: 'power2.in' }, '-=.1')
+    .to('#veilp', { attr:{ d:'M0 0 H100 V0 Q50 0 0 0 Z' }, duration: .75, ease: 'power2.out',
+        onComplete(){ clearTimeout(failsafe); unveil(); } })
+    .from('.hero-imgs img', { scale: 1.18, duration: 2.6, ease: 'power2.out' }, '-=.8')
+    .fromTo('[data-cine]', { opacity: 0, y: 42 }, { opacity: 1, y: 0, duration: 1.15, stagger: .11 }, '-=2.1')
+    .from('#wafab, #ccfab', { y: 26, opacity: 0, duration: .9, stagger: .12 }, '-=.9');
+
+  /* —— masked heading reveals (clip rise — i18n-safe, no DOM surgery) —— */
+  const heads = [...document.querySelectorAll('.props-head h2, .philo blockquote, .locs h2, .expr-head h2, .about h2, .contact h2, .fsig .line')];
+  const headSet = new Set(heads);
+  heads.forEach(el => {
+    gsap.fromTo(el, { clipPath: 'inset(0 0 100% 0)', y: 40 },
+      { clipPath: 'inset(0 0 -10% 0)', y: 0, duration: 1.25, ease: 'power4.out',
+        scrollTrigger: { trigger: el, start: 'top 86%', once: true } });
+  });
+
+  /* —— generic reveals (everything else) —— */
+  document.querySelectorAll('[data-rv]').forEach(el => {
+    if(headSet.has(el)) return;
+    gsap.fromTo(el, { opacity: 0, y: 44 }, {
+      opacity: 1, y: 0, duration: 1.05, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+    });
+  });
+
+  /* —— image curtains: frames open, photos settle —— */
+  document.querySelectorAll('.pimg, .ecard').forEach(box => {
+    const img = box.querySelector('img'); if(!img) return;
+    gsap.fromTo(box, { clipPath: 'inset(12% 7% 12% 7%)' },
+      { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.25, ease: 'power3.out',
+        scrollTrigger: { trigger: box, start: 'top 85%', once: true } });
+    gsap.fromTo(img, { scale: 1.22 }, { scale: 1, duration: 1.6, ease: 'power3.out',
+      scrollTrigger: { trigger: box, start: 'top 85%', once: true },
+      onComplete(){ gsap.set(img, { clearProps: 'transform' }); } });   // hand back to CSS hover zoom
+  });
+  document.querySelectorAll('.arch img').forEach(img => {
+    gsap.fromTo(img, { scale: 1.2 }, { scale: 1.001, duration: 1.7, ease: 'power3.out',
+      scrollTrigger: { trigger: img.closest('.arch'), start: 'top 85%', once: true } });
+  });
+
+  /* —— the philosophy quote paints itself as you scroll (re-splits per language) —— */
+  function splitQuote(){
+    const q = document.querySelector('.philo blockquote'); if(!q) return;
+    if(q._st){ q._st.kill(); q._st = null; }
+    (function wrap(node){
+      [...node.childNodes].forEach(ch => {
+        if(ch.nodeType === 3 && ch.textContent.trim()){
+          const frag = document.createDocumentFragment();
+          ch.textContent.split(/(\s+)/).forEach(tok => {
+            if(!tok) return;
+            if(/^\s+$/.test(tok)) frag.appendChild(document.createTextNode(tok));
+            else { const s = document.createElement('span'); s.className = 'w'; s.textContent = tok; frag.appendChild(s); }
+          });
+          node.replaceChild(frag, ch);
+        } else if(ch.nodeType === 1 && !ch.classList.contains('w')) wrap(ch);
       });
+    })(q);
+    q._st = gsap.to(q.querySelectorAll('.w'), { opacity: 1, stagger: .05, ease: 'none',
+      scrollTrigger: { trigger: q, start: 'top 80%', end: 'top 32%', scrub: true } }).scrollTrigger;
+  }
+  splitQuote();
+  window.__rrResplit = () => { splitQuote(); ScrollTrigger.refresh(); };
+
+  /* —— gentle parallax (arch frames + locations backdrop + footer watermark) —— */
+  document.querySelectorAll('[data-plx] img').forEach(img => {
+    gsap.fromTo(img, { yPercent: -6 }, { yPercent: 6, ease: 'none',
+      scrollTrigger: { trigger: img.closest('[data-plx]'), start: 'top bottom', end: 'bottom top', scrub: true } });
+  });
+  const lbg = document.querySelector('[data-plxbg] img');
+  if(lbg){ gsap.fromTo(lbg, { yPercent: -8 }, { yPercent: 2, ease: 'none',
+    scrollTrigger: { trigger: '.locs', start: 'top bottom', end: 'bottom top', scrub: true } }); }
+  gsap.fromTo('.fsig .mkwm', { yPercent: 26 }, { yPercent: -12, ease: 'none',
+    scrollTrigger: { trigger: '.fsig', start: 'top bottom', end: 'bottom top', scrub: true } });
+
+  /* —— nav: solid after the fold, hides on scroll down, returns on scroll up —— */
+  const hd = document.getElementById('hd');
+  let lastY = 0;
+  function navState(y){
+    hd.classList.toggle('solid', y > 80);
+    if(!document.body.classList.contains('menu-open')){
+      hd.classList.toggle('hid', y > lastY + 4 && y > 560);
+      if(y < lastY - 4) hd.classList.remove('hid');
+    }
+    lastY = y;
+  }
+  window.addEventListener('scroll', () => navState(window.scrollY), { passive: true });
+  if(lenis){ lenis.on('scroll', e => navState(e.scroll)); }
+
+  /* —— active section links —— */
+  ['properties','philosophy','locations','experiences','about','contact'].forEach(id => {
+    const sec = document.getElementById(id); if(!sec) return;
+    ScrollTrigger.create({ trigger: sec, start: 'top 45%', end: 'bottom 45%',
+      onToggle(self){ document.querySelectorAll('.navlinks a[href="#'+id+'"]').forEach(a => a.classList.toggle('on', self.isActive)); } });
+  });
+
+  /* —— mobile menu: links rise in —— */
+  document.getElementById('burger').addEventListener('click', () => {
+    if(document.body.classList.contains('menu-open')){
+      gsap.fromTo('#mmenu a, #mmenu .mlang', { y: 36, opacity: 0 },
+        { y: 0, opacity: 1, duration: .7, stagger: .06, ease: 'power3.out', delay: .08 });
+    }
+  });
+
+  /* —— desktop only: magnetic controls + the quiet cursor —— */
+  if(matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('.btn, .harrows button').forEach(b => {
+      const qx = gsap.quickTo(b, 'x', { duration: .4, ease: 'power3' });
+      const qy = gsap.quickTo(b, 'y', { duration: .4, ease: 'power3' });
+      b.addEventListener('pointermove', e => {
+        const r = b.getBoundingClientRect();
+        qx((e.clientX - r.left - r.width/2) * .16);
+        qy((e.clientY - r.top - r.height/2) * .28);
+      });
+      b.addEventListener('pointerleave', () => { qx(0); qy(0); });
     });
-    // gentle parallax on arches + locations bg
-    document.querySelectorAll('[data-plx] img').forEach(img => {
-      gsap.fromTo(img, { yPercent: -6 }, { yPercent: 6, ease: 'none',
-        scrollTrigger: { trigger: img.closest('[data-plx]'), start: 'top bottom', end: 'bottom top', scrub: true } });
-    });
-    const lbg = document.querySelector('[data-plxbg] img');
-    if(lbg){ gsap.fromTo(lbg, { yPercent: -8 }, { yPercent: 2, ease: 'none',
-      scrollTrigger: { trigger: '.locs', start: 'top bottom', end: 'bottom top', scrub: true } }); }
-    // nav state
-    const hd = document.getElementById('hd');
-    window.addEventListener('scroll', () => hd.classList.toggle('solid', window.scrollY > 80), { passive: true });
-    if(lenis){ lenis.on('scroll', e => hd.classList.toggle('solid', e.scroll > 80)); }
-    // active section links
-    ['properties','philosophy','locations','experiences','about','contact'].forEach(id => {
-      const sec = document.getElementById(id); if(!sec) return;
-      ScrollTrigger.create({ trigger: sec, start: 'top 45%', end: 'bottom 45%',
-        onToggle(self){ document.querySelectorAll('.navlinks a[href="#'+id+'"]').forEach(a => a.classList.toggle('on', self.isActive)); } });
+    const cur = document.getElementById('cur'), ring = document.getElementById('curing');
+    gsap.set([cur, ring], { xPercent: -50, yPercent: -50, x: innerWidth/2, y: innerHeight/2 });
+    cur.style.display = 'block'; ring.style.display = 'flex';
+    document.body.classList.add('has-cursor');
+    const cx = gsap.quickTo(cur, 'x', { duration: .1 }),  cy = gsap.quickTo(cur, 'y', { duration: .1 });
+    const rx = gsap.quickTo(ring, 'x', { duration: .45, ease: 'power3' }), ry = gsap.quickTo(ring, 'y', { duration: .45, ease: 'power3' });
+    window.addEventListener('pointermove', e => { cx(e.clientX); cy(e.clientY); rx(e.clientX); ry(e.clientY); }, { passive: true });
+    document.querySelectorAll('.pcard, .ecard').forEach(el => {
+      el.addEventListener('pointerenter', () => ring.classList.add('big'));
+      el.addEventListener('pointerleave', () => ring.classList.remove('big'));
     });
   }
 })();
