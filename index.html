@@ -109,6 +109,8 @@ html.cine [data-cine]{opacity:0}
 body.has-cursor a,body.has-cursor button,body.has-cursor .pcard,body.has-cursor .ecard{cursor:none}
 body.has-cursor{cursor:none}
 body.has-cursor input,body.has-cursor textarea,body.has-cursor select{cursor:auto}
+/* magnetic mode: GSAP owns transform — stop CSS transform transitions fighting it frame-by-frame */
+body.has-cursor .btn,body.has-cursor .harrows button{transition-property:background-color,color,border-color,box-shadow}
 header.hid{transform:translateY(-102%)}
 .scrollcue{animation:cueBreath 3.2s ease-in-out infinite}
 @keyframes cueBreath{0%,100%{opacity:.55;transform:translateX(-50%) translateY(0)}50%{opacity:.95;transform:translateX(-50%) translateY(6px)}}
