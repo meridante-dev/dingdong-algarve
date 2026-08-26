@@ -382,6 +382,8 @@ document.getElementById('sugs').addEventListener('click',e=>{
   qEl.value=q; apply(true); qEl.focus();
 });
 
+(()=>{const src=new URLSearchParams(location.search).get('src');
+  if(src)track('visit',{ref:src.slice(0,30),q:''});})();
 fetch('data/c21-algarve.json').then(r=>r.json()).then(d=>{
   ALL=(d.listings||[]).map(l=>{
     l.chars=l.chars||[]; l._town=town(l.address);

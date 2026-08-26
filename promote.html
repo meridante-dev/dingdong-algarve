@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Publishing Cockpit — Roam &amp; Root</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--deepsea:#1F2F30;--terra:#C7825B;--stone:#EADCC6;--salt:#F5F2EF;--ink:#22302f;--mut:#5f6b66;
+  --line:rgba(31,47,48,.14);--serif:'Cormorant Garamond',serif;--sans:'Montserrat',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:14px/1.6 var(--sans);background:var(--salt);color:var(--ink);padding:26px;max-width:1080px;margin:0 auto}
+h1{font-family:var(--serif);font-size:30px;color:var(--deepsea)}
+.sub{color:var(--mut);font-size:12.5px;margin:4px 0 22px}
+.pick{display:flex;gap:10px;margin-bottom:8px}
+.pick input{flex:1;border:1px solid var(--line);padding:12px 14px;font:inherit;background:#fff}
+.pick select{border:1px solid var(--line);padding:12px;font:inherit;background:#fff;max-width:180px}
+#plist{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:14px 0 26px;max-height:300px;overflow:auto}
+.pp{border:1px solid var(--line);background:#fff;padding:10px;cursor:pointer;font-size:12px;display:flex;gap:10px;align-items:center}
+.pp img{width:54px;height:44px;object-fit:cover;flex:none}
+.pp.on{border-color:var(--terra);box-shadow:0 0 0 1px var(--terra)}
+.pp b{display:block;font-size:11.5px;line-height:1.35}
+h2{font-family:var(--serif);font-size:21px;color:var(--deepsea);margin:26px 0 8px}
+.ch{background:#fff;border:1px solid var(--line);border-radius:8px;margin-bottom:12px;padding:16px 18px}
+.ch .hd{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ch .hd b{font-size:14px}
+.ch .hd a{color:var(--terra);font-size:12px;font-weight:600}
+.ch .rules{font-size:11.5px;color:var(--mut);margin:4px 0 10px}
+textarea{width:100%;border:1px solid var(--line);border-radius:6px;padding:12px;font:12.5px/1.6 var(--sans);
+  min-height:120px;background:#FBFAF8}
+.copy{margin-top:8px;border:0;background:var(--deepsea);color:var(--salt);font:600 11px var(--sans);
+  letter-spacing:.14em;text-transform:uppercase;padding:10px 18px;border-radius:6px;cursor:pointer}
+.copy.done{background:#1e8e5a}
+.warn{background:#FBEFE4;border:1px solid rgba(199,130,91,.4);border-radius:8px;padding:12px 16px;
+  font-size:12.5px;margin:14px 0}
+.photos{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.photos a{font-size:11px;color:var(--terra);border:1px solid var(--line);padding:6px 10px;border-radius:6px;background:#fff}
+</style>
+</head>
+<body>
+<h1>Publishing Cockpit</h1>
+<p class="sub">Pick a property → paste-ready ads for every free channel, with tracked links.
+Internal tool — not linked from the site.</p>
+
+<div class="pick">
+  <input id="ps" placeholder="Search by town, ref, title…">
+  <select id="pm"><option value="">Sales + rentals</option><option value="sell">Sales</option><option value="rent">Rentals</option></select>
+</div>
+<div id="plist"></div>
+
+<div id="out" hidden>
+  <div class="warn" id="alwarn" hidden><b>Short-stay warning:</b> holiday letting in Portugal requires an
+  <b>Alojamento Local (AL) registration number displayed on every advert</b>, and several Algarve councils
+  restrict new AL licences. Confirm the AL status before publishing to Airbnb/Booking or as a short stay.</div>
+  <div id="channels"></div>
+  <h2>Photos (full size, ready to save)</h2>
+  <div class="photos" id="photos"></div>
+</div>
+
+<script>
+const SITE='https://roamandrootalgarve.com';
+let ALL=[],SEL=null;
+const town=a=>{if(!a)return'Algarve';const p=a.split(',').map(s=>s.trim()).filter(Boolean);
+  for(let i=p.length-1;i>=0;i--){const t=p[i].replace(/\d{4}-\d{3}\s*/,'').replace(/Portugal/i,'').trim();if(t)return t}return'Algarve'};
+const fmt=(n,ad)=>n?('€'+n.toLocaleString('en-US')+(ad==='rent'?'/month':'')):'Price on request';
+
+const CHANNELS=[
+ {id:'fbmp',name:'Facebook Marketplace',url:'https://www.facebook.com/marketplace/create/rental',
+  rules:'Post from a PERSONAL profile (business pages can\'t list property). One listing per unit, real photos only.',
+  gen:p=>`${p.t}\n\n${p.specs}\n${p.price}\n📍 ${p.town}, Algarve\n\n${p.blurb}\n\nMore details & photos: ${p.link('fbmp')}\nRef ${p.ref} · Roam & Root Algarve (CENTURY 21 network)`},
+ {id:'fbgr',name:'Facebook Groups (expat / Algarve rentals)',url:'https://www.facebook.com/search/groups/?q=algarve%20rentals',
+  rules:'Read each group\'s pinned rules first. Personal tone works best; one post per group per property.',
+  gen:p=>`${p.ad==='rent'?'FOR RENT':'FOR SALE'} — ${p.town} 🌿\n\n${p.t}\n${p.specs} · ${p.price}\n\n${p.blurb}\n\nAll details: ${p.link('fbgroup')}\nDM or WhatsApp +31 6 15471303 · ref ${p.ref}`},
+ {id:'cj',name:'CustoJusto',url:'https://www.custojusto.pt/publicar-anuncio',
+  rules:'Free classified. Category: Imobiliário → ' ,
+  gen:p=>`${p.tPT||p.t}\n\n${p.specs}\n${p.price}\nZona: ${p.town}, Algarve\n\nMais informação e fotografias: ${p.link('custojusto')}\nRef ${p.ref} · Roam & Root Algarve (rede CENTURY 21)`},
+ {id:'olx',name:'OLX.pt',url:'https://www.olx.pt/adding/',
+  rules:'Free quota is limited for property — use for the best listings.',
+  gen:p=>`${p.tPT||p.t}\n\n${p.specs} · ${p.price}\n${p.town}, Algarve\n\nDetalhes: ${p.link('olx')}\nRef ${p.ref}`},
+ {id:'bq',name:'BQuarto (rooms & flatshares)',url:'https://www.bquarto.pt',
+  rules:'Only for rooms / flatshares — skip for whole homes.',
+  gen:p=>`Quarto/casa em ${p.town} — ${p.price}\n\n${p.blurb}\n\n${p.link('bquarto')} · ref ${p.ref}`},
+ {id:'ig',name:'Instagram / Facebook page caption',url:'https://www.instagram.com',
+  rules:'Pair with the 2 best photos. Link in bio → catalog.',
+  gen:p=>`${p.town}, Algarve 🌿 ${p.ad==='rent'?'For rent':'For sale'}\n\n${p.t}\n${p.specs} · ${p.price}\n\n${p.blurb}\n\nRef ${p.ref} — link in bio or DM us.\n\n#algarve #${p.town.toLowerCase().replace(/[^a-z]/g,'')} #portugalproperty #${p.ad==='rent'?'algarverentals':'algarverealestate'} #roamandroot`},
+ {id:'wa',name:'WhatsApp Status / broadcast',url:'https://web.whatsapp.com',
+  rules:'Status + client broadcast lists — the quiet killer channel for agents.',
+  gen:p=>`${p.ad==='rent'?'🔑 New rental':'🏡 New on the market'} — ${p.town}\n${p.t}\n${p.specs} · ${p.price}\n${p.link('whatsapp')}\nRef ${p.ref}`},
+ {id:'gbp',name:'Google Business Profile post',url:'https://business.google.com',
+  rules:'Post as "What\'s new" with one photo + the button linking to the catalog.',
+  gen:p=>`${p.t} — ${p.town}\n${p.specs} · ${p.price}\n\n${p.blurb}\n\nSee it: ${p.link('gbp')}`},
+];
+
+function props(p){
+  const t=(p.title&&p.title.en)||'Algarve property';
+  return {ref:p.ref,ad:p.ad||'sell',t,tPT:p.title&&p.title.pt,town:town(p.address),
+    specs:[p.rooms?`${p.rooms} bedrooms`:null,p.wcs?`${p.wcs} bathrooms`:null,p.area?`${Math.round(p.area)} m²`:null].filter(Boolean).join(' · '),
+    price:p.hidden?'Price on request':fmt(p.price,p.ad),
+    blurb:(p.chars||[]).slice(0,6).map(c=>c.replace(/_/g,' ')).join(' · '),
+    link:src=>`${SITE}/catalog.html?src=${src}${(p.ad==='rent')?'#rent':''}`,
+    images:p.images||[]};
+}
+function render(){
+  const q=(document.getElementById('ps').value||'').toLowerCase();
+  const m=document.getElementById('pm').value;
+  const list=ALL.filter(l=>(!m||(l.ad||'sell')===m))
+    .filter(l=>!q||JSON.stringify(l).toLowerCase().includes(q)).slice(0,60);
+  document.getElementById('plist').innerHTML=list.map((l,i)=>`
+    <div class="pp ${SEL&&SEL.ref===l.ref?'on':''}" data-ref="${l.ref}">
+      ${l.images&&l.images[0]?`<img src="${l.images[0]}?width=200" alt="">`:''}
+      <span><b>${((l.title&&l.title.en)||'').slice(0,52)}</b>
+      ${town(l.address)} · ${l.hidden?'POA':fmt(l.price,l.ad)} · ${l.ref}</span></div>`).join('');
+}
+document.getElementById('plist').addEventListener('click',e=>{
+  const el=e.target.closest('.pp'); if(!el)return;
+  SEL=ALL.find(l=>l.ref===el.dataset.ref); render(); show();
+});
+function show(){
+  if(!SEL)return;
+  const p=props(SEL);
+  document.getElementById('out').hidden=false;
+  document.getElementById('alwarn').hidden=p.ad!=='rent';
+  document.getElementById('channels').innerHTML=CHANNELS.map(c=>`
+    <div class="ch"><div class="hd"><b>${c.name}</b><a href="${c.url}" target="_blank" rel="noopener">open channel ↗</a></div>
+    <div class="rules">${c.rules}</div>
+    <textarea readonly id="tx-${c.id}">${c.gen(p)}</textarea>
+    <button class="copy" data-t="tx-${c.id}">Copy</button></div>`).join('');
+  document.getElementById('photos').innerHTML=p.images.map((u,i)=>
+    `<a href="${u}?width=1600" target="_blank" rel="noopener">photo ${i+1} ↗</a>`).join('');
+  document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+    await navigator.clipboard.writeText(document.getElementById(b.dataset.t).value);
+    b.textContent='Copied ✓';b.classList.add('done');
+    setTimeout(()=>{b.textContent='Copy';b.classList.remove('done')},1600);
+  }));
+  document.getElementById('out').scrollIntoView({behavior:'smooth'});
+}
+document.getElementById('ps').addEventListener('input',render);
+document.getElementById('pm').addEventListener('change',render);
+fetch('data/c21-algarve.json').then(r=>r.json()).then(d=>{ALL=d.listings||[];render();});
+</script>
+</body>
+</html>
