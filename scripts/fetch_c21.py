@@ -32,6 +32,7 @@ def lean(r):
         "lat":     r.get("lat"), "lng": r.get("lng"),
         "link":    r.get("link"),
         "images":  (r.get("images") or [])[:3],
+        "chars":   r.get("characteristics") or [],
         "entered": r.get("entered_market"),
         "agency":  (r.get("agency") or {}).get("name") if isinstance(r.get("agency"), dict) else r.get("agency"),
     }

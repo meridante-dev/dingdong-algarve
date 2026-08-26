@@ -51,6 +51,32 @@ h1 em{font-style:italic;font-weight:400}
   padding:11px 12px;color:var(--ink);cursor:pointer;outline:none}
 .count{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-left:auto;white-space:nowrap}
 
+.sbox{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);
+  padding:4px 18px;width:100%;transition:border-color .3s,box-shadow .3s}
+.sbox:focus-within{border-color:var(--terra);box-shadow:0 14px 40px -22px rgba(199,130,91,.45)}
+.sbox svg{width:19px;height:19px;color:var(--mut);flex:none}
+.sbox input{flex:1;border:0;outline:0;background:none;font:400 1.02rem var(--sans);color:var(--ink);padding:15px 0}
+.sbox input::placeholder{color:#9aa6a1}
+.sbox .ai{font:600 .5rem/1.25 var(--geo);letter-spacing:.18em;text-transform:uppercase;color:var(--terra);
+  text-align:right;flex:none;border-left:1px solid var(--line);padding-left:14px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips:empty{display:none}
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--deepsea);color:var(--salt);
+  font:500 .68rem var(--sans);letter-spacing:.08em;padding:8px 8px 8px 13px;border-radius:99px}
+.chip i{font-style:normal;opacity:.65;font-size:.6rem;text-transform:uppercase;letter-spacing:.12em}
+.chip button{border:0;background:rgba(245,242,239,.18);color:inherit;width:18px;height:18px;border-radius:50%;
+  cursor:pointer;font-size:.72rem;line-height:1;display:grid;place-items:center}
+.chip button:hover{background:var(--terra)}
+.frow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.sugs{display:flex;gap:8px;flex-wrap:wrap;flex:1}
+.sug{border:1px solid var(--line);background:#fff;color:var(--mut);font:500 .68rem var(--sans);
+  letter-spacing:.06em;padding:8px 14px;border-radius:99px;cursor:pointer;transition:all .25s}
+.sug:hover{border-color:var(--terra);color:var(--deepsea)}
+.frow select{border:1px solid var(--line);background:#fff;font:500 .74rem var(--sans);
+  padding:9px 12px;color:var(--ink);cursor:pointer;outline:none}
+.tools .in{flex-direction:column;align-items:stretch;gap:12px}
+.count{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);white-space:nowrap}
+mark{background:none;color:var(--terra);font-weight:600}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:clamp(18px,2.4vw,30px);
   padding:clamp(30px,4vw,50px) var(--pad) 70px;max-width:1340px;margin:0 auto}
 .card{background:#fff;box-shadow:0 24px 50px -38px rgba(31,47,48,.4);display:flex;flex-direction:column;
@@ -105,28 +131,22 @@ footer a{border-bottom:1px solid rgba(245,242,239,.35)}
 </section>
 
 <div class="tools"><div class="in">
-  <input type="search" id="q" placeholder="Search town, street, reference…" aria-label="Search">
-  <select id="fPrice" aria-label="Price">
-    <option value="">Any price</option>
-    <option value="0-300000">Up to €300k</option>
-    <option value="300000-600000">€300k – €600k</option>
-    <option value="600000-1000000">€600k – €1M</option>
-    <option value="1000000-2500000">€1M – €2.5M</option>
-    <option value="2500000-">€2.5M +</option>
-  </select>
-  <select id="fRooms" aria-label="Bedrooms">
-    <option value="">Any bedrooms</option>
-    <option value="1">1+</option><option value="2">2+</option>
-    <option value="3">3+</option><option value="4">4+</option><option value="5">5+</option>
-  </select>
-  <select id="fType" aria-label="Type">
-    <option value="">Any type</option>
-    <option value="apartment">Apartments</option>
-    <option value="house">Houses &amp; villas</option>
-    <option value="land">Land</option>
-    <option value="other">Other</option>
-  </select>
-  <span class="count" id="count"></span>
+  <div class="sbox">
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="9" cy="9" r="6.2"/><path d="M13.6 13.6 18 18"/></svg>
+    <input type="search" id="q" placeholder="Try: 3 bedroom villa with pool under €600k…" aria-label="Smart search" autocomplete="off">
+    <span class="ai">smart<br>search</span>
+  </div>
+  <div class="chips" id="chips" aria-live="polite"></div>
+  <div class="frow">
+    <div class="sugs" id="sugs"></div>
+    <select id="sort" aria-label="Sort">
+      <option value="new">Newest first</option>
+      <option value="plow">Price · low to high</option>
+      <option value="phigh">Price · high to low</option>
+      <option value="big">Largest first</option>
+    </select>
+    <span class="count" id="count"></span>
+  </div>
 </div></div>
 
 <main class="grid" id="grid" aria-live="polite"></main>
@@ -140,7 +160,9 @@ footer a{border-bottom:1px solid rgba(245,242,239,.35)}
 
 <script>
 const WA='31615471303';
+const TRACK='https://rr-insights.edenrise.workers.dev/e';
 const fmt=n=>n?('€'+n.toLocaleString('en-US')):'Price on request';
+const norm=t=>(t||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 const town=a=>{
   if(!a) return 'Algarve';
   const parts=a.split(',').map(s=>s.trim()).filter(Boolean);
@@ -152,9 +174,103 @@ const town=a=>{
 };
 const typeOf=t=>t==='apartment'?'apartment':(t==='house'||t==='villa'||t==='farm'||t==='estate')?'house':(t==='land'||t==='plot')?'land':'other';
 
-let ALL=[],VIEW=[],shown=0;const PAGE=24;
-const grid=document.getElementById('grid'),more=document.getElementById('more');
+/* ── the understanding layer: natural language → structured intent ── */
+const AMEN={
+  pool:['pool','piscina','swimming'], sea_view:['sea view','seaview','vista mar','ocean view','vista para o mar'],
+  garage:['garage','garagem'], garden:['garden','jardim'], terrace:['terrace','terraco','varanda','balcony'],
+  air_conditioning:['air conditioning','ac','ar condicionado'], near_beach:['near beach','beach','praia','perto da praia'],
+  solar_panels:['solar','paineis solares'], quiet_place:['quiet','sossegado','tranquilo'],
+  panoramic_view:['panoramic','vista panoramica'], country_view:['countryside view','vista campo'],
+};
+const AMENMATCH={pool:l=>l.chars.some(c=>c.includes('pool')), sea_view:l=>l.chars.some(c=>c==='sea_view'||c==='beach_view'||c==='first_line_view'),
+  garage:l=>l.chars.includes('garage'), garden:l=>l.chars.some(c=>c.includes('garden')&&c!=='garden_service'),
+  terrace:l=>l.chars.some(c=>c.includes('terrace')||c==='balcony'), air_conditioning:l=>l.chars.some(c=>c.includes('air_conditioning')),
+  near_beach:l=>l.chars.includes('near_beach'), solar_panels:l=>l.chars.some(c=>c.includes('solar')),
+  quiet_place:l=>l.chars.includes('quiet_place'), panoramic_view:l=>l.chars.includes('panoramic_view'),
+  country_view:l=>l.chars.includes('country_view')};
+const AMENLBL={pool:'Pool',sea_view:'Sea view',garage:'Garage',garden:'Garden',terrace:'Terrace',
+  air_conditioning:'A/C',near_beach:'Near the beach',solar_panels:'Solar',quiet_place:'Quiet spot',
+  panoramic_view:'Panoramic view',country_view:'Country view'};
+const TYPES={house:['villa','house','moradia','casa','vivenda','quinta','farm','estate','herdade'],
+  apartment:['apartment','apartamento','flat','penthouse','duplex'],
+  land:['land','plot','terreno','lote']};
 
+function parseQuery(raw){
+  let q=' '+norm(raw).replace(/[,;]/g,' ')+' ';
+  const intent={maxPrice:null,minPrice:null,rooms:null,type:null,towns:[],amens:[],text:[]};
+  const money=v=>{v=v.replace(/[€$.\s]/g,'').replace(',','.');
+    let n=parseFloat(v); if(/m\b/.test(v)) n*=1e6; else if(/k\b|mil\b/.test(v)) n*=1e3;
+    return Math.round(n)};
+  // price: "under/até/below/max 600k", "between 300k and 600k", "300k-600k", "-600000"
+  q=q.replace(/(under|below|max|ate|less than|abaixo de|menos de)\s*€?\s*([\d.,]+\s*(?:mil|k|m)?)/g,(_,w,v)=>{intent.maxPrice=money(v);return ' '});
+  q=q.replace(/(over|above|from|acima de|desde|mais de|min)\s*€?\s*([\d.,]+\s*(?:mil|k|m)?)/g,(_,w,v)=>{intent.minPrice=money(v);return ' '});
+  q=q.replace(/€?\s*([\d.,]+\s*(?:k|m|mil)?)\s*(?:-|to|a)\s*€?\s*([\d.,]+\s*(?:k|m|mil)?)/g,(_,a,b)=>{intent.minPrice=money(a);intent.maxPrice=money(b);return ' '});
+  // rooms: t3, 3 bed(s)/bedroom/quartos, 3+
+  q=q.replace(/\bt\s?(\d)\b/g,(_,n)=>{intent.rooms=+n;return ' '});
+  q=q.replace(/\b(\d)\s*\+?\s*(bed|beds|bedroom|bedrooms|quartos?|hab)\b[a-z]*/g,(_,n)=>{intent.rooms=+n;return ' '});
+  // type
+  outer: for(const[t,words]of Object.entries(TYPES)) for(const w of words)
+    if(q.includes(' '+w+' ')||q.includes(' '+w+'s ')){intent.type=t;q=q.split(w+'s ').join(' ').split(w+' ').join(' ');break outer}
+  // amenities
+  for(const[k,words]of Object.entries(AMEN)) for(const w of words)
+    if(q.includes(' '+norm(w)+' ')){if(!intent.amens.includes(k))intent.amens.push(k);q=q.split(norm(w)).join(' ');break}
+  // towns (vocabulary from the live feed) — with prefix tolerance
+  for(const t of TOWNS){const nt=norm(t);
+    if(q.includes(' '+nt+' ')||q.includes(' '+nt)){intent.towns.push(t);q=q.split(nt).join(' ')}}
+  // whatever remains = free-text terms (min 3 chars, drop connectors)
+  const STOP=new Set(['with','and','the','in','em','com','de','do','da','no','na','for','a','e','near','perto','um','uma','ref']);
+  intent.text=q.split(/\s+/).filter(w=>w.length>=3&&!STOP.has(w));
+  return intent;
+}
+
+let ALL=[],VIEW=[],TOWNS=[],shown=0;const PAGE=24;
+let intent=parseQuery('');
+const grid=document.getElementById('grid'),more=document.getElementById('more'),
+      qEl=document.getElementById('q'),chipsEl=document.getElementById('chips');
+
+function chips(){
+  const c=[];
+  if(intent.type)c.push({k:'type',lbl:{house:'Houses & villas',apartment:'Apartments',land:'Land'}[intent.type],tag:'type'});
+  if(intent.rooms)c.push({k:'rooms',lbl:intent.rooms+'+ bedrooms',tag:'beds'});
+  if(intent.minPrice)c.push({k:'minPrice',lbl:'from '+fmt(intent.minPrice),tag:'price'});
+  if(intent.maxPrice)c.push({k:'maxPrice',lbl:'up to '+fmt(intent.maxPrice),tag:'price'});
+  intent.towns.forEach((t,i)=>c.push({k:'town'+i,lbl:t,tag:'place'}));
+  intent.amens.forEach(a=>c.push({k:'am_'+a,lbl:AMENLBL[a],tag:'must have'}));
+  chipsEl.innerHTML=c.map(x=>`<span class="chip"><i>${x.tag}</i>${x.lbl}<button data-k="${x.k}" aria-label="Remove">×</button></span>`).join('');
+}
+chipsEl.addEventListener('click',e=>{
+  const k=e.target.dataset&&e.target.dataset.k; if(!k)return;
+  if(k.startsWith('town'))intent.towns.splice(+k.slice(4),1);
+  else if(k.startsWith('am_'))intent.amens=intent.amens.filter(a=>a!==k.slice(3));
+  else intent[k]=null;
+  apply(false);
+});
+
+function match(l){
+  if(intent.type&&typeOf(l.type)!==intent.type)return false;
+  if(intent.rooms&&(l.rooms||0)<intent.rooms)return false;
+  if(intent.minPrice&&(l.hidden||!l.price||l.price<intent.minPrice))return false;
+  if(intent.maxPrice&&(l.hidden||!l.price||l.price>intent.maxPrice))return false;
+  if(intent.towns.length&&!intent.towns.some(t=>norm(l._town)===norm(t)))return false;
+  for(const a of intent.amens)if(!AMENMATCH[a](l))return false;
+  for(const w of intent.text)if(!l._hay.includes(w))return false;
+  return true;
+}
+function sortView(){
+  const m=document.getElementById('sort').value;
+  if(m==='plow')VIEW.sort((a,b)=>(a.hidden||!a.price?9e12:a.price)-(b.hidden||!b.price?9e12:b.price));
+  else if(m==='phigh')VIEW.sort((a,b)=>(b.price||0)-(a.price||0));
+  else if(m==='big')VIEW.sort((a,b)=>(b.area||0)-(a.area||0));
+  else VIEW.sort((a,b)=>(b.entered||'').localeCompare(a.entered||''));
+}
+function hl(t){
+  let out=t;
+  for(const w of intent.text){
+    const idx=norm(out).indexOf(w); if(idx<0)continue;
+    out=out.slice(0,idx)+'<mark>'+out.slice(idx,idx+w.length)+'</mark>'+out.slice(idx+w.length);
+  }
+  return out;
+}
 function card(l){
   const img=l.images&&l.images[0]?l.images[0]+'?width=800':'';
   const t=(l.title&&(l.title.en||l.title.pt))||'Property in the Algarve';
@@ -162,14 +278,14 @@ function card(l){
     .filter(Boolean).map(s=>`<span>${s}</span>`).join('');
   const wa=`https://wa.me/${WA}?text=${encodeURIComponent('Hello! I saw ref '+l.ref+' ('+t+') in your catalog — can you tell me more?')}`;
   return `<article class="card">
-    <div class="cimg">${img?`<img src="${img}" alt="" loading="lazy">`:''}<span class="loc">${town(l.address)}</span></div>
+    <div class="cimg">${img?`<img src="${img}" alt="" loading="lazy">`:''}<span class="loc">${l._town}</span></div>
     <div class="cbody">
-      <h2 class="ctitle">${t}</h2>
+      <h2 class="ctitle">${hl(t)}</h2>
       <div class="cspecs">${specs}<span>· ref ${l.ref}</span></div>
       <div class="cprice">${l.hidden?'Price on request':fmt(l.price)}</div>
       <div class="cact">
-        <a class="see" href="${l.link}" target="_blank" rel="noopener">View at C21</a>
-        <a class="ask" href="${wa}" target="_blank" rel="noopener">Ask us</a>
+        <a class="see" href="${l.link}" data-ref="${l.ref}" target="_blank" rel="noopener">View at C21</a>
+        <a class="ask" href="${wa}" data-ref="${l.ref}" target="_blank" rel="noopener">Ask us</a>
       </div>
     </div>
   </article>`;
@@ -181,36 +297,56 @@ function paint(reset){
   shown+=next.length;
   more.hidden=shown>=VIEW.length;
   document.getElementById('count').textContent=`${VIEW.length} of ${ALL.length} listings`;
-  if(!VIEW.length) grid.innerHTML='<p class="empty">Nothing matches — loosen a filter and the Algarve reopens.</p>';
+  if(!VIEW.length)grid.innerHTML='<p class="empty">Nothing matches everything at once — remove a chip above and the Algarve reopens.</p>';
 }
-function apply(){
-  const q=document.getElementById('q').value.trim().toLowerCase();
-  const pr=document.getElementById('fPrice').value;
-  const rm=+document.getElementById('fRooms').value||0;
-  const ty=document.getElementById('fType').value;
-  VIEW=ALL.filter(l=>{
-    if(q){const hay=((l.title&&(l.title.en||''))+' '+(l.title&&(l.title.pt||''))+' '+(l.address||'')+' '+(l.ref||'')).toLowerCase();
-      if(!hay.includes(q)) return false;}
-    if(pr){const[lo,hi]=pr.split('-');if(l.hidden||!l.price)return false;
-      if(l.price<+lo)return false; if(hi&&l.price>+hi)return false;}
-    if(rm&&(l.rooms||0)<rm) return false;
-    if(ty&&typeOf(l.type)!==ty) return false;
-    return true;
-  });
-  paint(true);
+let tTimer=null;
+function apply(fromTyping){
+  if(fromTyping!==false)intent=parseQuery(qEl.value);
+  chips();
+  VIEW=ALL.filter(match); sortView(); paint(true);
+  clearTimeout(tTimer);
+  if(qEl.value.trim())tTimer=setTimeout(()=>track('search',{q:qEl.value.trim(),f:intentSig(),n:VIEW.length}),900);
 }
-['q','fPrice','fRooms','fType'].forEach(id=>{
-  const el=document.getElementById(id);
-  el.addEventListener(id==='q'?'input':'change',apply);
+const intentSig=()=>[intent.type,intent.rooms&&intent.rooms+'bed',intent.maxPrice&&'<'+intent.maxPrice,
+  intent.minPrice&&'>'+intent.minPrice,...intent.towns,...intent.amens].filter(Boolean).join('|');
+function track(kind,data){
+  try{navigator.sendBeacon?navigator.sendBeacon(TRACK,new Blob([JSON.stringify({kind,...data})],{type:'application/json'}))
+    :fetch(TRACK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kind,...data}),keepalive:true});}catch(_){}
+}
+grid.addEventListener('click',e=>{
+  const a=e.target.closest('a[data-ref]'); if(!a)return;
+  track(a.classList.contains('ask')?'ask':'click',{ref:a.dataset.ref,q:qEl.value.trim()});
 });
+qEl.addEventListener('input',()=>apply(true));
+document.getElementById('sort').addEventListener('change',()=>{sortView();paint(true)});
 more.addEventListener('click',()=>paint(false));
 
+/* suggestion chips: live vocabulary, customer-first */
+function sugs(){
+  const counts={};ALL.forEach(l=>counts[l._town]=(counts[l._town]||0)+1);
+  const topTowns=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,4).map(([t])=>t);
+  const S=[...topTowns.map(t=>({q:t,lbl:t})),
+    {q:'sea view',lbl:'Sea view'},{q:'with pool',lbl:'Pool'},
+    {q:'under 300k',lbl:'Under €300k'},{q:'villa with pool under 1m',lbl:'Villa · pool · <€1M'}];
+  document.getElementById('sugs').innerHTML=S.map(x=>`<button class="sug" data-q="${x.q}">${x.lbl}</button>`).join('');
+}
+document.getElementById('sugs').addEventListener('click',e=>{
+  const q=e.target.dataset&&e.target.dataset.q; if(!q)return;
+  qEl.value=q; apply(true); qEl.focus();
+});
+
 fetch('data/c21-algarve.json').then(r=>r.json()).then(d=>{
-  ALL=d.listings||[];
+  ALL=(d.listings||[]).map(l=>{
+    l.chars=l.chars||[]; l._town=town(l.address);
+    l._hay=norm([(l.title&&l.title.en)||'',(l.title&&l.title.pt)||'',l.address||'',l.ref||'',
+      l._town,l.chars.join(' ').replace(/_/g,' ')].join(' '));
+    return l;
+  });
+  TOWNS=[...new Set(ALL.map(l=>l._town))].filter(t=>t&&t!=='Algarve');
   const when=new Date(d.generated_at);
   document.getElementById('meta').innerHTML=
     `<b>${ALL.length}</b> newest of <b>${d.total_in_region||ALL.length}</b> Algarve listings · updated <b>${when.toLocaleDateString('en-GB',{day:'numeric',month:'short'})}</b> · auto-refreshed daily`;
-  VIEW=ALL; paint(true);
+  sugs(); VIEW=ALL; sortView(); paint(true);
 }).catch(()=>{
   document.getElementById('meta').textContent='The catalog is taking a moment — message us on WhatsApp and we\'ll send you the latest listings directly.';
 });
