@@ -100,20 +100,6 @@ html.cine [data-cine]{opacity:0}
 /* —— experience system —— */
 .grain{position:fixed;inset:-40px;z-index:60;pointer-events:none;opacity:.045;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-#cur,#curing{position:fixed;top:0;left:0;z-index:210;pointer-events:none;border-radius:50%;
-  display:none;transform:translate(-50%,-50%)}
-#cur{width:7px;height:7px;background:var(--salt);mix-blend-mode:difference}
-#curing{width:38px;height:38px;border:1px solid rgba(245,242,239,.85);mix-blend-mode:difference;
-  display:none;align-items:center;justify-content:center;transition:width .35s var(--ease),height .35s var(--ease)}
-#curing::after{content:"+";font:300 15px/1 var(--geo);color:var(--salt);opacity:0;transition:opacity .3s}
-#curing.big{width:76px;height:76px}
-#curing.big::after{opacity:1}
-body.has-cursor a,body.has-cursor button,body.has-cursor .pcard,body.has-cursor .ecard{cursor:none}
-body.has-cursor{cursor:none}
-body.has-cursor input,body.has-cursor textarea,body.has-cursor select{cursor:auto}
-/* magnetic mode: GSAP owns transform — stop CSS transform transitions fighting it frame-by-frame */
-body.has-cursor .btn,body.has-cursor .harrows button{transition-property:background-color,color,border-color,box-shadow}
-header.hid{transform:translateY(-102%)}
 .scrollcue{animation:cueBreath 3.2s ease-in-out infinite}
 @keyframes cueBreath{0%,100%{opacity:.55;transform:translateX(-50%) translateY(0)}50%{opacity:.95;transform:translateX(-50%) translateY(6px)}}
 .philo blockquote .w{opacity:.16;display:inline-block;will-change:opacity}
@@ -123,8 +109,10 @@ header.hid{transform:translateY(-102%)}
 .fsig .mkwm{width:clamp(120px,16vw,200px);opacity:.07;position:absolute;left:50%;top:50%;transform:translate(-50%,-58%);pointer-events:none}
 
 /* ============ NAV ============ */
-header{position:fixed;top:0;left:0;right:0;z-index:90;transition:background .5s var(--ease),box-shadow .5s,transform .5s var(--ease)}
-header.solid{background:rgba(245,242,239,.92);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line-soft)}
+header{position:fixed;top:0;left:0;right:0;z-index:90;transition:background .5s var(--ease),box-shadow .5s}
+header:not(.solid)::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:-1;
+  background:linear-gradient(180deg,rgba(11,26,33,.52),rgba(11,26,33,.22) 62%,rgba(11,26,33,0))}
+header.solid{background:rgba(245,242,239,.96);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--line-soft)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px var(--pad);max-width:1600px;margin:0 auto}
 .brand{display:flex;align-items:center;gap:14px;color:var(--salt);transition:color .5s}
 header.solid .brand{color:var(--deepsea)}
@@ -132,7 +120,7 @@ header.solid .brand{color:var(--deepsea)}
 .brand .bt{display:flex;flex-direction:column;line-height:1.1}
 .brand .b1{font-family:var(--geo);font-weight:400;font-size:1.16rem;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap}
 .brand .b2{font-family:var(--geo);font-size:.56rem;font-weight:500;letter-spacing:.5em;text-transform:uppercase;color:var(--terra);margin-top:2px}
-.navlinks{display:flex;gap:clamp(16px,2.4vw,34px);font-size:.74rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,242,239,.9)}
+.navlinks{display:flex;gap:clamp(16px,2.4vw,34px);font-size:.76rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--salt)}
 header.solid .navlinks{color:var(--ink)}
 .navlinks a{position:relative;padding:6px 0;transition:color .3s}
 .navlinks a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--terra);transition:width .4s var(--ease)}
@@ -770,8 +758,6 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
 </a>
 
 <div class="grain" aria-hidden="true"></div>
-<div id="cur" aria-hidden="true"></div>
-<div id="curing" aria-hidden="true"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
@@ -1223,8 +1209,6 @@ pt:{status:"O Alco responde pessoalmente em 24h",
   function navState(y){
     hd.classList.toggle('solid', y > 80);
     if(!document.body.classList.contains('menu-open')){
-      hd.classList.toggle('hid', y > lastY + 4 && y > 560);
-      if(y < lastY - 4) hd.classList.remove('hid');
     }
     lastY = y;
   }
@@ -1246,30 +1230,6 @@ pt:{status:"O Alco responde pessoalmente em 24h",
     }
   });
 
-  /* —— desktop only: magnetic controls + the quiet cursor —— */
-  if(matchMedia('(pointer:fine)').matches){
-    document.querySelectorAll('.btn, .harrows button').forEach(b => {
-      const qx = gsap.quickTo(b, 'x', { duration: .4, ease: 'power3' });
-      const qy = gsap.quickTo(b, 'y', { duration: .4, ease: 'power3' });
-      b.addEventListener('pointermove', e => {
-        const r = b.getBoundingClientRect();
-        qx((e.clientX - r.left - r.width/2) * .16);
-        qy((e.clientY - r.top - r.height/2) * .28);
-      });
-      b.addEventListener('pointerleave', () => { qx(0); qy(0); });
-    });
-    const cur = document.getElementById('cur'), ring = document.getElementById('curing');
-    gsap.set([cur, ring], { xPercent: -50, yPercent: -50, x: innerWidth/2, y: innerHeight/2 });
-    cur.style.display = 'block'; ring.style.display = 'flex';
-    document.body.classList.add('has-cursor');
-    const cx = gsap.quickTo(cur, 'x', { duration: .1 }),  cy = gsap.quickTo(cur, 'y', { duration: .1 });
-    const rx = gsap.quickTo(ring, 'x', { duration: .45, ease: 'power3' }), ry = gsap.quickTo(ring, 'y', { duration: .45, ease: 'power3' });
-    window.addEventListener('pointermove', e => { cx(e.clientX); cy(e.clientY); rx(e.clientX); ry(e.clientY); }, { passive: true });
-    document.querySelectorAll('.pcard, .ecard').forEach(el => {
-      el.addEventListener('pointerenter', () => ring.classList.add('big'));
-      el.addEventListener('pointerleave', () => ring.classList.remove('big'));
-    });
-  }
 })();
 </script>
 </body>
