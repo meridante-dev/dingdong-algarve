@@ -8,8 +8,8 @@ import json, ssl, time, urllib.request
 from datetime import datetime, timezone
 
 API   = "https://www.century21.pt/api/properties"
-QUERY = "addresses=08&ad_type=sell&order_by=entered_market_desc"
-PAGES = 8          # 8 × 20 = newest 160 listings
+MODES = [("sell", 8), ("rent", 3)]        # newest 160 sales + 60 rentals
+BASEQ = "addresses=08&order_by=entered_market_desc"
 OUT   = "data/c21-algarve.json"
 UA    = {"User-Agent": "Mozilla/5.0 (RoamRootAlgarve feed; partner agent site)"}
 
@@ -33,19 +33,25 @@ def lean(r):
         "link":    r.get("link"),
         "images":  (r.get("images") or [])[:3],
         "chars":   r.get("characteristics") or [],
+        "ad":      r.get("ad_type"),
+        "tour":    r.get("virtual_tour_link") or None,
+        "video":   r.get("video_url") or None,
         "entered": r.get("entered_market"),
         "agency":  (r.get("agency") or {}).get("name") if isinstance(r.get("agency"), dict) else r.get("agency"),
+        "agency_h":(r.get("agency") or {}).get("handler") if isinstance(r.get("agency"), dict) else None,
+        "agent":   (r.get("agent") or {}).get("name") if isinstance(r.get("agent"), dict) else None,
     }
 
 def main():
     items, total = [], None
-    for page in range(1, PAGES + 1):
-        d = get(f"{API}?{QUERY}&page={page}")
-        total = d.get("total", total)
-        batch = d.get("data") or []
-        if not batch: break
-        items += [lean(r) for r in batch]
-        time.sleep(1.2)                     # be polite
+    for mode, pages in MODES:
+        for page in range(1, pages + 1):
+            d = get(f"{API}?{BASEQ}&ad_type={mode}&page={page}")
+            if mode == "sell": total = d.get("total", total)
+            batch = d.get("data") or []
+            if not batch: break
+            items += [lean(r) for r in batch]
+            time.sleep(1.2)                 # be polite
     seen, dedup = set(), []
     for it in items:
         if it["ref"] and it["ref"] not in seen:

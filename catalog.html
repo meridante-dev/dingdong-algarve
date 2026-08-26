@@ -67,6 +67,15 @@ h1 em{font-style:italic;font-weight:400}
 .chip button{border:0;background:rgba(245,242,239,.18);color:inherit;width:18px;height:18px;border-radius:50%;
   cursor:pointer;font-size:.72rem;line-height:1;display:grid;place-items:center}
 .chip button:hover{background:var(--terra)}
+.mode{display:inline-flex;border:1px solid var(--line);background:#fff;align-self:flex-start}
+.mode button{border:0;background:none;font:600 .7rem var(--sans);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--mut);padding:10px 22px;cursor:pointer;transition:all .25s}
+.mode button.on{background:var(--deepsea);color:var(--salt)}
+.badges2{position:absolute;right:12px;top:12px;display:flex;gap:6px}
+.b360,.bvid{background:rgba(245,242,239,.92);color:var(--deepsea);font:600 .56rem var(--geo);
+  letter-spacing:.12em;text-transform:uppercase;padding:6px 9px;border-radius:3px}
+.idea{font-size:.68rem;color:var(--mut)}
+.idea a{color:var(--terra);border-bottom:1px solid rgba(199,130,91,.4);padding-bottom:1px;font-weight:600}
 .frow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .sugs{display:flex;gap:8px;flex-wrap:wrap;flex:1}
 .sug{border:1px solid var(--line);background:#fff;color:var(--mut);font:500 .68rem var(--sans);
@@ -137,6 +146,9 @@ footer a{border-bottom:1px solid rgba(245,242,239,.35)}
     <span class="ai">smart<br>search</span>
   </div>
   <div class="chips" id="chips" aria-live="polite"></div>
+  <div class="mode" role="group" aria-label="Buy or rent">
+    <button class="on" data-mode="sell">Buy</button><button data-mode="rent">Rent</button>
+  </div>
   <div class="frow">
     <div class="sugs" id="sugs"></div>
     <select id="sort" aria-label="Sort">
@@ -161,7 +173,7 @@ footer a{border-bottom:1px solid rgba(245,242,239,.35)}
 <script>
 const WA='31615471303';
 const TRACK='https://rr-insights.edenrise.workers.dev/e';
-const fmt=n=>n?('€'+n.toLocaleString('en-US')):'Price on request';
+const fmt=(n,ad)=>n?('€'+n.toLocaleString('en-US')+(ad==='rent'?' /mo':'')):'Price on request';
 const norm=t=>(t||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 const town=a=>{
   if(!a) return 'Algarve';
@@ -224,6 +236,8 @@ function parseQuery(raw){
 }
 
 let ALL=[],VIEW=[],TOWNS=[],shown=0;const PAGE=24;
+let MODE='sell';
+const OWN_AGENCY='';   /* set to Alco's C21 agency name (e.g. 'CENTURY 21 Realty Art') to unlock the Our-listings pill */
 let intent=parseQuery('');
 const grid=document.getElementById('grid'),more=document.getElementById('more'),
       qEl=document.getElementById('q'),chipsEl=document.getElementById('chips');
@@ -247,6 +261,7 @@ chipsEl.addEventListener('click',e=>{
 });
 
 function match(l){
+  if((l.ad||'sell')!==MODE)return false;
   if(intent.type&&typeOf(l.type)!==intent.type)return false;
   if(intent.rooms&&(l.rooms||0)<intent.rooms)return false;
   if(intent.minPrice&&(l.hidden||!l.price||l.price<intent.minPrice))return false;
@@ -278,11 +293,11 @@ function card(l){
     .filter(Boolean).map(s=>`<span>${s}</span>`).join('');
   const wa=`https://wa.me/${WA}?text=${encodeURIComponent('Hello! I saw ref '+l.ref+' ('+t+') in your catalog — can you tell me more?')}`;
   return `<article class="card">
-    <div class="cimg">${img?`<img src="${img}" alt="" loading="lazy">`:''}<span class="loc">${l._town}</span></div>
+    <div class="cimg">${img?`<img src="${img}" alt="" loading="lazy">`:''}<span class="loc">${l._town}</span><span class="badges2">${l.tour?'<span class="b360">360° tour</span>':''}${l.video?'<span class="bvid">Video</span>':''}</span></div>
     <div class="cbody">
       <h2 class="ctitle">${hl(t)}</h2>
       <div class="cspecs">${specs}<span>· ref ${l.ref}</span></div>
-      <div class="cprice">${l.hidden?'Price on request':fmt(l.price)}</div>
+      <div class="cprice">${l.hidden?'Price on request':fmt(l.price,l.ad)}</div>
       <div class="cact">
         <a class="see" href="${l.link}" data-ref="${l.ref}" target="_blank" rel="noopener">View at C21</a>
         <a class="ask" href="${wa}" data-ref="${l.ref}" target="_blank" rel="noopener">Ask us</a>
@@ -290,14 +305,31 @@ function card(l){
     </div>
   </article>`;
 }
+const IDEA_SLUGS={'Albufeira':'albufeira','Loulé':'loule','Loule':'loule','Lagos':'lagos','Portimão':'portimao',
+ 'Portimao':'portimao','Faro':'faro','Olhão':'olhao','Olhao':'olhao','Tavira':'tavira','Silves':'silves',
+ 'Lagoa':'lagoa','Albufeira e Olhos de Água':'albufeira','Quarteira':'loule','Almancil':'loule',
+ 'Vila Real de Santo António':'vila-real-de-santo-antonio','Aljezur':'aljezur','Monchique':'monchique',
+ 'São Brás de Alportel':'sao-bras-de-alportel','Castro Marim':'castro-marim','Alcoutim':'alcoutim','Vila do Bispo':'vila-do-bispo'};
+function ideaLink(){
+  const base=MODE==='rent'?'arrendar-casas':'comprar-casas';
+  const zone=(intent.towns.length&&IDEA_SLUGS[intent.towns[0]])||'faro-distrito';
+  const segs=[];
+  if(intent.maxPrice)segs.push('com-preco-max_'+intent.maxPrice);
+  if(intent.minPrice)segs.push('com-preco-min_'+intent.minPrice);
+  if(intent.rooms)segs.push('t'+Math.min(intent.rooms,5));
+  return `https://www.idealista.pt/${base}/${zone}/${segs.length?segs.join(',')+'/':''}`;
+}
 function paint(reset){
   if(reset){grid.innerHTML='';shown=0;}
   const next=VIEW.slice(shown,shown+PAGE);
   grid.insertAdjacentHTML('beforeend',next.map(card).join(''));
   shown+=next.length;
   more.hidden=shown>=VIEW.length;
-  document.getElementById('count').textContent=`${VIEW.length} of ${ALL.length} listings`;
-  if(!VIEW.length)grid.innerHTML='<p class="empty">Nothing matches everything at once — remove a chip above and the Algarve reopens.</p>';
+  const inMode=ALL.filter(l=>(l.ad||'sell')===MODE).length;
+  document.getElementById('count').innerHTML=
+    `${VIEW.length} of ${inMode} · <span class="idea"><a href="${ideaLink()}" target="_blank" rel="noopener" data-idea>also on Idealista ↗</a></span>`;
+  if(!VIEW.length)grid.innerHTML=`<p class="empty">Nothing matches everything at once — remove a chip above,
+    or <a href="${ideaLink()}" target="_blank" rel="noopener" data-idea style="color:var(--terra)">try this search on Idealista ↗</a></p>`;
 }
 let tTimer=null;
 function apply(fromTyping){
@@ -313,6 +345,9 @@ function track(kind,data){
   try{navigator.sendBeacon?navigator.sendBeacon(TRACK,new Blob([JSON.stringify({kind,...data})],{type:'application/json'}))
     :fetch(TRACK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kind,...data}),keepalive:true});}catch(_){}
 }
+document.addEventListener('click',e=>{
+  if(e.target.closest&&e.target.closest('a[data-idea]'))track('click',{ref:'idealista',q:qEl.value.trim()});
+});
 grid.addEventListener('click',e=>{
   const a=e.target.closest('a[data-ref]'); if(!a)return;
   track(a.classList.contains('ask')?'ask':'click',{ref:a.dataset.ref,q:qEl.value.trim()});
@@ -323,15 +358,25 @@ more.addEventListener('click',()=>paint(false));
 
 /* suggestion chips: live vocabulary, customer-first */
 function sugs(){
-  const counts={};ALL.forEach(l=>counts[l._town]=(counts[l._town]||0)+1);
+  const counts={};ALL.filter(l=>(l.ad||'sell')===MODE).forEach(l=>counts[l._town]=(counts[l._town]||0)+1);
   const topTowns=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,4).map(([t])=>t);
   const S=[...topTowns.map(t=>({q:t,lbl:t})),
     {q:'sea view',lbl:'Sea view'},{q:'with pool',lbl:'Pool'},
-    {q:'under 300k',lbl:'Under €300k'},{q:'villa with pool under 1m',lbl:'Villa · pool · <€1M'}];
+    ...(MODE==='rent'
+      ?[{q:'under 1500',lbl:'Under €1,500/mo'},{q:'t2 terrace',lbl:'T2 · terrace'}]
+      :[{q:'under 300k',lbl:'Under €300k'},{q:'villa with pool under 1m',lbl:'Villa · pool · <€1M'}]),
+    ...(OWN_AGENCY?[{q:'__own__',lbl:'★ Our listings'}]:[])];
   document.getElementById('sugs').innerHTML=S.map(x=>`<button class="sug" data-q="${x.q}">${x.lbl}</button>`).join('');
 }
+document.querySelectorAll('.mode button').forEach(b=>b.addEventListener('click',()=>{
+  MODE=b.dataset.mode;
+  document.querySelectorAll('.mode button').forEach(x=>x.classList.toggle('on',x===b));
+  sugs(); apply(false);
+}));
 document.getElementById('sugs').addEventListener('click',e=>{
   const q=e.target.dataset&&e.target.dataset.q; if(!q)return;
+  if(q==='__own__'){qEl.value='';intent=parseQuery('');chips();
+    VIEW=ALL.filter(l=>(l.ad||'sell')===MODE&&l.agency===OWN_AGENCY);sortView();paint(true);return;}
   qEl.value=q; apply(true); qEl.focus();
 });
 
@@ -346,7 +391,7 @@ fetch('data/c21-algarve.json').then(r=>r.json()).then(d=>{
   const when=new Date(d.generated_at);
   document.getElementById('meta').innerHTML=
     `<b>${ALL.length}</b> newest of <b>${d.total_in_region||ALL.length}</b> Algarve listings · updated <b>${when.toLocaleDateString('en-GB',{day:'numeric',month:'short'})}</b> · auto-refreshed daily`;
-  sugs(); VIEW=ALL; sortView(); paint(true);
+  sugs(); apply(false);
 }).catch(()=>{
   document.getElementById('meta').textContent='The catalog is taking a moment — message us on WhatsApp and we\'ll send you the latest listings directly.';
 });
