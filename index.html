@@ -108,6 +108,16 @@ html.cine [data-cine]{opacity:0}
   font-size:clamp(2.4rem,7vw,6rem);line-height:1.05;letter-spacing:.02em}
 .fsig .mkwm{width:clamp(120px,16vw,200px);opacity:.07;position:absolute;left:50%;top:50%;transform:translate(-50%,-58%);pointer-events:none}
 
+.mchips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.mchips button{border:1px solid rgba(245,242,239,.3);background:none;color:rgba(245,242,239,.8);
+  font:500 .68rem var(--sans);letter-spacing:.08em;padding:9px 15px;border-radius:99px;cursor:pointer;
+  transition:all .25s}
+.mchips button.on{background:var(--salt);color:var(--deepsea);border-color:var(--salt)}
+.fsend{display:flex;gap:12px;flex-wrap:wrap}
+.btn-wa{background:#1e8e5a;border-color:#1e8e5a;color:#fff}
+.btn-wa:hover{background:#25a468}
+#ferr{display:none;color:#e9b9a5;font-size:.78rem;margin-top:10px}
+
 /* ============ NAV ============ */
 header{position:fixed;top:0;left:0;right:0;z-index:90;transition:background .5s var(--ease),box-shadow .5s}
 header:not(.solid)::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:-1;
@@ -438,7 +448,8 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
       <div class="langsw" role="group" aria-label="Language">
         <button data-lang="en" class="on">EN</button><button data-lang="nl">NL</button><button data-lang="fr">FR</button><button data-lang="pt">PT</button>
       </div>
-      <a class="btn btn-nav" href="#contact" data-i="nav_inquire">Inquire</a>
+      <a class="btn btn-nav" href="#contact" id="navsell" data-i="nav_sell">Sell with us</a>
+      <a class="btn btn-nav" href="#contact" data-i="nav_inquire">Schedule a meeting</a>
       <button id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -547,6 +558,7 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
       <p class="disc" data-i="p_disc">Hand-picked from the live market by Roam &amp; Root — and behind them, the entire Century 21 catalog for the Algarve, refreshed every day.</p>
       <span style="display:flex;gap:26px;flex-wrap:wrap">
         <a class="tlink" href="catalog.html"><span data-i="p_all">Browse the full catalog</span> →</a>
+        <a class="tlink" href="catalog.html#rent"><span data-i="p_rent">Homes to rent</span> →</a>
         <a class="tlink" href="#contact"><span data-i="p_search">Start a private search</span> →</a>
         <a class="tlink" id="selllink" href="#contact"><span data-i="p_sell">Selling? Free market study</span> →</a>
       </span>
@@ -672,7 +684,9 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
             <option data-i="f_o2">A holiday retreat</option>
             <option data-i="f_o3">An investment</option>
             <option data-i="f_o4">To sell a property</option>
-            <option data-i="f_o5">To rent / rent out</option>
+            <option data-i="f_o5">To rent a home (long term)</option>
+            <option data-i="f_o6">A short stay / holiday rental</option>
+            <option data-i="f_o7">To rent out my property</option>
           </select>
         </div>
         <div class="fgroup"><label for="f-stage" data-i="f_stage">Where are you on the journey?</label>
@@ -683,10 +697,32 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
           </select>
         </div>
       </div>
+      <div class="fgroup"><label data-i="f_meet">Schedule a meeting</label>
+        <div class="mchips" id="mDay">
+          <button type="button" data-v="today" data-i="md1">Today</button>
+          <button type="button" data-v="tomorrow" class="on" data-i="md2">Tomorrow</button>
+          <button type="button" data-v="this week" data-i="md3">This week</button>
+          <button type="button" data-v="weekend" data-i="md4">Weekend</button>
+        </div>
+        <div class="mchips" id="mTime">
+          <button type="button" data-v="morning" class="on" data-i="mt1">Morning</button>
+          <button type="button" data-v="afternoon" data-i="mt2">Afternoon</button>
+          <button type="button" data-v="evening" data-i="mt3">Evening</button>
+        </div>
+        <div class="mchips" id="mHow">
+          <button type="button" data-v="video call" class="on" data-i="mh1">Video call</button>
+          <button type="button" data-v="phone" data-i="mh2">Phone</button>
+          <button type="button" data-v="in person" data-i="mh3">In person · Algarve</button>
+        </div>
+      </div>
       <div class="fgroup"><label for="f-msg" data-i="f_msg">Your story</label><textarea id="f-msg" name="message" data-ip="f_msg_ph" placeholder="The places, spaces and pace of life you are drawn to…"></textarea></div>
-      <button class="btn btn-solid" type="submit"><span data-i="f_send">Send inquiry</span><svg class="arw" viewBox="0 0 14 10" fill="none"><path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg></button>
+      <div class="fsend">
+        <button class="btn btn-solid" type="submit"><span data-i="f_send">Request the meeting</span><svg class="arw" viewBox="0 0 14 10" fill="none"><path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg></button>
+        <button class="btn btn-wa" type="button" id="fWa"><span data-i="f_wa">Continue on WhatsApp</span></button>
+      </div>
       <p class="fnote" data-i="f_note">Your details stay private and are never shared.</p>
-      <p id="fmsg" data-i="f_ok">Thank you — your message is on its way. We will reply personally.</p>
+      <p id="fmsg" data-i="f_ok">Thank you — your request is with us. Alco replies personally within one working day.</p>
+      <p id="ferr" data-i="f_err">That didn't go through — please use the WhatsApp button instead.</p>
     </form>
   </div>
 </section>
@@ -986,26 +1022,51 @@ document.getElementById('hprev').addEventListener('click', ()=>hgo(hcur-1, true)
 if(!RM){ htimer = setInterval(()=>hgo(hcur+1), 7000); }
 
 /* ================= FORM ================= */
+const LEADS='https://rr-insights.edenrise.workers.dev/lead';
+const chipVal=id=>document.querySelector('#'+id+' button.on')?.dataset.v||'';
+document.querySelectorAll('.mchips').forEach(g=>g.addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b)return;
+  g.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+}));
+function leadPayload(){
+  const f=document.getElementById('bookform');
+  return {name:f.name.value.trim(), email:f.email.value.trim(),
+    intent:f.interest.value, stage:f.stage.value,
+    meet_day:chipVal('mDay'), meet_time:chipVal('mTime'), meet_how:chipVal('mHow'),
+    message:f.message.value.trim(), source:'consultation-form'};
+}
+function waText(p){
+  return `Hello Alco! I'd like to schedule a meeting.\n`+
+    `— ${p.intent} · ${p.stage}\n— Preference: ${p.meet_day}, ${p.meet_time}, ${p.meet_how}\n`+
+    (p.message?`— ${p.message}\n`:'')+`— ${p.name}${p.email?' · '+p.email:''}`;
+}
+document.getElementById('fWa').addEventListener('click',()=>{
+  const p=leadPayload();
+  if(!p.name){document.getElementById('f-name').focus();return;}
+  fetch(LEADS,{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({...p,source:'whatsapp-button'}),keepalive:true}).catch(()=>{});
+  window.open('https://wa.me/31615471303?text='+encodeURIComponent(waText(p)),'_blank','noopener');
+});
 document.getElementById('bookform').addEventListener('submit', function(e){
   e.preventDefault();
-  const f = this, btn = f.querySelector('button[type=submit]');
-  const name = f.name.value.trim(), email = f.email.value.trim();
-  if(!name || !email){ (name ? f.email : f.name).focus(); return; }
+  const f=this, btn=f.querySelector('button[type=submit]');
+  const p=leadPayload();
+  if(!p.name || !p.email){ (p.name ? f.email : f.name).focus(); return; }
   btn.classList.add('busy');
-  const interest = f.interest.value, stage = f.stage.value, msg = f.message.value.trim();
-  // mailto handoff (Web3Forms key can replace this without changing markup)
-  const subject = encodeURIComponent('Roam & Root — inquiry from ' + name);
-  const body = encodeURIComponent(name + ' <' + email + '>\n' + interest + ' · ' + stage + '\n\n' + msg);
-  setTimeout(()=>{
-    window.location.href = 'mailto:alkojambrienke@century21.pt?subject=' + subject + '&body=' + body;
-    btn.classList.remove('busy');
-    document.getElementById('fmsg').style.display = 'block';
-  }, 350);
+  fetch(LEADS,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)})
+    .then(r=>{ if(!r.ok) throw 0;
+      document.getElementById('fmsg').style.display='block';
+      document.getElementById('ferr').style.display='none';
+      f.querySelectorAll('input,textarea').forEach(i=>i.value='');
+    })
+    .catch(()=>{ document.getElementById('ferr').style.display='block'; })
+    .finally(()=>btn.classList.remove('busy'));
 });
 
 /* ================= SELLER SHORTCUT ================= */
-document.getElementById('selllink').addEventListener('click', () => {
-  const s = document.getElementById('f-int'); if(s) s.selectedIndex = 3;
+['selllink','navsell'].forEach(id=>{
+  const el=document.getElementById(id);
+  if(el) el.addEventListener('click',()=>{const s=document.getElementById('f-int'); if(s) s.selectedIndex=3;});
 });
 
 /* ================= CONCIERGE ================= */

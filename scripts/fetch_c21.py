@@ -8,7 +8,7 @@ import json, ssl, time, urllib.request
 from datetime import datetime, timezone
 
 API   = "https://www.century21.pt/api/properties"
-MODES = [("sell", 8), ("rent", 3)]        # newest 160 sales + 60 rentals
+MODES = [("sell", 80), ("rent", 20)]      # full stock: loop stops at the first empty page
 BASEQ = "addresses=08&order_by=entered_market_desc"
 OUT   = "data/c21-algarve.json"
 UA    = {"User-Agent": "Mozilla/5.0 (RoamRootAlgarve feed; partner agent site)"}
@@ -21,7 +21,7 @@ def lean(r):
     t = r.get("title") or {}
     return {
         "ref":     r.get("reference"),
-        "title":   {k: t.get(k) for k in ("en","pt","fr") if t.get(k)},
+        "title":   {k: t.get(k) for k in ("en","pt") if t.get(k)},
         "price":   r.get("price"),
         "hidden":  bool(r.get("price_hidden")),
         "type":    r.get("asset_type"),
@@ -31,7 +31,7 @@ def lean(r):
         "address": r.get("address"),
         "lat":     r.get("lat"), "lng": r.get("lng"),
         "link":    r.get("link"),
-        "images":  (r.get("images") or [])[:3],
+        "images":  (r.get("images") or [])[:2],
         "chars":   r.get("characteristics") or [],
         "ad":      r.get("ad_type"),
         "tour":    r.get("virtual_tour_link") or None,
