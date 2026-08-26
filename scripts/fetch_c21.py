@@ -30,7 +30,8 @@ def lean(r):
         "area":    r.get("gross_area") or r.get("useful_area"),
         "address": r.get("address"),
         "lat":     r.get("lat"), "lng": r.get("lng"),
-        "link":    r.get("link"),
+        "link":    (r.get("link") or "").replace("www.century21.pt", "alcotenbrinke.century21.pt")
+                   or None,   # every listing opens through Alco — his referral, always
         "images":  (r.get("images") or [])[:2],
         "chars":   r.get("characteristics") or [],
         "ad":      r.get("ad_type"),
