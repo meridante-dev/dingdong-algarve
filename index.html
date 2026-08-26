@@ -519,7 +519,7 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
       </div>
       <p class="lead" data-rv data-i="p_sub">A curated collection of homes and investment opportunities in the most authentic corners of the Algarve — each one chosen for its light, its land and its promise of a slower, richer life.</p>
     </div>
-    <div class="pgrid">
+    <div class="pgrid" id="pgrid">
       <!-- Illustrative placeholder listings — imagery + specs are examples, not live inventory -->
       <article class="pcard" data-rv>
         <div class="pimg"><span class="ploc">Lagoa</span><img src="img/g-villa.jpg" alt="Coastal villa with pool at golden hour" loading="lazy"></div>
@@ -544,9 +544,10 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
       </article>
     </div>
     <div class="pnote" data-rv>
-      <p class="disc" data-i="p_disc">An illustrative collection — the current portfolio is shared privately. Tell us what you are looking for and we will search it out, on and off the market.</p>
+      <p class="disc" data-i="p_disc">Hand-picked from the live market by Roam &amp; Root — and behind them, the entire Century 21 catalog for the Algarve, refreshed every day.</p>
       <span style="display:flex;gap:26px;flex-wrap:wrap">
-        <a class="tlink" href="#contact"><span data-i="p_all">Start your search</span> →</a>
+        <a class="tlink" href="catalog.html"><span data-i="p_all">Browse the full catalog</span> →</a>
+        <a class="tlink" href="#contact"><span data-i="p_search">Start a private search</span> →</a>
         <a class="tlink" id="selllink" href="#contact"><span data-i="p_sell">Selling? Free market study</span> →</a>
       </span>
     </div>
@@ -1230,6 +1231,38 @@ pt:{status:"O Alco responde pessoalmente em 24h",
     }
   });
 
+})();
+</script>
+<script>
+/* ── curated collection: Alco's picks, hydrated from the daily C21 feed ── */
+(function(){
+  Promise.all([
+    fetch('data/curated.json').then(r=>r.json()),
+    fetch('data/c21-algarve.json').then(r=>r.json())
+  ]).then(([cur,feed])=>{
+    const by={}; (feed.listings||[]).forEach(l=>by[l.ref]=l);
+    const picks=(cur.picks||[]).map(p=>({...by[p.ref],...p})).filter(p=>p.ref&&p.images&&p.images.length);
+    if(picks.length<3) return;                       /* keep static fallback */
+    const grid=document.getElementById('pgrid'); if(!grid) return;
+    const town=a=>{ if(!a) return 'Algarve';
+      const parts=a.split(',').map(x=>x.trim()).filter(Boolean);
+      for(let i=parts.length-1;i>=0;i--){ const t=parts[i].replace(/\d{4}-\d{3}\s*/,'').replace(/Portugal/i,'').trim(); if(t) return t; }
+      return 'Algarve'; };
+    const fmt=n=>n?('€'+n.toLocaleString('en-US')):'Price on request';
+    grid.innerHTML=picks.slice(0,3).map(p=>{
+      const t=(p.title&&(p.title.en||p.title.pt))||'Algarve property';
+      return `<article class="pcard" data-rv style="opacity:1;transform:none">
+        <a href="${p.link}" target="_blank" rel="noopener">
+        <div class="pimg"><span class="ploc">${town(p.address)}</span>
+          <img src="${p.images[0]}?width=900" alt="${t.replace(/"/g,'&quot;')}" loading="lazy"></div>
+        <div class="pbody">
+          <h3><span>${t}</span><span class="go"><svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg></span></h3>
+          <div class="pspecs">${p.rooms?`<span>${p.rooms} <i>bedrooms</i></span><span class="dot"></span>`:''}${p.wcs?`<span>${p.wcs} <i>bathrooms</i></span><span class="dot"></span>`:''}${p.area?`<span>${Math.round(p.area)} m²</span>`:''}</div>
+          <div class="pspecs" style="margin-top:2px"><span style="font-weight:600;color:var(--deepsea)">${p.hidden?'Price on request':fmt(p.price)}</span><span class="dot"></span><span>ref ${p.ref}</span></div>
+        </div></a>
+      </article>`;
+    }).join('');
+  }).catch(()=>{});                                  /* static fallback stands */
 })();
 </script>
 </body>

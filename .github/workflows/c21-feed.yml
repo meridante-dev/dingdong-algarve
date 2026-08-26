@@ -1,0 +1,28 @@
+name: Century 21 feed
+on:
+  schedule:
+    - cron: '15 6 * * *'     # daily, 06:15 UTC
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Fetch listings
+        run: python scripts/fetch_c21.py
+      - name: Commit if changed
+        run: |
+          git config user.name  "c21-feed-bot"
+          git config user.email "bot@roamandrootalgarve.com"
+          # only commit when listings actually changed (ignore the timestamp line)
+          if ! git diff --quiet -I'"generated_at"' -- data/c21-algarve.json; then
+            git add data/c21-algarve.json
+            git commit -m "C21 feed: refresh Algarve listings"
+            git push
+          else
+            echo "No listing changes."
+          fi

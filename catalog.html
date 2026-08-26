@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Catalog — Roam &amp; Root Algarve × Century 21</title>
+<meta name="description" content="The full Century 21 catalog for the Algarve — refreshed daily. Browse, then talk to us about any reference.">
+<link rel="canonical" href="https://roamandrootalgarve.com/catalog.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=League+Spartan:wght@300;400;500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deepsea:#1F2F30; --terra:#C7825B; --sand:#D6B89A; --stone:#EADCC6; --salt:#F5F2EF;
+  --ink:#22302f; --mut:#5f6b66; --line:rgba(31,47,48,.14);
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Montserrat',system-ui,sans-serif;
+  --geo:'League Spartan','Montserrat',system-ui,sans-serif;
+  --pad:clamp(22px,5vw,64px); --ease:cubic-bezier(.22,.8,.24,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--salt);color:var(--ink);font-size:16px;line-height:1.6;
+  font-weight:400;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--terra);outline-offset:3px}
+
+header{position:sticky;top:0;z-index:50;background:rgba(245,242,239,.96);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:18px;padding:16px var(--pad);max-width:1340px;margin:0 auto}
+.brand{font-family:var(--geo);letter-spacing:.2em;font-size:1rem;color:var(--deepsea);white-space:nowrap}
+.brand small{display:block;font-size:.52rem;letter-spacing:.5em;color:var(--terra)}
+.back{margin-left:auto;font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--deepsea);border-bottom:1px solid var(--terra);padding-bottom:2px;white-space:nowrap}
+
+.hero{padding:clamp(48px,7vw,90px) var(--pad) 0;max-width:1340px;margin:0 auto}
+.kick{font-size:.66rem;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--terra)}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.4rem,5.4vw,4.2rem);line-height:1.05;
+  color:var(--deepsea);margin:.25em 0 .3em}
+h1 em{font-style:italic;font-weight:400}
+.sub{max-width:60ch;color:var(--mut);font-size:.98rem}
+.meta{margin-top:14px;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.meta b{color:var(--deepsea)}
+
+.tools{position:sticky;top:73px;z-index:40;background:var(--salt);border-bottom:1px solid var(--line);
+  margin-top:34px}
+.tools .in{display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding:14px var(--pad);max-width:1340px;margin:0 auto}
+.tools input[type=search]{flex:1;min-width:180px;border:1px solid var(--line);background:#fff;
+  font:400 .9rem var(--sans);padding:11px 15px;color:var(--ink);outline:none}
+.tools input[type=search]:focus{border-color:var(--terra)}
+.tools select{border:1px solid var(--line);background:#fff;font:500 .78rem var(--sans);
+  padding:11px 12px;color:var(--ink);cursor:pointer;outline:none}
+.count{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-left:auto;white-space:nowrap}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:clamp(18px,2.4vw,30px);
+  padding:clamp(30px,4vw,50px) var(--pad) 70px;max-width:1340px;margin:0 auto}
+.card{background:#fff;box-shadow:0 24px 50px -38px rgba(31,47,48,.4);display:flex;flex-direction:column;
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.card:hover{transform:translateY(-6px);box-shadow:0 40px 70px -40px rgba(31,47,48,.55)}
+.cimg{aspect-ratio:4/3;overflow:hidden;position:relative;background:var(--stone)}
+.cimg img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.card:hover .cimg img{transform:scale(1.05)}
+.loc{position:absolute;left:14px;bottom:12px;background:rgba(31,47,48,.82);color:var(--salt);
+  font:500 .62rem/1 var(--geo);letter-spacing:.18em;text-transform:uppercase;padding:8px 12px;max-width:85%;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cbody{padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.ctitle{font-family:var(--serif);font-weight:500;font-size:1.22rem;line-height:1.25;color:var(--deepsea);
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.5em}
+.cspecs{display:flex;gap:10px;flex-wrap:wrap;font-size:.74rem;color:var(--mut)}
+.cspecs span{white-space:nowrap}
+.cprice{font-family:var(--serif);font-size:1.5rem;color:var(--deepsea);margin-top:auto}
+.cprice small{font-family:var(--sans);font-size:.66rem;letter-spacing:.1em;color:var(--mut)}
+.cact{display:flex;gap:10px;margin-top:6px}
+.cact a{flex:1;text-align:center;font:600 .66rem var(--sans);letter-spacing:.16em;text-transform:uppercase;
+  padding:12px 8px;transition:background .3s,color .3s}
+.cact .see{border:1px solid var(--deepsea);color:var(--deepsea)}
+.cact .see:hover{background:var(--deepsea);color:var(--salt)}
+.cact .ask{background:var(--deepsea);color:var(--salt)}
+.cact .ask:hover{background:var(--terra)}
+.more{display:block;margin:0 auto 80px;border:1px solid var(--deepsea);background:none;color:var(--deepsea);
+  font:600 .72rem var(--sans);letter-spacing:.2em;text-transform:uppercase;padding:15px 34px;cursor:pointer;
+  transition:background .3s,color .3s}
+.more:hover{background:var(--deepsea);color:var(--salt)}
+.empty{grid-column:1/-1;text-align:center;padding:60px 0;color:var(--mut);font-family:var(--serif);font-size:1.3rem}
+
+footer{background:var(--deepsea);color:rgba(245,242,239,.75);padding:36px var(--pad);font-size:.72rem}
+footer .in{max-width:1340px;margin:0 auto;display:flex;gap:10px 30px;flex-wrap:wrap;align-items:center}
+footer a{border-bottom:1px solid rgba(245,242,239,.35)}
+@media(max-width:640px){.tools .in{gap:8px}.count{width:100%;margin:0}}
+</style>
+</head>
+<body>
+
+<header><div class="nav">
+  <a class="brand" href="index.html">ROAM &amp; ROOT<small>ALGARVE</small></a>
+  <a class="back" href="index.html#properties">← The curated collection</a>
+</div></header>
+
+<section class="hero">
+  <span class="kick">The full catalog · Century 21 Portugal</span>
+  <h1>Every Algarve listing.<br><em>One honest guide.</em></h1>
+  <p class="sub">The complete, live Century 21 inventory for the Faro district — refreshed daily,
+  newest first. Browse freely; when something catches your eye, send us the reference and we'll tell
+  you what the listing won't.</p>
+  <p class="meta" id="meta">Loading the latest market…</p>
+</section>
+
+<div class="tools"><div class="in">
+  <input type="search" id="q" placeholder="Search town, street, reference…" aria-label="Search">
+  <select id="fPrice" aria-label="Price">
+    <option value="">Any price</option>
+    <option value="0-300000">Up to €300k</option>
+    <option value="300000-600000">€300k – €600k</option>
+    <option value="600000-1000000">€600k – €1M</option>
+    <option value="1000000-2500000">€1M – €2.5M</option>
+    <option value="2500000-">€2.5M +</option>
+  </select>
+  <select id="fRooms" aria-label="Bedrooms">
+    <option value="">Any bedrooms</option>
+    <option value="1">1+</option><option value="2">2+</option>
+    <option value="3">3+</option><option value="4">4+</option><option value="5">5+</option>
+  </select>
+  <select id="fType" aria-label="Type">
+    <option value="">Any type</option>
+    <option value="apartment">Apartments</option>
+    <option value="house">Houses &amp; villas</option>
+    <option value="land">Land</option>
+    <option value="other">Other</option>
+  </select>
+  <span class="count" id="count"></span>
+</div></div>
+
+<main class="grid" id="grid" aria-live="polite"></main>
+<button class="more" id="more" hidden>Show more</button>
+
+<footer><div class="in">
+  <span>Listings © Century 21 Portugal — shown here by Roam &amp; Root Algarve, an independent
+  Century 21 network agent. Prices and availability change; always confirm with us.</span>
+  <a href="index.html">roamandrootalgarve.com</a>
+</div></footer>
+
+<script>
+const WA='31615471303';
+const fmt=n=>n?('€'+n.toLocaleString('en-US')):'Price on request';
+const town=a=>{
+  if(!a) return 'Algarve';
+  const parts=a.split(',').map(s=>s.trim()).filter(Boolean);
+  for(let i=parts.length-1;i>=0;i--){
+    const p=parts[i].replace(/\d{4}-\d{3}\s*/,'').replace(/Portugal/i,'').trim();
+    if(p) return p;
+  }
+  return 'Algarve';
+};
+const typeOf=t=>t==='apartment'?'apartment':(t==='house'||t==='villa'||t==='farm'||t==='estate')?'house':(t==='land'||t==='plot')?'land':'other';
+
+let ALL=[],VIEW=[],shown=0;const PAGE=24;
+const grid=document.getElementById('grid'),more=document.getElementById('more');
+
+function card(l){
+  const img=l.images&&l.images[0]?l.images[0]+'?width=800':'';
+  const t=(l.title&&(l.title.en||l.title.pt))||'Property in the Algarve';
+  const specs=[l.rooms?`${l.rooms} bed`:null,l.wcs?`${l.wcs} bath`:null,l.area?`${Math.round(l.area)} m²`:null]
+    .filter(Boolean).map(s=>`<span>${s}</span>`).join('');
+  const wa=`https://wa.me/${WA}?text=${encodeURIComponent('Hello! I saw ref '+l.ref+' ('+t+') in your catalog — can you tell me more?')}`;
+  return `<article class="card">
+    <div class="cimg">${img?`<img src="${img}" alt="" loading="lazy">`:''}<span class="loc">${town(l.address)}</span></div>
+    <div class="cbody">
+      <h2 class="ctitle">${t}</h2>
+      <div class="cspecs">${specs}<span>· ref ${l.ref}</span></div>
+      <div class="cprice">${l.hidden?'Price on request':fmt(l.price)}</div>
+      <div class="cact">
+        <a class="see" href="${l.link}" target="_blank" rel="noopener">View at C21</a>
+        <a class="ask" href="${wa}" target="_blank" rel="noopener">Ask us</a>
+      </div>
+    </div>
+  </article>`;
+}
+function paint(reset){
+  if(reset){grid.innerHTML='';shown=0;}
+  const next=VIEW.slice(shown,shown+PAGE);
+  grid.insertAdjacentHTML('beforeend',next.map(card).join(''));
+  shown+=next.length;
+  more.hidden=shown>=VIEW.length;
+  document.getElementById('count').textContent=`${VIEW.length} of ${ALL.length} listings`;
+  if(!VIEW.length) grid.innerHTML='<p class="empty">Nothing matches — loosen a filter and the Algarve reopens.</p>';
+}
+function apply(){
+  const q=document.getElementById('q').value.trim().toLowerCase();
+  const pr=document.getElementById('fPrice').value;
+  const rm=+document.getElementById('fRooms').value||0;
+  const ty=document.getElementById('fType').value;
+  VIEW=ALL.filter(l=>{
+    if(q){const hay=((l.title&&(l.title.en||''))+' '+(l.title&&(l.title.pt||''))+' '+(l.address||'')+' '+(l.ref||'')).toLowerCase();
+      if(!hay.includes(q)) return false;}
+    if(pr){const[lo,hi]=pr.split('-');if(l.hidden||!l.price)return false;
+      if(l.price<+lo)return false; if(hi&&l.price>+hi)return false;}
+    if(rm&&(l.rooms||0)<rm) return false;
+    if(ty&&typeOf(l.type)!==ty) return false;
+    return true;
+  });
+  paint(true);
+}
+['q','fPrice','fRooms','fType'].forEach(id=>{
+  const el=document.getElementById(id);
+  el.addEventListener(id==='q'?'input':'change',apply);
+});
+more.addEventListener('click',()=>paint(false));
+
+fetch('data/c21-algarve.json').then(r=>r.json()).then(d=>{
+  ALL=d.listings||[];
+  const when=new Date(d.generated_at);
+  document.getElementById('meta').innerHTML=
+    `<b>${ALL.length}</b> newest of <b>${d.total_in_region||ALL.length}</b> Algarve listings · updated <b>${when.toLocaleDateString('en-GB',{day:'numeric',month:'short'})}</b> · auto-refreshed daily`;
+  VIEW=ALL; paint(true);
+}).catch(()=>{
+  document.getElementById('meta').textContent='The catalog is taking a moment — message us on WhatsApp and we\'ll send you the latest listings directly.';
+});
+</script>
+</body>
+</html>
