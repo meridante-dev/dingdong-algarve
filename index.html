@@ -15,7 +15,8 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://roamandrootalgarve.com/img/rr-hero.jpg">
 <meta name="theme-color" content="#1F2F30">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 150'%3E%3Crect width='120' height='150' fill='%23F5F2EF'/%3E%3Cg fill='none' stroke='%231F2F30'%3E%3Cpath d='M22 148 V58 C22 30 38 12 60 6 C82 12 98 30 98 58 V148' stroke-width='3'/%3E%3Cpath d='M47 122 V48 H66 A13 13 0 0 1 66 74 H47' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M58 74 C66 86 66 98 80 106 C87 110 93 106 94 99' stroke-width='7' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=League+Spartan:wght@300;400;500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -88,7 +89,7 @@ img{max-width:100%;display:block}
   position:fixed;inset:0;z-index:200;background:var(--deepsea);
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;
 }
-#rrload .mk{width:78px;height:96px}
+#rrload .lg{width:min(420px,72vw);height:auto;will-change:transform,opacity}
 #rrload .wd{font-family:var(--geo);font-weight:300;font-size:1.5rem;letter-spacing:.32em;color:var(--salt);text-transform:uppercase;padding-left:.32em}
 #rrload .tg{font-size:.6rem;letter-spacing:.5em;text-transform:uppercase;color:var(--sand);padding-left:.5em}
 #veil{position:fixed;inset:0;z-index:190;pointer-events:none;display:block;width:100%;height:100%}
@@ -126,7 +127,11 @@ header.solid{background:rgba(245,242,239,.96);backdrop-filter:blur(16px);box-sha
 .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px var(--pad);max-width:1600px;margin:0 auto}
 .brand{display:flex;align-items:center;gap:14px;color:var(--salt);transition:color .5s}
 header.solid .brand{color:var(--deepsea)}
-.brand svg{width:33px;height:42px;flex:0 0 auto}
+.bmark{position:relative;width:52px;height:38px;flex:0 0 auto}
+.bmark img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .4s}
+.bm-d{opacity:0}
+header.solid .bm-d{opacity:1}
+header.solid .bm-l{opacity:0}
 .brand .bt{display:flex;flex-direction:column;line-height:1.1}
 .brand .b1{font-family:var(--geo);font-weight:400;font-size:1.16rem;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap}
 .brand .b2{font-family:var(--geo);font-size:.56rem;font-weight:500;letter-spacing:.5em;text-transform:uppercase;color:var(--terra);margin-top:2px}
@@ -145,7 +150,7 @@ header.solid .langsw{color:var(--mut)}
 }
 .langsw button.on{color:var(--terra)}
 .langsw button:hover{color:var(--terra)}
-.nav .btn{padding:1em 1.7em;font-size:.7rem}
+.nav .btn{padding:1em 1.4em;font-size:.66rem;white-space:nowrap}
 .nav .btn-nav{border-color:rgba(245,242,239,.45);color:var(--salt)}
 .nav .btn-nav:hover{background:var(--salt);color:var(--deepsea);border-color:var(--salt)}
 header.solid .btn-nav{border-color:var(--deepsea);color:var(--deepsea)}
@@ -412,13 +417,7 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
 
 <!-- ============ LOADER ============ -->
 <div id="rrload" aria-hidden="true">
-  <svg class="mk" viewBox="0 0 120 150" fill="none" stroke="#F5F2EF" xmlns="http://www.w3.org/2000/svg">
-    <path class="dr" pathLength="100" d="M22 148 V58 C22 30 38 12 60 6 C82 12 98 30 98 58 V148" stroke-width="3"/>
-    <path class="dr" pathLength="100" d="M47 122 V48 H66 A13 13 0 0 1 66 74 H47" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-    <path class="dr" pathLength="100" d="M58 74 C66 86 66 98 80 106 C87 110 93 106 94 99" stroke-width="7" stroke-linecap="round"/>
-  </svg>
-  <div class="wd">Roam &amp; Root</div>
-  <div class="tg" data-i="loader_tag">Living in Harmony</div>
+  <img class="lg" src="img/rr-logo-light.webp" alt="">
 </div>
 <!-- arch curtain: the page is revealed through a rising Moorish arch -->
 <svg id="veil" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
@@ -429,11 +428,7 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
 <header id="hd">
   <div class="nav">
     <a class="brand" href="#top" aria-label="Roam & Root Algarve">
-      <svg viewBox="0 0 120 150" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path d="M22 148 V58 C22 30 38 12 60 6 C82 12 98 30 98 58 V148" stroke-width="3"/>
-        <path d="M47 122 V48 H66 A13 13 0 0 1 66 74 H47" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M58 74 C66 86 66 98 80 106 C87 110 93 106 94 99" stroke-width="7" stroke-linecap="round"/>
-      </svg>
+      <span class="bmark"><img class="bm-l" src="img/rr-mark-light.webp" alt=""><img class="bm-d" src="img/rr-mark.webp" alt=""></span>
       <span class="bt"><span class="b1">Roam &amp; Root</span><span class="b2">Algarve</span></span>
     </a>
     <nav class="navlinks" aria-label="Primary">
@@ -449,7 +444,7 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
         <button data-lang="en" class="on">EN</button><button data-lang="nl">NL</button><button data-lang="fr">FR</button><button data-lang="pt">PT</button>
       </div>
       <a class="btn btn-nav" href="#contact" id="navsell" data-i="nav_sell">Sell with us</a>
-      <a class="btn btn-nav" href="#contact" data-i="nav_inquire">Schedule a meeting</a>
+      <a class="btn btn-nav" href="#contact" data-i="nav_inquire">Book a meeting</a>
       <button id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -632,18 +627,18 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
     <div>
       <span class="eyebrow" data-rv data-i="a_eyebrow">The founders</span>
       <h2 data-rv data-i="a_title">We made this journey <em style="color:var(--terra)">ourselves</em></h2>
-      <p class="body" data-rv data-i="a_body1">Roam &amp; Root is Alco and Nellie — a Dutch family who left the Netherlands, put down roots in the western Algarve and never looked back. Alco walks every step with you personally: he listens first, then searches relentlessly — on the market, off the market, and through the quiet networks where the Algarve's best homes change hands.</p>
+      <p class="body" data-rv data-i="a_body1">Roam &amp; Root is Alco and Nelleke — a Dutch family who left the Netherlands, put down roots in the western Algarve and never looked back. Alco walks every step with you personally: he listens first, then searches relentlessly — on the market, off the market, and through the quiet networks where the Algarve's best homes change hands.</p>
       <ul class="alist">
         <li data-rv><svg class="mk2" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 12l6 6L19 5"/></svg><span data-i="a_l1">A personal search shaped around your life, not a listings feed</span></li>
         <li data-rv><svg class="mk2" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 12l6 6L19 5"/></svg><span data-i="a_l2">Honest guidance on land, light, licences and true value</span></li>
         <li data-rv><svg class="mk2" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 12l6 6L19 5"/></svg><span data-i="a_l3">At your side through visits, negotiation and completion</span></li>
       </ul>
-      <div data-rv><a class="btn btn-solid" href="#contact"><span data-i="a_cta">Meet Alco &amp; Nellie</span><svg class="arw" viewBox="0 0 14 10" fill="none"><path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
+      <div data-rv><a class="btn btn-solid" href="#contact"><span data-i="a_cta">Meet Alco &amp; Nelleke</span><svg class="arw" viewBox="0 0 14 10" fill="none"><path d="M0 5h12M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
       <p class="cred" data-rv data-i="a_cred">Licensed international agent · in partnership with Century 21</p>
     </div>
     <div class="arch" data-rv data-plx>
-      <!-- PLACEHOLDER — swap for Alco & Nellie's own family photography -->
-      <img src="img/rr-founders.jpg" alt="Alco and Nellie — founders of Roam & Root Algarve" loading="lazy">
+      <!-- PLACEHOLDER — swap for Alco & Nelleke's own family photography -->
+      <img src="img/rr-founders.jpg" alt="Alco and Nelleke — founders of Roam & Root Algarve" loading="lazy">
     </div>
   </div>
 </section>
@@ -658,7 +653,7 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
       <div class="cmeans">
         <div class="cmean" data-rv>
           <span class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg></span>
-          <div><div class="cl" data-i="c_m1">Write to us</div><div class="cv">hello@roamandroot.pt</div></div>
+          <div><div class="cl" data-i="c_m1">Write to us</div><div class="cv">alcotenbrinke@century21.pt</div></div>
         </div>
         <div class="cmean" data-rv>
           <span class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s7-5.1 7-11a7 7 0 1 0-14 0c0 5.9 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
@@ -730,21 +725,13 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="fsig">
-    <svg class="mkwm" viewBox="0 0 120 150" fill="none" stroke="#F5F2EF" aria-hidden="true">
-      <path d="M22 148 V58 C22 30 38 12 60 6 C82 12 98 30 98 58 V148" stroke-width="3"/>
-      <path d="M47 122 V48 H66 A13 13 0 0 1 66 74 H47" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M58 74 C66 86 66 98 80 106 C87 110 93 106 94 99" stroke-width="7" stroke-linecap="round"/>
-    </svg>
+    <img class="mkwm" src="img/rr-logo-light.webp" alt="" aria-hidden="true">
     <div class="line" data-rv data-i="ft_s2">Living in Harmony</div>
   </div>
   <div class="wrap fmain">
     <div class="fbrand">
       <a class="brand" href="#top">
-        <svg viewBox="0 0 120 150" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M22 148 V58 C22 30 38 12 60 6 C82 12 98 30 98 58 V148" stroke-width="3"/>
-          <path d="M47 122 V48 H66 A13 13 0 0 1 66 74 H47" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M58 74 C66 86 66 98 80 106 C87 110 93 106 94 99" stroke-width="7" stroke-linecap="round"/>
-        </svg>
+        <img src="img/rr-mark-light.webp" alt="" style="width:64px;height:auto">
         <span class="bt"><span class="b1">Roam &amp; Root</span><span class="b2">Algarve</span></span>
       </a>
       <p data-i="ft_body">Rooted in the Algarve. Inspired by nature. Cultivating meaningful stays, soulful experiences and a deeper connection to place.</p>
@@ -759,7 +746,7 @@ footer h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing
     <div class="fcol">
       <h4 data-i="ft_contact">Contact</h4>
       <span>Algarve, Portugal</span>
-      <a href="mailto:hello@roamandroot.pt">hello@roamandroot.pt</a>
+      <a href="mailto:alcotenbrinke@century21.pt">alcotenbrinke@century21.pt</a>
       <a id="ftwa" href="https://wa.me/31615471303" target="_blank" rel="noopener">WhatsApp</a>
       <a href="#contact" data-i="nav_inquire">Inquire</a>
     </div>
@@ -830,11 +817,11 @@ nl:{
  e_sub:"Een huis bij ons opent een manier van leven — trage ochtenden, open zee en kamers die ademen.",
  e1_n:"Zee",e1_t:"Ochtenden aan de kust",e2_n:"Aarde",e2_t:"Met de hand gemaakt",e3_n:"Essentie",e3_t:"Kamers die ademen",
  a_eyebrow:"De oprichters",a_title:"Wij maakten deze reis <em style=\"color:var(--terra)\">zelf</em>",
- a_body1:"Roam & Root, dat zijn Alco en Nellie — een Nederlands gezin dat Nederland achterliet, wortel schoot in de westelijke Algarve en nooit meer omkeek. Alco loopt elke stap persoonlijk met u mee: eerst luistert hij, daarna zoekt hij onvermoeibaar — op de markt, buiten de markt en via de stille netwerken waar de mooiste huizen van de Algarve van eigenaar wisselen.",
+ a_body1:"Roam & Root, dat zijn Alco en Nelleke — een Nederlands gezin dat Nederland achterliet, wortel schoot in de westelijke Algarve en nooit meer omkeek. Alco loopt elke stap persoonlijk met u mee: eerst luistert hij, daarna zoekt hij onvermoeibaar — op de markt, buiten de markt en via de stille netwerken waar de mooiste huizen van de Algarve van eigenaar wisselen.",
  a_l1:"Een persoonlijke zoektocht rond uw leven, geen advertentiefeed",
  a_l2:"Eerlijk advies over grond, licht, vergunningen en echte waarde",
  a_l3:"Aan uw zijde bij bezichtigingen, onderhandeling en overdracht",
- a_cta:"Ontmoet Alco & Nellie",
+ a_cta:"Ontmoet Alco & Nelleke",
  f_o5:"Huren / verhuren",f_stage:"Waar staat u op de reis?",
  f_s1:"Klaar om nu te verhuizen",f_s2:"Aan het verkennen — komende maanden",f_s3:"Dromen van een leven in Portugal",
  c_note:"Schrijf ons in elke taal — wij antwoorden persoonlijk in het Engels of Nederlands.",
@@ -881,11 +868,11 @@ fr:{
  e_sub:"Une maison chez nous ouvre un art de vivre — matins lents, mer ouverte et pièces qui respirent.",
  e1_n:"Mer",e1_t:"Matins sur la côte",e2_n:"Terre",e2_t:"Façonné à la main",e3_n:"Essence",e3_t:"Des pièces qui respirent",
  a_eyebrow:"Les fondateurs",a_title:"Nous avons fait ce chemin <em style=\"color:var(--terra)\">nous-mêmes</em>",
- a_body1:"Roam & Root, c'est Alco et Nellie — une famille néerlandaise qui a quitté les Pays-Bas, pris racine dans l'ouest de l'Algarve et n'est jamais revenue en arrière. Alco fait chaque pas avec vous personnellement : il écoute d'abord, puis cherche sans relâche — sur le marché, hors marché et à travers les réseaux discrets où s'échangent les plus belles maisons de l'Algarve.",
+ a_body1:"Roam & Root, c'est Alco et Nelleke — une famille néerlandaise qui a quitté les Pays-Bas, pris racine dans l'ouest de l'Algarve et n'est jamais revenue en arrière. Alco fait chaque pas avec vous personnellement : il écoute d'abord, puis cherche sans relâche — sur le marché, hors marché et à travers les réseaux discrets où s'échangent les plus belles maisons de l'Algarve.",
  a_l1:"Une recherche personnelle façonnée autour de votre vie, pas un flux d'annonces",
  a_l2:"Des conseils honnêtes sur le terrain, la lumière, les licences et la vraie valeur",
  a_l3:"À vos côtés pour les visites, la négociation et la signature",
- a_cta:"Rencontrer Alco & Nellie",
+ a_cta:"Rencontrer Alco & Nelleke",
  f_o5:"Louer / mettre en location",f_stage:"Où en êtes-vous du voyage ?",
  f_s1:"Prêt à partir maintenant",f_s2:"En exploration — les prochains mois",f_s3:"Le rêve d'une vie au Portugal",
  c_note:"Écrivez-nous dans n'importe quelle langue — nous répondons personnellement en anglais ou en néerlandais.",
@@ -932,11 +919,11 @@ pt:{
  e_sub:"Uma casa connosco abre um modo de vida — manhãs lentas, mar aberto e espaços que respiram.",
  e1_n:"Mar",e1_t:"Manhãs na costa",e2_n:"Terra",e2_t:"Feito à mão",e3_n:"Essência",e3_t:"Espaços que respiram",
  a_eyebrow:"Os fundadores",a_title:"Nós fizemos esta viagem <em style=\"color:var(--terra)\">primeiro</em>",
- a_body1:"A Roam & Root são o Alco e a Nellie — uma família holandesa que deixou os Países Baixos, criou raízes no barlavento algarvio e nunca olhou para trás. O Alco caminha pessoalmente consigo em cada passo: primeiro escuta, depois procura sem descanso — no mercado, fora do mercado e nas redes discretas onde as melhores casas do Algarve mudam de mãos.",
+ a_body1:"A Roam & Root são o Alco e a Nelleke — uma família holandesa que deixou os Países Baixos, criou raízes no barlavento algarvio e nunca olhou para trás. O Alco caminha pessoalmente consigo em cada passo: primeiro escuta, depois procura sem descanso — no mercado, fora do mercado e nas redes discretas onde as melhores casas do Algarve mudam de mãos.",
  a_l1:"Uma procura pessoal desenhada à volta da sua vida, não um feed de anúncios",
  a_l2:"Aconselhamento honesto sobre terreno, luz, licenças e valor real",
  a_l3:"Ao seu lado nas visitas, na negociação e na escritura",
- a_cta:"Conhecer o Alco e a Nellie",
+ a_cta:"Conhecer o Alco e a Nelleke",
  f_o5:"Arrendar / colocar para arrendar",f_stage:"Em que ponto da viagem está?",
  f_s1:"Pronto para avançar já",f_s2:"A explorar — nos próximos meses",f_s3:"A sonhar com uma vida em Portugal",
  c_note:"Escreva-nos em qualquer língua — respondemos pessoalmente em inglês ou neerlandês.",
@@ -1147,7 +1134,7 @@ pt:{status:"O Alco responde pessoalmente em 24h",
           [c.sell,()=>{say(c.sell,true);say(c.rsell);opts(actions(3,null,false));}],
           [c.rent,()=>{say(c.rent,true);say(c.rrent);opts(actions(4,null,false));}],
           [c.other,()=>{say(c.other,true);say(c.rother);
-            opts([[c.wa,goWA,true],[c.email,()=>{location.href='mailto:alkojambrienke@century21.pt';}]]);}]]);
+            opts([[c.wa,goWA,true],[c.email,()=>{location.href='mailto:alcotenbrinke@century21.pt';}]]);}]]);
   }
   function close(){ panel.classList.remove('open'); fab.setAttribute('aria-expanded','false'); }
   fab.addEventListener('click',()=>{ const open=panel.classList.toggle('open');
@@ -1183,12 +1170,11 @@ pt:{status:"O Alco responde pessoalmente em 24h",
   }
 
   /* —— entry: the monogram draws itself, then the arch veil lifts —— */
-  gsap.set('#rrload .dr', { strokeDasharray: 100, strokeDashoffset: 100 });
   const tl = gsap.timeline({ defaults:{ ease:'power3.out' } });
-  tl.to('#rrload .dr', { strokeDashoffset: 0, duration: .95, stagger: .2, ease: 'power2.inOut' })
-    .from('#rrload .wd', { opacity: 0, letterSpacing: '.6em', duration: .8 }, '-=.6')
-    .from('#rrload .tg', { opacity: 0, duration: .5 }, '-=.45')
-    .to('#rrload', { opacity: 0, duration: .4, delay: .3 })
+  tl.fromTo('#rrload .lg', { opacity: 0, scale: .78 },
+      { opacity: 1, scale: 1, duration: 1.5, ease: 'power2.out' })
+    .to('#rrload .lg', { scale: 1.045, duration: .9, ease: 'power1.inOut' }, '-=.25')
+    .to('#rrload', { opacity: 0, duration: .45 }, '-=.15')
     .set('#rrload', { display: 'none' })
     // bottom edge bows upward into an arch as the veil rises
     .to('#veilp', { attr:{ d:'M0 0 H100 V55 Q50 -14 0 55 Z' }, duration: .85, ease: 'power2.in' }, '-=.1')
